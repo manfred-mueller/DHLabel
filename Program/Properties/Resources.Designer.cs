@@ -79,20 +79,20 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Always on top ähnelt.
+        /// </summary>
+        internal static string AlwaysOnTop {
+            get {
+                return ResourceManager.GetString("AlwaysOnTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Application started. ähnelt.
         /// </summary>
         internal static string ApplicationStarted {
             get {
                 return ResourceManager.GetString("ApplicationStarted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Associate .pdf extension ähnelt.
-        /// </summary>
-        internal static string Associate {
-            get {
-                return ResourceManager.GetString("Associate", resourceCulture);
             }
         }
         
@@ -129,15 +129,6 @@ namespace DHLabel.Properties {
         internal static string Copyright {
             get {
                 return ResourceManager.GetString("Copyright", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Delete file association ähnelt.
-        /// </summary>
-        internal static string DeleteFileAssociation {
-            get {
-                return ResourceManager.GetString("DeleteFileAssociation", resourceCulture);
             }
         }
         
@@ -179,29 +170,11 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Dissociate .pdf extension ähnelt.
-        /// </summary>
-        internal static string Dissociate {
-            get {
-                return ResourceManager.GetString("Dissociate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Done. ähnelt.
         /// </summary>
         internal static string Done {
             get {
                 return ResourceManager.GetString("Done", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Do you really want to delete the file association? ähnelt.
-        /// </summary>
-        internal static string DoYouReallyWantToDeleteTheFileAssociation {
-            get {
-                return ResourceManager.GetString("DoYouReallyWantToDeleteTheFileAssociation", resourceCulture);
             }
         }
         
@@ -242,47 +215,11 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die File association ähnelt.
-        /// </summary>
-        internal static string FileAssociation {
-            get {
-                return ResourceManager.GetString("FileAssociation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die File association remains untouched. ähnelt.
-        /// </summary>
-        internal static string FileAssociationRemainsUntouched {
-            get {
-                return ResourceManager.GetString("FileAssociationRemainsUntouched", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Hint: You can change .pdf file association if running the app with administrative rights. ähnelt.
-        /// </summary>
-        internal static string HintYouCanChangePdfFileAssociationIfRunningTheAppWithAdministrativeRights {
-            get {
-                return ResourceManager.GetString("HintYouCanChangePdfFileAssociationIfRunningTheAppWithAdministrativeRights", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Info about {0} ähnelt.
         /// </summary>
         internal static string InfoAbout {
             get {
                 return ResourceManager.GetString("InfoAbout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Is the application already stored at a place reachable by unpriviledged users? ähnelt.
-        /// </summary>
-        internal static string IsTheApplicationAlreadyStoredAtAPlaceReachableByUnpriviledgedUsers {
-            get {
-                return ResourceManager.GetString("IsTheApplicationAlreadyStoredAtAPlaceReachableByUnpriviledgedUsers", resourceCulture);
             }
         }
         
@@ -310,6 +247,15 @@ namespace DHLabel.Properties {
         internal static string OpenPDFPackageLabel {
             get {
                 return ResourceManager.GetString("OpenPDFPackageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Open with... ähnelt.
+        /// </summary>
+        internal static string OpenWith {
+            get {
+                return ResourceManager.GetString("OpenWith", resourceCulture);
             }
         }
         
@@ -351,7 +297,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
         ///
         ///DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (https://github.com/vulture20/DHLConvert). ähnelt.
         /// </summary>

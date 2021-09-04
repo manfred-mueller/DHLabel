@@ -166,7 +166,7 @@
     <value>Info über {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Wandelt online erstellte DHL-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Es kann durch einfachen Maus-klick  zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen.
+    <value>Wandelt online erstellte DHL-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Es kann durch einfachen Maus-klick  zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen. Das Programm kann optional als oberstes Fenster definiert werden.
 
 DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (https://github.com/vulture20/DHLConvert).</value>
   </data>
@@ -203,37 +203,19 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   <data name="File" xml:space="preserve">
     <value>&amp;Datei</value>
   </data>
-  <data name="Associate" xml:space="preserve">
-    <value>Dateiendung .pdf &amp;zuweisen</value>
-  </data>
-  <data name="Dissociate" xml:space="preserve">
-    <value>Dateiendung .pdf &amp;trennen</value>
-  </data>
-  <data name="DeleteFileAssociation" xml:space="preserve">
-    <value>Dateizuweisung aufheben</value>
-  </data>
-  <data name="DoYouReallyWantToDeleteTheFileAssociation" xml:space="preserve">
-    <value>Wollen Sie die Dateizuweisung wirklich aufheben?</value>
-  </data>
   <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
     <value>Erweiterung .pdf zugewiesen zu </value>
-  </data>
-  <data name="FileAssociation" xml:space="preserve">
-    <value>Dateizuweisung</value>
-  </data>
-  <data name="FileAssociationRemainsUntouched" xml:space="preserve">
-    <value>Dateizuweisung bleibt unverändert.</value>
-  </data>
-  <data name="HintYouCanChangePdfFileAssociationIfRunningTheAppWithAdministrativeRights" xml:space="preserve">
-    <value>Hinweis: Zum Ändern der .pdf Dateizuweisung starten Sie das Programm als Administrator.</value>
-  </data>
-  <data name="IsTheApplicationAlreadyStoredAtAPlaceReachableByUnpriviledgedUsers" xml:space="preserve">
-    <value>Können nicht privilegierte Benutzer auf den Speicherort der Datei zugreifen?</value>
   </data>
   <data name="ReachablePlace" xml:space="preserve">
     <value>Erreichbarer Speicherort</value>
   </data>
   <data name="RegistryKey0NotFound" xml:space="preserve">
     <value>Registrierungsschlüssel {0} nicht gefunden!</value>
+  </data>
+  <data name="AlwaysOnTop" xml:space="preserve">
+    <value>Immer oben</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Öffnen mit...</value>
   </data>
 </root>

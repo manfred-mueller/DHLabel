@@ -12,6 +12,7 @@ namespace DHLabel
             Text = String.Format(Properties.Resources.InfoAbout, AssemblyTitle);
             labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             textBoxDescription.Text = Properties.Resources.ProductDescription;
+            TopMost = true;
         }
 
         #region Assemblyattributaccessoren

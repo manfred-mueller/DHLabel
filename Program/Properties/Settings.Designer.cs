@@ -22,5 +22,29 @@ namespace DHLabel.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool onTop {
+            get {
+                return ((bool)(this["onTop"]));
+            }
+            set {
+                this["onTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool openWith {
+            get {
+                return ((bool)(this["openWith"]));
+            }
+            set {
+                this["openWith"] = value;
+            }
+        }
     }
 }

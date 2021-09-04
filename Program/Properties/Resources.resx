@@ -173,7 +173,7 @@
     <value>Info about {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. It can be easyly added to the "open with" menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf.
+    <value>Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. It can be easyly added to the "open with" menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
 
 DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (https://github.com/vulture20/DHLConvert).</value>
   </data>
@@ -214,41 +214,23 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   <data name="ConvertingPleaseWait" xml:space="preserve">
     <value>Converting {0}, please wait...</value>
   </data>
-  <data name="Associate" xml:space="preserve">
-    <value>&amp;Associate .pdf extension</value>
-  </data>
-  <data name="Dissociate" xml:space="preserve">
-    <value>&amp;Dissociate .pdf extension</value>
-  </data>
   <data name="ReachablePlace" xml:space="preserve">
     <value>Reachable place</value>
-  </data>
-  <data name="IsTheApplicationAlreadyStoredAtAPlaceReachableByUnpriviledgedUsers" xml:space="preserve">
-    <value>Is the application already stored at a place reachable by unpriviledged users?</value>
   </data>
   <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
     <value>Extension .pdf associated with </value>
   </data>
-  <data name="FileAssociationRemainsUntouched" xml:space="preserve">
-    <value>File association remains untouched.</value>
-  </data>
-  <data name="FileAssociation" xml:space="preserve">
-    <value>File association</value>
-  </data>
-  <data name="DoYouReallyWantToDeleteTheFileAssociation" xml:space="preserve">
-    <value>Do you really want to delete the file association?</value>
-  </data>
-  <data name="DeleteFileAssociation" xml:space="preserve">
-    <value>Delete file association</value>
-  </data>
   <data name="RegistryKey0NotFound" xml:space="preserve">
     <value>Registry key {0} not found!</value>
-  </data>
-  <data name="HintYouCanChangePdfFileAssociationIfRunningTheAppWithAdministrativeRights" xml:space="preserve">
-    <value>Hint: You can change .pdf file association if running the app with administrative rights.</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>https://www.nass-ek.de/service.htm</value>
     <comment>@Invariant</comment>
+  </data>
+  <data name="AlwaysOnTop" xml:space="preserve">
+    <value>Always on top</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Open with...</value>
   </data>
 </root>

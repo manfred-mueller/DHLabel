@@ -94,7 +94,7 @@ namespace DHLabel
             this.labelProductName.Name = "labelProductName";
             this.labelProductName.Size = new System.Drawing.Size(271, 17);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = Application.ProductName;
+            this.labelProductName.Text = "Microsoft® Visual Studio®";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
@@ -111,8 +111,6 @@ namespace DHLabel
             // 
             // labelCopyright
             // 
-            string copyrightHTML = Properties.Resources.Copyright;
-            string copyrightEncoded = HttpUtility.HtmlDecode(copyrightHTML);
             this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelCopyright.Location = new System.Drawing.Point(143, 52);
             this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
@@ -120,7 +118,7 @@ namespace DHLabel
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(271, 17);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = copyrightEncoded;
+            this.labelCopyright.Text = "Copyright © 2021 Manfred Müller,";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCompanyName
@@ -132,7 +130,7 @@ namespace DHLabel
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(271, 17);
             this.labelCompanyName.TabIndex = 22;
-            this.labelCompanyName.Text = Properties.Resources.CompanyName;
+            this.labelCompanyName.Text = "NASS e.K.";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCompanyName.Visible = false;
             // 
@@ -148,7 +146,7 @@ namespace DHLabel
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = Properties.Resources.Description;
+            this.textBoxDescription.Text = "Description";
             // 
             // okButton
             // 
@@ -165,11 +163,11 @@ namespace DHLabel
             this.websiteLabel.AutoSize = true;
             this.websiteLabel.Location = new System.Drawing.Point(315, 63);
             this.websiteLabel.Name = "websiteLabel";
-            this.websiteLabel.Size = new System.Drawing.Size(107, 13);
+            this.websiteLabel.Size = new System.Drawing.Size(58, 13);
             this.websiteLabel.TabIndex = 1;
             this.websiteLabel.TabStop = true;
             this.websiteLabel.Tag = "https://www.nass-ek.de/service.htm";
-            this.websiteLabel.Text = Properties.Resources.CompanyName;
+            this.websiteLabel.Text = "NASS e.K.";
             this.websiteLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.websiteLabel_LinkClicked);
             // 
             // AboutBox1
@@ -188,7 +186,7 @@ namespace DHLabel
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = Properties.Resources.About;
+            this.Text = "About";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

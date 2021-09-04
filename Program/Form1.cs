@@ -11,7 +11,6 @@ namespace DHLabel
     public partial class Form1 : Form
     {
         RegistryKey progKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\" + Application.ProductName, true);
-        static bool isAssociated;
         protected StatusBar mainStatusBar = new StatusBar();
         protected StatusBarPanel statusPanel = new StatusBarPanel();
         public Form1(string[] args)
@@ -32,6 +31,7 @@ namespace DHLabel
             {
                 picboxLabel.Image = dropBitmap();
             }
+            cbOntop.Checked = Properties.Settings.Default.onTop;
         }
 
         private Bitmap dropBitmap()
@@ -258,12 +258,42 @@ namespace DHLabel
             }
         }
 
+        private void checkKey()
+        {
+            if (progKey != null)
+            {
+                cbOpenWith.Checked = true;
+            }
+            else
+            {
+                cbOpenWith.Checked = false;
+            }
+        }
 
-        private void toggleRegistry(object sender, EventArgs e)
+
+        private void CreateStatusBar()
+        {
+            statusPanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
+            statusPanel.Text = Properties.Resources.ApplicationStarted;
+            statusPanel.ToolTipText = Properties.Resources.ShowStatusMessages;
+            statusPanel.AutoSize = StatusBarPanelAutoSize.Spring;
+            mainStatusBar.Panels.Add(statusPanel);
+            mainStatusBar.ShowPanels = true;
+            this.Controls.Add(mainStatusBar);
+        }
+
+        private void cbOntop_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = cbOntop.Checked;
+            Properties.Settings.Default.onTop = cbOntop.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void cbOpenWith_CheckedChanged(object sender, EventArgs e)
         {
             RegistryKey myProgKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\" + Application.ProductName + "\\shell\\open\\command", true);
             RegistryKey myExtKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\.pdf", true);
-            if (isAssociated)
+            if (!cbOpenWith.Checked == true)
             {
                 if (myProgKey != null)
                 {
@@ -274,8 +304,6 @@ namespace DHLabel
                     myExtKey.SetValue("", "");
                     myExtKey.Close();
                 }
-                btnAssociate.Text = Properties.Resources.Associate;
-                isAssociated = false;
             }
             else
             {
@@ -291,34 +319,9 @@ namespace DHLabel
                 }
                 myExtKey.SetValue("", Application.ProductName);
                 myExtKey.Close();
-                btnAssociate.Text = Properties.Resources.Dissociate;
-                isAssociated = true;
             }
-        }
-        private void checkKey()
-        {
-                btnAssociate.Visible = true;
-                if (progKey != null)
-                {
-                btnAssociate.Text = Properties.Resources.Dissociate;
-                isAssociated = true;
-            }
-            else
-                {
-                btnAssociate.Text = Properties.Resources.Associate;
-                isAssociated = false;
-            }
-        }
-
-        private void CreateStatusBar()
-        {
-            statusPanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
-            statusPanel.Text = Properties.Resources.ApplicationStarted;
-            statusPanel.ToolTipText = Properties.Resources.ShowStatusMessages;
-            statusPanel.AutoSize = StatusBarPanelAutoSize.Spring;
-            mainStatusBar.Panels.Add(statusPanel);
-            mainStatusBar.ShowPanels = true;
-            this.Controls.Add(mainStatusBar);
+            Properties.Settings.Default.openWith = cbOpenWith.Checked;
+            Properties.Settings.Default.Save();
         }
     }
 }

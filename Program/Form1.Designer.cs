@@ -47,7 +47,8 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.btnOpen = new System.Windows.Forms.Button();
-            this.btnAssociate = new System.Windows.Forms.Button();
+            this.cbOpenWith = new System.Windows.Forms.CheckBox();
+            this.cbOntop = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -195,14 +196,23 @@
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.openPDF_Click);
             // 
-            // btnAssociate
+            // cbOpenWith
             // 
-            this.btnAssociate.Location = new System.Drawing.Point(326, 36);
-            this.btnAssociate.Name = "btnAssociate";
-            this.btnAssociate.Size = new System.Drawing.Size(174, 23);
-            this.btnAssociate.TabIndex = 5;
-            this.btnAssociate.UseVisualStyleBackColor = true;
-            this.btnAssociate.Click += new System.EventHandler(this.toggleRegistry);
+            this.cbOpenWith.Location = new System.Drawing.Point(326, 36);
+            this.cbOpenWith.Name = "cbOpenWith";
+            this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
+            this.cbOpenWith.TabIndex = 6;
+            this.cbOpenWith.Text = DHLabel.Properties.Resources.OpenWith;
+            this.cbOpenWith.CheckedChanged += new System.EventHandler(this.cbOpenWith_CheckedChanged);
+            // 
+            // cbOntop
+            // 
+            this.cbOntop.Location = new System.Drawing.Point(426, 36);
+            this.cbOntop.Name = "cbOntop";
+            this.cbOntop.Size = new System.Drawing.Size(100, 23);
+            this.cbOntop.TabIndex = 6;
+            this.cbOntop.Text = DHLabel.Properties.Resources.AlwaysOnTop;
+            this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
             // 
             // Form1
             // 
@@ -211,7 +221,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 571);
             this.Controls.Add(this.btnOpen);
-            this.Controls.Add(this.btnAssociate);
+            this.Controls.Add(this.cbOpenWith);
+            this.Controls.Add(this.cbOntop);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnSavePDF);
             this.Controls.Add(this.menuStrip1);
@@ -223,7 +234,7 @@
             this.MinimumSize = new System.Drawing.Size(803, 610);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DHLabel";
+            this.Text = DHLabel.Properties.Resources.ProductName;
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).EndInit();
@@ -254,7 +265,8 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.Button btnAssociate;
+        private System.Windows.Forms.CheckBox cbOntop;
+        private System.Windows.Forms.CheckBox cbOpenWith;
     }
 }
 
