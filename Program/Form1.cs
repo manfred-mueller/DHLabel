@@ -191,7 +191,7 @@ namespace DHLabel
             {
                 PdfDocument doc = new PdfDocument();
                 PdfSection section = doc.Sections.Add();
-                PdfPageBase page = doc.Pages.Add(new SizeF(229f, 167.3f), new Spire.Pdf.Graphics.PdfMargins(0));
+                PdfPageBase page = doc.Pages.Add(PdfPageSize.A6, new Spire.Pdf.Graphics.PdfMargins(0), PdfPageRotateAngle.RotateAngle90, PdfPageOrientation.Landscape);
                 Spire.Pdf.Graphics.PdfImage image = Spire.Pdf.Graphics.PdfImage.FromImage(picboxLabel.Image);
                 float widthFitRate = image.PhysicalDimension.Width / page.Canvas.ClientSize.Width;
                 float heightFitRate = image.PhysicalDimension.Height / page.Canvas.ClientSize.Height;
@@ -203,7 +203,7 @@ namespace DHLabel
                 doc.DocumentInformation.Title = Properties.Resources.DHLabelPackageLabel;
                 doc.DocumentInformation.Producer = Application.ProductName;
                 doc.DocumentInformation.Keywords = Properties.Resources.DHLabelDHLPackageLabel;
-                page.Canvas.DrawImage(image, 0.3f, 0.5f, fitWidth, fitHeight);
+                page.Canvas.DrawImage(image, 10, 10, fitWidth, fitHeight);
                 doc.SaveToFile(filename);
                 doc.Close();
                 return true;
@@ -229,7 +229,7 @@ namespace DHLabel
             {
                 Rectangle m = args.MarginBounds;
 
-                if ((double)label.Width / (double)label.Height > (double)m.Width / (double)m.Height) 
+                if ((double)label.Width / (double)label.Height > (double)m.Width / (double)m.Height)
                 {
                     m.Height = (int)((double)label.Height / (double)label.Width * (double)m.Width);
                 }
@@ -242,8 +242,13 @@ namespace DHLabel
             };
             Margins margins = new Margins(0, 0, 0, 0);
             printDocument1.DefaultPageSettings.Margins = margins;
-            ForcePageSize(printDocument1, PaperKind.A6); 
+            ForcePageSize(printDocument1, PaperKind.A6);
             printDocument1.Print();
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(picboxLabel.Image, 0, 0);
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
