@@ -23,7 +23,7 @@ namespace DHLabel
                 string path = args[0];
                 if (System.IO.File.Exists(path))
                 {
-                    picboxLabel.Image = convertPDF(path);
+                    picboxLabel.Image = convertPDF(path, 0);
                     statusPanel.Text = args[0];
                     enableControls();
                 }
@@ -32,6 +32,7 @@ namespace DHLabel
                 picboxLabel.Image = dropBitmap();
             }
             cbOntop.Checked = Properties.Settings.Default.onTop;
+            cbBusiness.Checked = Properties.Settings.Default.Business;
         }
 
         private Bitmap dropBitmap()
@@ -60,46 +61,107 @@ namespace DHLabel
             return tempBitmap;
         }
 
-        private Bitmap convertPDF(string filename)
+        private Bitmap convertPDF(string filename, int type)
         {
             statusPanel.Text = string.Format(Properties.Resources.ConvertingPleaseWait, filename);
             PdfDocument doc = new PdfDocument();
             Image source;
-            Rectangle rectMain = new Rectangle(1860, 95, 1075, 705);
-            Rectangle rectMiddle = new Rectangle(1850, 885, 860, 155);
-            Rectangle rectBar = new Rectangle(1860, 1345, 1075, 810);
-            Rectangle rectLine = new Rectangle(1860, 1018, 1075, 17);
-            Rectangle rectGoGreen = new Rectangle(2120, 810, 390, 75);
-            Rectangle rectPayed = new Rectangle(2705, 890, 215, 80);
-            Bitmap bitmapLabel = new Bitmap(1640, 1164);
+            Rectangle rectMain;
+            Rectangle rectMiddle;
+            Rectangle rectBar;
+            Rectangle rectLine;
+            Rectangle rectGoGreen;
+            Rectangle rectPayed;
+            Bitmap bitmapLabel;
+            if (type == 0)
+            {
+                rectMain = new Rectangle(1860, 95, 1075, 705);
+                rectMiddle = new Rectangle(1850, 885, 860, 155);
+                rectBar = new Rectangle(1860, 1345, 1075, 810);
+                rectLine = new Rectangle(1860, 1018, 1075, 17);
+                rectGoGreen = new Rectangle(2120, 810, 390, 75);
+                rectPayed = new Rectangle(2705, 890, 215, 80);
+                bitmapLabel = new Bitmap(1640, 1164);
+            }
+            else
+            {
+                rectMain = new Rectangle(-20, 0, 1120, 705);
+                rectMiddle = new Rectangle(0, 700, 1090, 120);
+                rectBar = new Rectangle(20, 1230, 1075, 798);
+                rectLine = new Rectangle(1860, 1018, 1075, 17);
+                rectGoGreen = new Rectangle(2120, 810, 390, 75);
+                rectPayed = new Rectangle(2705, 890, 215, 80);
+                bitmapLabel = new Bitmap(1640, 1164);
+            }
 
             try
             {
-                doc.LoadFromFile(filename);
-                source = doc.SaveAsImage(0, 273, 273);
-                source.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                Bitmap bitmapMain = getClip(source, rectMain);
-                Bitmap bitmapMiddle = getClip(source, rectMiddle);
-                Bitmap bitmapBar = getClip(source, rectBar);
-                Bitmap bitmapLine = getClip(source, rectLine);
-                Bitmap bitmapGoGreen = getClip(source, rectGoGreen);
-                Bitmap bitmapPayed = getClip(source, rectPayed);
-                bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                Bitmap bitmapMain;
+                Bitmap bitmapMiddle;
+                Bitmap bitmapBar;
+                Bitmap bitmapLine;
+                Bitmap bitmapGoGreen;
+                Bitmap bitmapPayed;
+                if (type == 0)
+                {
+                    doc.LoadFromFile(filename);
+                    source = doc.SaveAsImage(0, 273, 273);
+                    source.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                    bitmapMain = getClip(source, rectMain);
+                    bitmapMiddle = getClip(source, rectMiddle);
+                    bitmapBar = getClip(source, rectBar);
+                    bitmapLine = getClip(source, rectLine);
+                    bitmapGoGreen = getClip(source, rectGoGreen);
+                    bitmapPayed = getClip(source, rectPayed);
+                    bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                }
+                else
+                {
+                    doc.LoadFromFile(filename);
+                    source = doc.SaveAsImage(0, 273, 273);
+                    bitmapMain = getClip(source, rectMain);
+                    bitmapMiddle = getClip(source, rectMiddle);
+                    bitmapBar = getClip(source, rectBar);
+                    //bitmapLine = getClip(source, rectLine);
+                    //bitmapGoGreen = getClip(source, rectGoGreen);
+                    //bitmapPayed = getClip(source, rectPayed);
+                    bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    //bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    //bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    //bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    
+                }
+
 
                 using (Graphics g = Graphics.FromImage(bitmapLabel))
                 {
                     g.Clear(Color.White);
                     g.DrawImage(bitmapMain, 0, 1);
-                    g.DrawImage(bitmapBar, 745, -8);
-                    g.DrawImage(bitmapMiddle, 607, 219);
-                    g.DrawImage(bitmapPayed, 525, 4);
-                    g.DrawImage(bitmapLine, 595, -8);
-                    g.DrawImage(bitmapGoGreen, 645, 0);
+                    if (type == 0)
+                    {
+                        g.DrawImage(bitmapBar, 745, -8);
+                        g.DrawImage(bitmapMiddle, 607, 219);
+                        //g.DrawImage(bitmapPayed, 525, 4);
+                        //g.DrawImage(bitmapLine, 595, -8);
+                        //g.DrawImage(bitmapGoGreen, 645, 0);
+                    }
+                    else
+                    {
+                        g.DrawImage(bitmapBar, 690, 5);
+                        g.DrawImage(bitmapMiddle, 620, 5);
+                        //g.DrawImage(bitmapPayed, 525, 4);
+                        //g.DrawImage(bitmapLine, 595, -8);
+                        //g.DrawImage(bitmapGoGreen, 645, 0);
+                    }
+
+
                 }
 
                 return bitmapLabel;
@@ -187,7 +249,15 @@ namespace DHLabel
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            Bitmap bitmapPDF = convertPDF(files[0]);
+            int type;
+            if (cbBusiness.Checked){
+                type = 1;
+            }
+            else
+            {
+                type = 0;
+            }
+            Bitmap bitmapPDF = convertPDF(files[0], type);
             if (bitmapPDF == null)
             {
                 MessageBox.Show(Properties.Resources.NoValidPackageLabel);
@@ -245,7 +315,7 @@ namespace DHLabel
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                Bitmap bitmapPDF = convertPDF(openFileDialog1.FileName);
+                Bitmap bitmapPDF = convertPDF(openFileDialog1.FileName, 1);
                 if (bitmapPDF == null)
                 {
                     MessageBox.Show(Properties.Resources.NoValidPackageLabel);
@@ -321,6 +391,12 @@ namespace DHLabel
                 myExtKey.Close();
             }
             Properties.Settings.Default.openWith = cbOpenWith.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void cbBusiness_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Business = cbBusiness.Checked;
             Properties.Settings.Default.Save();
         }
     }

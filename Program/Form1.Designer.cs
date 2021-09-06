@@ -49,6 +49,7 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.cbOpenWith = new System.Windows.Forms.CheckBox();
             this.cbOntop = new System.Windows.Forms.CheckBox();
+            this.cbBusiness = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -202,7 +203,7 @@
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
             this.cbOpenWith.TabIndex = 6;
-            this.cbOpenWith.Text = DHLabel.Properties.Resources.OpenWith;
+            this.cbOpenWith.Text = global::DHLabel.Properties.Resources.OpenWith;
             this.cbOpenWith.CheckedChanged += new System.EventHandler(this.cbOpenWith_CheckedChanged);
             // 
             // cbOntop
@@ -211,8 +212,17 @@
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(100, 23);
             this.cbOntop.TabIndex = 6;
-            this.cbOntop.Text = DHLabel.Properties.Resources.AlwaysOnTop;
+            this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
+            // 
+            // cbBusiness
+            // 
+            this.cbBusiness.Location = new System.Drawing.Point(532, 36);
+            this.cbBusiness.Name = "cbBusiness";
+            this.cbBusiness.Size = new System.Drawing.Size(100, 23);
+            this.cbBusiness.TabIndex = 7;
+            this.cbBusiness.Text = "Business";
+            this.cbBusiness.CheckedChanged += new System.EventHandler(this.cbBusiness_CheckedChanged);
             // 
             // Form1
             // 
@@ -220,6 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 571);
+            this.Controls.Add(this.cbBusiness);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
@@ -234,7 +245,7 @@
             this.MinimumSize = new System.Drawing.Size(803, 610);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = DHLabel.Properties.Resources.ProductName;
+            this.Text = "DHLabel";
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).EndInit();
@@ -267,6 +278,7 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckBox cbOntop;
         private System.Windows.Forms.CheckBox cbOpenWith;
+        private System.Windows.Forms.CheckBox cbBusiness;
     }
 }
 
