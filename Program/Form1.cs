@@ -127,15 +127,15 @@ namespace DHLabel
                     bitmapMain = getClip(source, rectMain);
                     bitmapMiddle = getClip(source, rectMiddle);
                     bitmapBar = getClip(source, rectBar);
-                    //bitmapLine = getClip(source, rectLine);
-                    //bitmapGoGreen = getClip(source, rectGoGreen);
-                    //bitmapPayed = getClip(source, rectPayed);
+                    bitmapLine = getClip(source, rectLine);
+                    bitmapGoGreen = getClip(source, rectGoGreen);
+                    bitmapPayed = getClip(source, rectPayed);
                     bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
                     bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
                     bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                    //bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                    //bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                    //bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                    bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
                     
                 }
 
@@ -148,9 +148,9 @@ namespace DHLabel
                     {
                         g.DrawImage(bitmapBar, 745, -8);
                         g.DrawImage(bitmapMiddle, 607, 219);
-                        //g.DrawImage(bitmapPayed, 525, 4);
-                        //g.DrawImage(bitmapLine, 595, -8);
-                        //g.DrawImage(bitmapGoGreen, 645, 0);
+                        g.DrawImage(bitmapPayed, 525, 4);
+                        g.DrawImage(bitmapLine, 595, -8);
+                        g.DrawImage(bitmapGoGreen, 645, 0);
                     }
                     else
                     {
