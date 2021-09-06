@@ -57,7 +57,7 @@
             // btnPrint
             // 
             this.btnPrint.Enabled = false;
-            this.btnPrint.Location = new System.Drawing.Point(12, 27);
+            this.btnPrint.Location = new System.Drawing.Point(12, 40);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(96, 23);
             this.btnPrint.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.picboxLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.picboxLabel.InitialImage = null;
-            this.picboxLabel.Location = new System.Drawing.Point(0, 64);
+            this.picboxLabel.Location = new System.Drawing.Point(0, 70);
             this.picboxLabel.Name = "picboxLabel";
             this.picboxLabel.Size = new System.Drawing.Size(619, 437);
             this.picboxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,7 +79,7 @@
             // btnSavePDF
             // 
             this.btnSavePDF.Enabled = false;
-            this.btnSavePDF.Location = new System.Drawing.Point(123, 27);
+            this.btnSavePDF.Location = new System.Drawing.Point(123, 40);
             this.btnSavePDF.Name = "btnSavePDF";
             this.btnSavePDF.Size = new System.Drawing.Size(96, 23);
             this.btnSavePDF.TabIndex = 2;
@@ -189,7 +189,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(234, 27);
+            this.btnOpen.Location = new System.Drawing.Point(234, 40);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 4;
@@ -199,7 +199,7 @@
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(324, 27);
+            this.cbOpenWith.Location = new System.Drawing.Point(324, 40);
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
             this.cbOpenWith.TabIndex = 6;
@@ -208,7 +208,7 @@
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(430, 27);
+            this.cbOntop.Location = new System.Drawing.Point(430, 40);
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(100, 23);
             this.cbOntop.TabIndex = 6;
@@ -217,7 +217,7 @@
             // 
             // cbBusiness
             // 
-            this.cbBusiness.Location = new System.Drawing.Point(532, 36);
+            this.cbBusiness.Location = new System.Drawing.Point(532, 40);
             this.cbBusiness.Name = "cbBusiness";
             this.cbBusiness.Size = new System.Drawing.Size(100, 23);
             this.cbBusiness.TabIndex = 7;
@@ -230,7 +230,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cbBusiness);
-            this.ClientSize = new System.Drawing.Size(619, 501);
+            this.ClientSize = new System.Drawing.Size(635, 540);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
