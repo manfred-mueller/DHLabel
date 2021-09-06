@@ -49,6 +49,7 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.cbOpenWith = new System.Windows.Forms.CheckBox();
             this.cbOntop = new System.Windows.Forms.CheckBox();
+            this.cbBusiness = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,11 +215,21 @@
             this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
             // 
+            // cbBusiness
+            // 
+            this.cbBusiness.Location = new System.Drawing.Point(532, 36);
+            this.cbBusiness.Name = "cbBusiness";
+            this.cbBusiness.Size = new System.Drawing.Size(100, 23);
+            this.cbBusiness.TabIndex = 7;
+            this.cbBusiness.Text = "Business";
+            this.cbBusiness.CheckedChanged += new System.EventHandler(this.cbBusiness_CheckedChanged);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbBusiness);
             this.ClientSize = new System.Drawing.Size(619, 501);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
@@ -267,6 +278,7 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckBox cbOntop;
         private System.Windows.Forms.CheckBox cbOpenWith;
+        private System.Windows.Forms.CheckBox cbBusiness;
     }
 }
 
