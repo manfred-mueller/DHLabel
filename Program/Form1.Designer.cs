@@ -1,7 +1,15 @@
-﻿namespace DHLabel
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+
+namespace DHLabel
 {
     partial class Form1
     {
+
+        private Dictionary<string, SizeF> paperSizes = new Dictionary<string, SizeF>();
+
         /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
@@ -22,10 +30,11 @@
 
         #region Vom Windows Form-Designer generierter Code
 
+        
         /// <summary>
-        /// Erforderliche Methode für die Designerunterstützung.
-        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
-        /// </summary>
+                 /// Erforderliche Methode für die Designerunterstützung.
+                 /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+                 /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -56,7 +65,7 @@
             // btnPrint
             // 
             this.btnPrint.Enabled = false;
-            this.btnPrint.Location = new System.Drawing.Point(12, 27);
+            this.btnPrint.Location = new System.Drawing.Point(12, 36);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(96, 23);
             this.btnPrint.TabIndex = 0;
@@ -68,9 +77,9 @@
             // 
             this.picboxLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.picboxLabel.InitialImage = null;
-            this.picboxLabel.Location = new System.Drawing.Point(0, 64);
+            this.picboxLabel.Location = new System.Drawing.Point(0, 96);
             this.picboxLabel.Name = "picboxLabel";
-            this.picboxLabel.Size = new System.Drawing.Size(619, 437);
+            this.picboxLabel.Size = new System.Drawing.Size(559, 397);
             this.picboxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picboxLabel.TabIndex = 1;
             this.picboxLabel.TabStop = false;
@@ -78,7 +87,7 @@
             // btnSavePDF
             // 
             this.btnSavePDF.Enabled = false;
-            this.btnSavePDF.Location = new System.Drawing.Point(123, 27);
+            this.btnSavePDF.Location = new System.Drawing.Point(125, 36);
             this.btnSavePDF.Name = "btnSavePDF";
             this.btnSavePDF.Size = new System.Drawing.Size(96, 23);
             this.btnSavePDF.TabIndex = 2;
@@ -93,7 +102,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(619, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(787, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -188,7 +197,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(234, 27);
+            this.btnOpen.Location = new System.Drawing.Point(236, 36);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
             this.btnOpen.TabIndex = 4;
@@ -198,7 +207,7 @@
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(324, 27);
+            this.cbOpenWith.Location = new System.Drawing.Point(326, 36);
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
             this.cbOpenWith.TabIndex = 6;
@@ -207,7 +216,7 @@
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(430, 27);
+            this.cbOntop.Location = new System.Drawing.Point(426, 36);
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(100, 23);
             this.cbOntop.TabIndex = 6;
@@ -219,7 +228,6 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(619, 501);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
@@ -231,7 +239,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(635, 540);
+            this.MinimumSize = new System.Drawing.Size(559, 530);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DHLabel";

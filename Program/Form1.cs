@@ -101,10 +101,11 @@ namespace DHLabel
                     g.DrawImage(bitmapLine, 595, -8);
                     g.DrawImage(bitmapGoGreen, 645, 0);
                 }
-
+                statusPanel.Text = Properties.Resources.Done;
                 return bitmapLabel;
             }
             catch (Spire.Pdf.Exceptions.PdfDocumentException) {
+                statusPanel.Text = Properties.Resources.Error;
                 return null;
             }
         }

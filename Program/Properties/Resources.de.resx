@@ -166,7 +166,9 @@
     <value>Info über {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Wandelt online erstellte DHL-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Es kann durch einfachen Maus-klick  zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen. Das Programm kann optional als oberstes Fenster definiert werden.
+    <value>Wandelt online erstellte DHL-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um.
+
+Es kann per Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach dem Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei speichern zu müssen. Das Programm kann bei Bedarf als oberstes Fenster definiert werden.
 
 DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (https://github.com/vulture20/DHLConvert).</value>
   </data>

@@ -297,7 +297,9 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer.
+        ///
+        ///It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
         ///
         ///DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (https://github.com/vulture20/DHLConvert). ähnelt.
         /// </summary>
