@@ -14,7 +14,7 @@ Converts online created DHL package labels into A6 format to be printed onto sin
 
 It can be added to the "open with" menu for PDF files with a single mouse click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf.
 
-Thanks to [TiER](https://github.com/TimoErdmann) for the business part und [vulture20](https://github.com/vulture20) für sein [DHLConvert](https://github.com/vulture20/DHLConvert).
+Thanks to [TiER](https://github.com/TimoErdmann) for the business part und [vulture20](https://github.com/vulture20) for his [DHLConvert](https://github.com/vulture20/DHLConvert).
 
 
 NASS e.K. and DHLabel are not related to DHL®. All trademarks and product names used in this software are the properties of their respective owners and are used solely for descriptive purposes.
