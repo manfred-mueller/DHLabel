@@ -166,7 +166,7 @@
     <value>Info über {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Wandelt online erstellte DHL-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um.
+    <value>Wandelt online erstellte DHL Privat oder Business Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Wie von DHL gefordert, können Pakete &gt;= 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
 
 Es kann per Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach dem Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei speichern zu müssen. Das Programm kann bei Bedarf als oberstes Fenster definiert werden.
 
@@ -219,5 +219,8 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   </data>
   <data name="OpenWith" xml:space="preserve">
     <value>Öffnen mit...</value>
+  </data>
+  <data name="HeavyPackage" xml:space="preserve">
+    <value>Paket &gt;= 20kg</value>
   </data>
 </root>

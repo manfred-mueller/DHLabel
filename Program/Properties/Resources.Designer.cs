@@ -97,6 +97,15 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Business-Label ähnelt.
+        /// </summary>
+        internal static string BusinessLabel {
+            get {
+                return ResourceManager.GetString("BusinessLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die NASS e.K. ähnelt.
         /// </summary>
         internal static string CompanyName {
@@ -211,6 +220,25 @@ namespace DHLabel.Properties {
         internal static string File {
             get {
                 return ResourceManager.GetString("File", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Heavy {
+            get {
+                object obj = ResourceManager.GetObject("Heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Heavy package (&gt;=20kg) ähnelt.
+        /// </summary>
+        internal static string HeavyPackage {
+            get {
+                return ResourceManager.GetString("HeavyPackage", resourceCulture);
             }
         }
         

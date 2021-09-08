@@ -13,6 +13,8 @@ namespace DHLabel
         RegistryKey progKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\" + Application.ProductName, true);
         protected StatusBar mainStatusBar = new StatusBar();
         protected StatusBarPanel statusPanel = new StatusBarPanel();
+        public bool isBusiness;
+        public bool isHeavy;
         public Form1(string[] args)
         {
             InitializeComponent();
@@ -27,11 +29,17 @@ namespace DHLabel
                     statusPanel.Text = args[0];
                     enableControls();
                 }
-            } else
+            }
+            else
             {
                 picboxLabel.Image = dropBitmap();
             }
             cbOntop.Checked = Properties.Settings.Default.onTop;
+            cbOpenWith.Checked = Properties.Settings.Default.openWith;
+            cbBusiness.Checked = Properties.Settings.Default.businessLabel;
+            cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
+            isBusiness = cbBusiness.Checked;
+            isHeavy = cbHeavy.Checked;
         }
 
         private Bitmap dropBitmap()
@@ -63,53 +71,92 @@ namespace DHLabel
         private Bitmap convertPDF(string filename)
         {
             statusPanel.Text = string.Format(Properties.Resources.ConvertingPleaseWait, filename);
+
             PdfDocument doc = new PdfDocument();
             Image source;
-            Rectangle rectMain = new Rectangle(1860, 95, 1075, 705);
-            Rectangle rectMiddle = new Rectangle(1850, 885, 860, 155);
-            Rectangle rectBar = new Rectangle(1860, 1345, 1075, 810);
-            Rectangle rectLine = new Rectangle(1860, 1018, 1075, 17);
-            Rectangle rectGoGreen = new Rectangle(2120, 810, 390, 75);
-            Rectangle rectPayed = new Rectangle(2705, 890, 215, 80);
-            Bitmap bitmapLabel = new Bitmap(1640, 1164);
+            Rectangle rectMain;
+            Rectangle rectMiddle;
+            Rectangle rectBar;
+            Rectangle rectLine;
+            Rectangle rectGoGreen;
+            Rectangle rectPayed;
+            Bitmap bitmapLabel;
+            if (isBusiness)
+            {
+                rectMain = new Rectangle(-20, 0, 1120, 705);
+                rectMiddle = new Rectangle(0, 700, 1090, 140);
+                rectBar = new Rectangle(20, 1230, 1075, 798);
+            }
+            else
+            {
+                rectMain = new Rectangle(1860, 95, 1075, 705);
+                rectMiddle = new Rectangle(1850, 885, 860, 155);
+                rectBar = new Rectangle(1860, 1345, 1075, 810);
+            }
+
+            rectLine = new Rectangle(1860, 1018, 1075, 17);
+            rectGoGreen = new Rectangle(2120, 810, 390, 75);
+            rectPayed = new Rectangle(2705, 890, 215, 80);
+            bitmapLabel = new Bitmap(1640, 1164);
 
             try
             {
+                Bitmap bitmapMain;
+                Bitmap bitmapMiddle;
+                Bitmap bitmapBar;
+                Bitmap bitmapLine;
+                Bitmap bitmapGoGreen;
+                Bitmap bitmapPayed;
+
                 doc.LoadFromFile(filename);
                 source = doc.SaveAsImage(0, 273, 273);
-                source.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                Bitmap bitmapMain = getClip(source, rectMain);
-                Bitmap bitmapMiddle = getClip(source, rectMiddle);
-                Bitmap bitmapBar = getClip(source, rectBar);
-                Bitmap bitmapLine = getClip(source, rectLine);
-                Bitmap bitmapGoGreen = getClip(source, rectGoGreen);
-                Bitmap bitmapPayed = getClip(source, rectPayed);
+
+                if (!isBusiness) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                bitmapMain = getClip(source, rectMain);
+                bitmapMiddle = getClip(source, rectMiddle);
+                bitmapBar = getClip(source, rectBar);
                 bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                bitmapPayed = getClip(source, rectPayed);
+                bitmapLine = getClip(source, rectLine);
+                bitmapGoGreen = getClip(source, rectGoGreen);
                 bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
+
+                Bitmap bitmapHeavy = Properties.Resources.Heavy;
+                bitmapHeavy.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
                 using (Graphics g = Graphics.FromImage(bitmapLabel))
                 {
                     g.Clear(Color.White);
                     g.DrawImage(bitmapMain, 0, 1);
-                    g.DrawImage(bitmapBar, 745, -8);
-                    g.DrawImage(bitmapMiddle, 607, 219);
-                    g.DrawImage(bitmapPayed, 525, 4);
-                    g.DrawImage(bitmapLine, 595, -8);
-                    g.DrawImage(bitmapGoGreen, 645, 0);
+                    if (isBusiness)
+                    {
+                        g.DrawImage(bitmapBar, 705, 5);
+                        g.DrawImage(bitmapMiddle, 620, 5);
+                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 14);
+
+                    }
+                    else
+                    {
+                        g.DrawImage(bitmapBar, 745, -8);
+                        g.DrawImage(bitmapMiddle, 607, 219);
+                        g.DrawImage(bitmapPayed, 605, 4);
+                        g.DrawImage(bitmapLine, 595, -8);
+                        g.DrawImage(bitmapGoGreen, 673, 0);
+                        if (isHeavy) g.DrawImage(bitmapHeavy, 442, 14);
+                    }
                 }
-                statusPanel.Text = Properties.Resources.Done;
+
                 return bitmapLabel;
             }
-            catch (Spire.Pdf.Exceptions.PdfDocumentException) {
-                statusPanel.Text = Properties.Resources.Error;
+            catch (Spire.Pdf.Exceptions.PdfDocumentException)
+            {
                 return null;
             }
         }
-
 
         bool ForcePageSize(PrintDocument MyPrintDocument, PaperKind MyPaperKind)
         {
@@ -276,7 +323,6 @@ namespace DHLabel
             }
         }
 
-
         private void CreateStatusBar()
         {
             statusPanel.BorderStyle = StatusBarPanelBorderStyle.Sunken;
@@ -292,6 +338,20 @@ namespace DHLabel
         {
             this.TopMost = cbOntop.Checked;
             Properties.Settings.Default.onTop = cbOntop.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void cbBusiness_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.businessLabel = cbBusiness.Checked;
+            isBusiness = cbBusiness.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void cbHeavy_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.heavyPackage = cbHeavy.Checked;
+            isHeavy = cbHeavy.Checked;
             Properties.Settings.Default.Save();
         }
 

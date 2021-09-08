@@ -173,7 +173,7 @@
     <value>Info about {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer.
+    <value>Converts online created DHL private or business package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages &gt;= 20kg, it is possible to mark the package as heavy shipment.
 
 It can be easyly added to the "open with" menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
 
@@ -188,9 +188,6 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
-  </data>
-  <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Done" xml:space="preserve">
     <value>Done.</value>
@@ -234,5 +231,18 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   </data>
   <data name="OpenWith" xml:space="preserve">
     <value>Open with...</value>
+  </data>
+  <data name="BusinessLabel" xml:space="preserve">
+    <value>Business-Label</value>
+    <comment>@Invariant</comment>
+  </data>
+  <data name="HeavyPackage" xml:space="preserve">
+    <value>Package &gt;= 20kg</value>
+  </data>
+  <data name="Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

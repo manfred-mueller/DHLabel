@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace DHLabel
 {
@@ -58,6 +59,8 @@ namespace DHLabel
             this.btnOpen = new System.Windows.Forms.Button();
             this.cbOpenWith = new System.Windows.Forms.CheckBox();
             this.cbOntop = new System.Windows.Forms.CheckBox();
+            this.cbBusiness = new System.Windows.Forms.CheckBox();
+            this.cbHeavy = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,10 +68,10 @@ namespace DHLabel
             // btnPrint
             // 
             this.btnPrint.Enabled = false;
-            this.btnPrint.Location = new System.Drawing.Point(12, 36);
+            this.btnPrint.Location = new System.Drawing.Point(12, 40);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(96, 23);
-            this.btnPrint.TabIndex = 0;
+            this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = global::DHLabel.Properties.Resources.Print;
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.printLabel_Click);
@@ -77,17 +80,17 @@ namespace DHLabel
             // 
             this.picboxLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.picboxLabel.InitialImage = null;
-            this.picboxLabel.Location = new System.Drawing.Point(0, 96);
+            this.picboxLabel.Location = new System.Drawing.Point(0, 104);
             this.picboxLabel.Name = "picboxLabel";
-            this.picboxLabel.Size = new System.Drawing.Size(559, 397);
+            this.picboxLabel.Size = new System.Drawing.Size(564, 397);
             this.picboxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picboxLabel.TabIndex = 1;
+            this.picboxLabel.TabIndex = 8;
             this.picboxLabel.TabStop = false;
             // 
             // btnSavePDF
             // 
             this.btnSavePDF.Enabled = false;
-            this.btnSavePDF.Location = new System.Drawing.Point(125, 36);
+            this.btnSavePDF.Location = new System.Drawing.Point(125, 40);
             this.btnSavePDF.Name = "btnSavePDF";
             this.btnSavePDF.Size = new System.Drawing.Size(96, 23);
             this.btnSavePDF.TabIndex = 2;
@@ -102,7 +105,7 @@ namespace DHLabel
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(787, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(564, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,37 +200,61 @@ namespace DHLabel
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(236, 36);
+            this.btnOpen.Location = new System.Drawing.Point(236, 40);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 4;
+            this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = global::DHLabel.Properties.Resources.OpenPDF;
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.openPDF_Click);
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(326, 36);
+            this.cbOpenWith.Location = new System.Drawing.Point(326, 30);
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
-            this.cbOpenWith.TabIndex = 6;
+            this.cbOpenWith.TabIndex = 3;
             this.cbOpenWith.Text = global::DHLabel.Properties.Resources.OpenWith;
             this.cbOpenWith.CheckedChanged += new System.EventHandler(this.cbOpenWith_CheckedChanged);
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(426, 36);
+            this.cbOntop.Location = new System.Drawing.Point(426, 30);
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(100, 23);
-            this.cbOntop.TabIndex = 6;
+            this.cbOntop.TabIndex = 3;
             this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
+            // 
+            // cbBusiness
+            // 
+            this.cbBusiness.Location = new System.Drawing.Point(326, 53);
+            this.cbBusiness.Name = "cbBusiness";
+            this.cbBusiness.Size = new System.Drawing.Size(100, 23);
+            this.cbBusiness.TabIndex = 4;
+            this.cbBusiness.Text = global::DHLabel.Properties.Resources.BusinessLabel;
+            this.cbBusiness.CheckedChanged += new System.EventHandler(this.cbBusiness_CheckedChanged);
+            // 
+            // cbHeavy
+            // 
+            this.cbHeavy.BackColor = System.Drawing.Color.Transparent;
+            this.cbHeavy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.cbHeavy.Location = new System.Drawing.Point(426, 53);
+            this.cbHeavy.Name = "cbHeavy";
+            this.cbHeavy.Size = new System.Drawing.Size(138, 23);
+            this.cbHeavy.TabIndex = 5;
+            this.cbHeavy.Text = global::DHLabel.Properties.Resources.HeavyPackage;
+            this.cbHeavy.UseVisualStyleBackColor = false;
+            this.cbHeavy.CheckedChanged += new System.EventHandler(this.cbHeavy_CheckedChanged);
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(564, 501);
+            this.Controls.Add(this.cbBusiness);
+            this.Controls.Add(this.cbHeavy);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
@@ -239,7 +266,7 @@ namespace DHLabel
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(559, 530);
+            this.MinimumSize = new System.Drawing.Size(580, 540);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DHLabel";
@@ -275,6 +302,8 @@ namespace DHLabel
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckBox cbOntop;
         private System.Windows.Forms.CheckBox cbOpenWith;
+        private CheckBox cbBusiness;
+        private CheckBox cbHeavy;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -11,6 +12,8 @@ namespace DHLabel
             InitializeComponent();
             Text = String.Format(Properties.Resources.InfoAbout, AssemblyTitle);
             labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            labelProductName.Text = Application.ProductName;
+            labelCopyright.Text = WebUtility.HtmlDecode(Properties.Resources.Copyright);
             textBoxDescription.Text = Properties.Resources.ProductDescription;
             TopMost = true;
         }

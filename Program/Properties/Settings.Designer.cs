@@ -46,5 +46,29 @@ namespace DHLabel.Properties {
                 this["openWith"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool businessLabel {
+            get {
+                return ((bool)(this["businessLabel"]));
+            }
+            set {
+                this["businessLabel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool heavyPackage {
+            get {
+                return ((bool)(this["heavyPackage"]));
+            }
+            set {
+                this["heavyPackage"] = value;
+            }
+        }
     }
 }
