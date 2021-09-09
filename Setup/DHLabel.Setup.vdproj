@@ -28,6 +28,12 @@
         "Entry"
         {
         "MsmKey" = "8:_55EEA95D779788712BD75E83978F6007"
+        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_55EEA95D779788712BD75E83978F6007"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -58,13 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2D10790E2F16409AACAC391985B8BD40"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
+        "OwnerKey" = "8:_55EEA95D779788712BD75E83978F6007"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -79,6 +79,12 @@
         "OwnerKey" = "8:_C6AB3DEACCABED247F5873C666AAC0A3"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_2D10790E2F16409AACAC391985B8BD40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -87,7 +93,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:..\\..\\..\\Debug\\DHLabel-Setup.msi"
+        "OutputFilename" = "8:Debug\\DHLabel-Setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -119,7 +125,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:DHLabel-Setup.msi"
+        "OutputFilename" = "8:Release\\DHLabel-Setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -212,8 +218,44 @@
             "AssemblyAsmDisplayName" = "8:Spire.Pdf, Version=7.8.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_3487C004AE596F7092C3888B01BF9797"
+                    {
+                    "Name" = "8:Spire.Pdf.DLL"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Spire.Pdf.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_111E8A5BF8ED470DAAA38BBF111BB760"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_55EEA95D779788712BD75E83978F6007"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Spire.License, Version=1.4.0.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_55EEA95D779788712BD75E83978F6007"
+                    {
+                    "Name" = "8:Spire.License.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Spire.License.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_111E8A5BF8ED470DAAA38BBF111BB760"
@@ -390,7 +432,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DHLabel"
         "ProductCode" = "8:{87ADED2E-75AD-4438-B98A-0F1622C45D6F}"
-        "PackageCode" = "8:{3049FE51-8A47-4944-B189-F25CC5C2E709}"
+        "PackageCode" = "8:{7EDD1F0C-4535-4CE2-8F9F-8F59094A9FED}"
         "UpgradeCode" = "8:{86263C97-C226-4390-8982-1AAE46F1D3B1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
