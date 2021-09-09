@@ -432,7 +432,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DHLabel"
         "ProductCode" = "8:{87ADED2E-75AD-4438-B98A-0F1622C45D6F}"
-        "PackageCode" = "8:{7EDD1F0C-4535-4CE2-8F9F-8F59094A9FED}"
+        "PackageCode" = "8:{7CCDFD22-0DC9-4EDB-89A8-20337F6ADD8B}"
         "UpgradeCode" = "8:{86263C97-C226-4390-8982-1AAE46F1D3B1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -455,7 +455,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:D:\\Tools\\sign.cmd $(BuiltOuputPath)"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
