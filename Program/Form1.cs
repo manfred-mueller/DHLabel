@@ -20,6 +20,12 @@ namespace DHLabel
             InitializeComponent();
             CreateStatusBar();
             checkKey();
+            cbOntop.Checked = Properties.Settings.Default.onTop;
+            cbOpenWith.Checked = Properties.Settings.Default.openWith;
+            cbBusiness.Checked = Properties.Settings.Default.businessLabel;
+            cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
+            isBusiness = cbBusiness.Checked;
+            isHeavy = cbHeavy.Checked;
             if (args.Length == 1)
             {
                 string path = args[0];
@@ -34,12 +40,6 @@ namespace DHLabel
             {
                 picboxLabel.Image = dropBitmap();
             }
-            cbOntop.Checked = Properties.Settings.Default.onTop;
-            cbOpenWith.Checked = Properties.Settings.Default.openWith;
-            cbBusiness.Checked = Properties.Settings.Default.businessLabel;
-            cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
-            isBusiness = cbBusiness.Checked;
-            isHeavy = cbHeavy.Checked;
         }
 
         private Bitmap dropBitmap()

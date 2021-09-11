@@ -28,13 +28,13 @@
         "Entry"
         {
         "MsmKey" = "8:_55EEA95D779788712BD75E83978F6007"
-        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_55EEA95D779788712BD75E83978F6007"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -59,12 +59,6 @@
         {
         "MsmKey" = "8:_DD5643E9C05841E695AF634B8F71477E"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_55EEA95D779788712BD75E83978F6007"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -184,7 +178,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DHLabel, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:DHLabel, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_2D10790E2F16409AACAC391985B8BD40"
@@ -249,11 +243,6 @@
             "AssemblyAsmDisplayName" = "8:Spire.License, Version=1.4.0.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_55EEA95D779788712BD75E83978F6007"
-                    {
-                    "Name" = "8:Spire.License.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Spire.License.DLL"
             "TargetName" = "8:"
@@ -269,7 +258,7 @@
             "SharedLegacy" = "11:FALSE"
             "PackageAs" = "3:1"
             "Register" = "3:1"
-            "Exclude" = "11:FALSE"
+            "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -431,15 +420,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DHLabel"
-        "ProductCode" = "8:{87ADED2E-75AD-4438-B98A-0F1622C45D6F}"
-        "PackageCode" = "8:{7CCDFD22-0DC9-4EDB-89A8-20337F6ADD8B}"
+        "ProductCode" = "8:{FBAE7FDF-0BEA-41EA-B48D-9C0F7BCDD819}"
+        "PackageCode" = "8:{33FC77D3-6D69-47F6-9B56-375C56AAB504}"
         "UpgradeCode" = "8:{86263C97-C226-4390-8982-1AAE46F1D3B1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:NASS e.K."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://www.nass-ek.de/service.htm"
