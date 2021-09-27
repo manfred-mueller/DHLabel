@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Spire.Pdf;
 using Microsoft.Win32;
+using System.Drawing.Imaging;
 
 namespace DHLabel
 {
@@ -78,6 +79,7 @@ namespace DHLabel
             Rectangle rectMiddle;
             Rectangle rectBar;
             Rectangle rectLine;
+            Rectangle rectMail;
             Rectangle rectGoGreen;
             Rectangle rectPayed;
             Bitmap bitmapLabel;
@@ -90,11 +92,12 @@ namespace DHLabel
             else
             {
                 rectMain = new Rectangle(1860, 95, 1075, 705);
-                rectMiddle = new Rectangle(1850, 885, 860, 155);
+                rectMiddle = new Rectangle(1850, 885, 860, 145);
                 rectBar = new Rectangle(1860, 1345, 1075, 810);
             }
 
             rectLine = new Rectangle(1860, 1018, 1075, 17);
+            rectMail = new Rectangle(2625, 735, 300, 35);
             rectGoGreen = new Rectangle(2120, 810, 390, 75);
             rectPayed = new Rectangle(2705, 890, 215, 80);
             bitmapLabel = new Bitmap(1640, 1164);
@@ -105,6 +108,7 @@ namespace DHLabel
                 Bitmap bitmapMiddle;
                 Bitmap bitmapBar;
                 Bitmap bitmapLine;
+                Bitmap bitmapMail;
                 Bitmap bitmapGoGreen;
                 Bitmap bitmapPayed;
 
@@ -112,6 +116,7 @@ namespace DHLabel
                 source = doc.SaveAsImage(0, 273, 273);
 
                 if (!isBusiness) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                source.Save("D:\\askapdf.jpg", ImageFormat.Jpeg);
                 bitmapMain = getClip(source, rectMain);
                 bitmapMiddle = getClip(source, rectMiddle);
                 bitmapBar = getClip(source, rectBar);
@@ -120,9 +125,11 @@ namespace DHLabel
                 bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapPayed = getClip(source, rectPayed);
                 bitmapLine = getClip(source, rectLine);
+                bitmapMail = getClip(source, rectMail);
                 bitmapGoGreen = getClip(source, rectGoGreen);
                 bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                bitmapMail.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
                 Bitmap bitmapHeavy = Properties.Resources.Heavy;
@@ -144,6 +151,7 @@ namespace DHLabel
                         g.DrawImage(bitmapBar, 745, -8);
                         g.DrawImage(bitmapMiddle, 607, 219);
                         g.DrawImage(bitmapPayed, 605, 4);
+                        g.DrawImage(bitmapMail, 400, 10);
                         g.DrawImage(bitmapLine, 595, -8);
                         g.DrawImage(bitmapGoGreen, 673, 0);
                         if (isHeavy) g.DrawImage(bitmapHeavy, 442, 14);

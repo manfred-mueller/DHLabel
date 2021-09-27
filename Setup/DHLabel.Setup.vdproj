@@ -444,7 +444,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:0"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:D:\\Tools\\sign.cmd $(BuiltOuputPath)"
+        "PostBuildEvent" = "8:signversioned $(BuiltOuputPath)"
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
