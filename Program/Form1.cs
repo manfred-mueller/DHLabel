@@ -93,11 +93,11 @@ namespace DHLabel
             {
                 rectMain = new Rectangle(1860, 95, 1075, 705);
                 rectMiddle = new Rectangle(1850, 885, 860, 145);
-                rectBar = new Rectangle(1860, 1345, 1075, 810);
+                rectBar = new Rectangle(1860, 1345, 1075, 860);
             }
 
             rectLine = new Rectangle(1860, 1018, 1075, 17);
-            rectMail = new Rectangle(2625, 735, 300, 35);
+            rectMail = new Rectangle(2625, 705, 300, 65);
             rectGoGreen = new Rectangle(2120, 810, 390, 75);
             rectPayed = new Rectangle(2705, 890, 215, 80);
             bitmapLabel = new Bitmap(1640, 1164);
@@ -143,18 +143,18 @@ namespace DHLabel
                     {
                         g.DrawImage(bitmapBar, 705, 5);
                         g.DrawImage(bitmapMiddle, 620, 5);
-                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 14);
+                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 4);
 
                     }
                     else
                     {
-                        g.DrawImage(bitmapBar, 745, -8);
                         g.DrawImage(bitmapMiddle, 607, 219);
+                        g.DrawImage(bitmapBar, 710, -8);
                         g.DrawImage(bitmapPayed, 605, 4);
                         g.DrawImage(bitmapMail, 400, 10);
                         g.DrawImage(bitmapLine, 595, -8);
-                        g.DrawImage(bitmapGoGreen, 673, 0);
-                        if (isHeavy) g.DrawImage(bitmapHeavy, 442, 14);
+                        g.DrawImage(bitmapGoGreen, 675, 4, 37, 195);
+                        if (isHeavy) g.DrawImage(bitmapHeavy, 460, 4);
                     }
                 }
 
