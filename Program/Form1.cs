@@ -116,7 +116,7 @@ namespace DHLabel
                 source = doc.SaveAsImage(0, 273, 273);
 
                 if (!isBusiness) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                source.Save("D:\\askapdf.jpg", ImageFormat.Jpeg);
+//                source.Save("D:\\askapdf.jpg", ImageFormat.Jpeg);
                 bitmapMain = getClip(source, rectMain);
                 bitmapMiddle = getClip(source, rectMiddle);
                 bitmapBar = getClip(source, rectBar);
@@ -221,7 +221,7 @@ namespace DHLabel
             printDocument1.DefaultPageSettings.Landscape = true;
             printDocument1.PrintPage += (sender, args) =>
             {
-                Rectangle m = args.MarginBounds;
+                Rectangle m = args.PageBounds;
 
                 if ((double)label.Width / (double)label.Height > (double)m.Width / (double)m.Height)
                 {
@@ -234,7 +234,8 @@ namespace DHLabel
 
                 args.Graphics.DrawImage(picboxLabel.Image, m);
             };
-            Margins margins = new Margins(0, 0, 0, 0);
+            Margins margins = new Margins(12, 0, 15, 0);
+            printDocument1.OriginAtMargins = true;
             printDocument1.DefaultPageSettings.Margins = margins;
             ForcePageSize(printDocument1, PaperKind.A6);
             printDocument1.Print();
@@ -396,6 +397,22 @@ namespace DHLabel
             }
             Properties.Settings.Default.openWith = cbOpenWith.Checked;
             Properties.Settings.Default.Save();
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            string[] args = Environment.GetCommandLineArgs();
+            LoadFile(args[1]);
+        }
+        public void LoadFile(string file)
+        {
+            if (System.IO.File.Exists(file))
+            {
+                picboxLabel.Image = convertPDF(file);
+                statusPanel.Text = file;
+                enableControls();
+            }
+
         }
     }
 }
