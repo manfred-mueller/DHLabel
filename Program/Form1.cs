@@ -401,8 +401,15 @@ namespace DHLabel
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            string[] args = Environment.GetCommandLineArgs();
-            LoadFile(args[1]);
+            try
+            {
+                string[] args = Environment.GetCommandLineArgs();
+                LoadFile(args[1]);
+            }
+            catch (IndexOutOfRangeException)
+            {
+                picboxLabel.Image = dropBitmap();
+            }
         }
         public void LoadFile(string file)
         {
