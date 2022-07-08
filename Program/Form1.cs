@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using Spire.Pdf;
+using System;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Spire.Pdf;
-using Microsoft.Win32;
 
 namespace DHLabel
 {
@@ -15,6 +15,7 @@ namespace DHLabel
         protected StatusBarPanel statusPanel = new StatusBarPanel();
         public bool isBusiness;
         public bool isHeavy;
+        public string titleString;
         public Form1(string[] args)
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace DHLabel
             cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
             isBusiness = cbBusiness.Checked;
             isHeavy = cbHeavy.Checked;
+            setTitle();
             if (args.Length == 1)
             {
                 string path = args[0];
@@ -238,7 +240,7 @@ namespace DHLabel
             ForcePageSize(printDocument1, PaperKind.A6);
             if (string.IsNullOrEmpty(Properties.Settings.Default.printOn))
             {
-                TopMost = false; 
+                TopMost = false;
                 setPrinter();
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
                 {
@@ -322,11 +324,12 @@ namespace DHLabel
 
         public void setPrinter()
         {
-                PrintDialog PrintDialog = new PrintDialog();
+            PrintDialog PrintDialog = new PrintDialog();
             if (PrintDialog.ShowDialog() == DialogResult.OK)
             {
                 Properties.Settings.Default.printOn = PrintDialog.PrinterSettings.PrinterName;
                 Properties.Settings.Default.Save();
+                setTitle();
             }
         }
 
@@ -448,6 +451,20 @@ namespace DHLabel
                 enableControls();
             }
 
+        }
+
+        public void setTitle()
+        {
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+            {
+                Text = string.Format(Application.ProductName + Properties.Resources.Printer + Properties.Settings.Default.printOn);
+                Refresh();
+            }
+            else
+            {
+                Text = Application.ProductName;
+                Refresh();
+            }
         }
     }
 }

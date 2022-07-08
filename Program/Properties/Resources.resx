@@ -248,4 +248,7 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   <data name="SetLabelPrinter" xml:space="preserve">
     <value>Set &amp;label printer</value>
   </data>
+  <data name="Printer" xml:space="preserve">
+    <value> - Printer: </value>
+  </data>
 </root>

@@ -325,6 +325,15 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  - Printer:  ähnelt.
+        /// </summary>
+        internal static string Printer {
+            get {
+                return ResourceManager.GetString("Printer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private or business package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages &gt;= 20kg, it is possible to mark the package as heavy shipment.
         ///
         ///It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.

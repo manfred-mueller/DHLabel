@@ -37,7 +37,7 @@ namespace DHLabel
 
         protected override void OnCreateMainForm()
         {
-            string[] args = Environment.GetCommandLineArgs(); 
+            string[] args = Environment.GetCommandLineArgs();
             MainForm = new Form1(args);
         }
     }
