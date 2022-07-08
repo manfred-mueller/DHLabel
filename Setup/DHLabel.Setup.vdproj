@@ -27,18 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3487C004AE596F7092C3888B01BF9797"
-        "OwnerKey" = "8:_2D10790E2F16409AACAC391985B8BD40"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_55EEA95D779788712BD75E83978F6007"
-        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_7D26142234ED4373B56E93181FFA39C2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -51,12 +39,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6AB3DEACCABED247F5873C666AAC0A3"
-        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_DD5643E9C05841E695AF634B8F71477E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -64,25 +46,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3487C004AE596F7092C3888B01BF9797"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1625DC5D5F83498AA6DB2264C5E6CBF0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C6AB3DEACCABED247F5873C666AAC0A3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2D10790E2F16409AACAC391985B8BD40"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -215,14 +179,9 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DHLabel, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:DHLabel, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2D10790E2F16409AACAC391985B8BD40"
-                    {
-                    "Name" = "8:DHLabel.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\Program\\bin\\Release\\DHLabel.exe"
             "TargetName" = "8:"
@@ -240,37 +199,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3487C004AE596F7092C3888B01BF9797"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Spire.Pdf, Version=7.8.9.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3487C004AE596F7092C3888B01BF9797"
-                    {
-                    "Name" = "8:Spire.Pdf.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Spire.Pdf.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_111E8A5BF8ED470DAAA38BBF111BB760"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D26142234ED4373B56E93181FFA39C2"
@@ -311,37 +239,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C6AB3DEACCABED247F5873C666AAC0A3"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-                "ScatterAssemblies"
-                {
-                    "_C6AB3DEACCABED247F5873C666AAC0A3"
-                    {
-                    "Name" = "8:Microsoft.mshtml.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.mshtml.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_111E8A5BF8ED470DAAA38BBF111BB760"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DD5643E9C05841E695AF634B8F71477E"
@@ -432,7 +329,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:DHLabel"
         "ProductCode" = "8:{874E6596-97F3-4F55-B28E-4498F89214A4}"
-        "PackageCode" = "8:{99FF46F3-46F8-4388-9EFB-2869A45D8A24}"
+        "PackageCode" = "8:{B3B8AAE7-96F8-4553-A0CD-0710907D7E32}"
         "UpgradeCode" = "8:{86263C97-C226-4390-8982-1AAE46F1D3B1}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
