@@ -143,7 +143,7 @@
     <value>About</value>
   </data>
   <data name="Print" xml:space="preserve">
-    <value>&amp;Print Label</value>
+    <value>&amp;Print label</value>
   </data>
   <data name="SavePDF" xml:space="preserve">
     <value>&amp;Save PDF</value>
@@ -244,5 +244,8 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   </data>
   <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SetLabelPrinter" xml:space="preserve">
+    <value>Set &amp;label printer</value>
   </data>
 </root>

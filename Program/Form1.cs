@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Spire.Pdf;
 using Microsoft.Win32;
-using System.Drawing.Imaging;
 
 namespace DHLabel
 {
@@ -116,7 +115,6 @@ namespace DHLabel
                 source = doc.SaveAsImage(0, 273, 273);
 
                 if (!isBusiness) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
-//                source.Save("D:\\askapdf.jpg", ImageFormat.Jpeg);
                 bitmapMain = getClip(source, rectMain);
                 bitmapMiddle = getClip(source, rectMiddle);
                 bitmapBar = getClip(source, rectBar);
@@ -238,7 +236,24 @@ namespace DHLabel
             printDocument1.OriginAtMargins = true;
             printDocument1.DefaultPageSettings.Margins = margins;
             ForcePageSize(printDocument1, PaperKind.A6);
-            printDocument1.Print();
+            if (string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+            {
+                TopMost = false; 
+                setPrinter();
+                if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+                {
+                    printDocument1.PrinterSettings.PrinterName = Properties.Settings.Default.printOn;
+                    printDocument1.Print();
+                    TopMost = cbOntop.Checked;
+                }
+            }
+            else
+            {
+                TopMost = false;
+                printDocument1.PrinterSettings.PrinterName = Properties.Settings.Default.printOn;
+                printDocument1.Print();
+                TopMost = cbOntop.Checked;
+            }
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -275,12 +290,14 @@ namespace DHLabel
 
         private async void printLabel_Click(object sender, EventArgs e)
         {
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-            {
-                statusPanel.Text = string.Format(Properties.Resources.ConvertingDataForPrintingPleaseWait);
-                await Task.Run(() => printLabel(picboxLabel.Image));
-                statusPanel.Text = string.Format(Properties.Resources.Done);
-            }
+            statusPanel.Text = string.Format(Properties.Resources.ConvertingDataForPrintingPleaseWait);
+            await Task.Run(() => printLabel(picboxLabel.Image));
+            statusPanel.Text = string.Format(Properties.Resources.Done);
+        }
+
+        private void setPrinter_Click(object sender, EventArgs e)
+        {
+            setPrinter();
         }
 
         private void saveLabel_Click(object sender, EventArgs e)
@@ -301,6 +318,16 @@ namespace DHLabel
             AboutBox1 aboutBox = new AboutBox1();
 
             aboutBox.ShowDialog();
+        }
+
+        public void setPrinter()
+        {
+                PrintDialog PrintDialog = new PrintDialog();
+            if (PrintDialog.ShowDialog() == DialogResult.OK)
+            {
+                Properties.Settings.Default.printOn = PrintDialog.PrinterSettings.PrinterName;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void openPDF_Click(object sender, EventArgs e)
@@ -340,12 +367,12 @@ namespace DHLabel
             statusPanel.AutoSize = StatusBarPanelAutoSize.Spring;
             mainStatusBar.Panels.Add(statusPanel);
             mainStatusBar.ShowPanels = true;
-            this.Controls.Add(mainStatusBar);
+            Controls.Add(mainStatusBar);
         }
 
         private void cbOntop_CheckedChanged(object sender, EventArgs e)
         {
-            this.TopMost = cbOntop.Checked;
+            TopMost = cbOntop.Checked;
             Properties.Settings.Default.onTop = cbOntop.Checked;
             Properties.Settings.Default.Save();
         }
@@ -398,6 +425,7 @@ namespace DHLabel
             Properties.Settings.Default.openWith = cbOpenWith.Checked;
             Properties.Settings.Default.Save();
         }
+
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);

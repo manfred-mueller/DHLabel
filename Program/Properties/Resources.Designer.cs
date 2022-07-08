@@ -19,7 +19,7 @@ namespace DHLabel.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -234,7 +234,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Heavy package (&gt;=20kg) ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Package &gt;= 20kg ähnelt.
         /// </summary>
         internal static string HeavyPackage {
             get {
@@ -316,7 +316,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Print Label ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die &amp;Print label ähnelt.
         /// </summary>
         internal static string Print {
             get {
@@ -325,11 +325,11 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private or business package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages &gt;= 20kg, it is possible to mark the package as heavy shipment.
         ///
         ///It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
         ///
-        ///DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (https://github.com/vulture20/DHLConvert). ähnelt.
+        ///DHLabel is a heavily  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string ProductDescription {
             get {
@@ -397,6 +397,15 @@ namespace DHLabel.Properties {
         internal static string SavePDF {
             get {
                 return ResourceManager.GetString("SavePDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Set &amp;label printer ähnelt.
+        /// </summary>
+        internal static string SetLabelPrinter {
+            get {
+                return ResourceManager.GetString("SetLabelPrinter", resourceCulture);
             }
         }
         
