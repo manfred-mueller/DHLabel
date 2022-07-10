@@ -88,6 +88,16 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap application_exit {
+            get {
+                object obj = ResourceManager.GetObject("application_exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Application started. ähnelt.
         /// </summary>
         internal static string ApplicationStarted {
@@ -175,6 +185,36 @@ namespace DHLabel.Properties {
         internal static string DHLabelPackageLabel {
             get {
                 return ResourceManager.GetString("DHLabelPackageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_open {
+            get {
+                object obj = ResourceManager.GetObject("document_open", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_print {
+            get {
+                object obj = ResourceManager.GetObject("document_print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_save {
+            get {
+                object obj = ResourceManager.GetObject("document_save", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -424,6 +464,16 @@ namespace DHLabel.Properties {
         internal static string ShowStatusMessages {
             get {
                 return ResourceManager.GetString("ShowStatusMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap system_run {
+            get {
+                object obj = ResourceManager.GetObject("system_run", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

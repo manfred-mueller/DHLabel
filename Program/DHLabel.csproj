@@ -312,6 +312,21 @@
   <ItemGroup>
     <None Include="Resources\Package.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-run.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>D:\Tools\sign.cmd $(TargetPath)</PostBuildEvent>
