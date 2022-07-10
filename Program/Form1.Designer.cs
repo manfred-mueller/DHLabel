@@ -67,11 +67,14 @@ namespace DHLabel
             // btnPrint
             // 
             this.btnPrint.Enabled = false;
-            this.btnPrint.Location = new System.Drawing.Point(12, 40);
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Image = global::DHLabel.Properties.Resources.document_print;
+            this.btnPrint.Location = new System.Drawing.Point(12, 30);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(96, 23);
+            this.btnPrint.Size = new System.Drawing.Size(112, 46);
             this.btnPrint.TabIndex = 1;
             this.btnPrint.Text = global::DHLabel.Properties.Resources.Print;
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.printLabel_Click);
             // 
@@ -89,11 +92,14 @@ namespace DHLabel
             // btnSavePDF
             // 
             this.btnSavePDF.Enabled = false;
-            this.btnSavePDF.Location = new System.Drawing.Point(125, 40);
+            this.btnSavePDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePDF.Image = global::DHLabel.Properties.Resources.document_save;
+            this.btnSavePDF.Location = new System.Drawing.Point(129, 30);
             this.btnSavePDF.Name = "btnSavePDF";
-            this.btnSavePDF.Size = new System.Drawing.Size(96, 23);
+            this.btnSavePDF.Size = new System.Drawing.Size(112, 46);
             this.btnSavePDF.TabIndex = 2;
             this.btnSavePDF.Text = global::DHLabel.Properties.Resources.SavePDF;
+            this.btnSavePDF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSavePDF.UseVisualStyleBackColor = true;
             this.btnSavePDF.Click += new System.EventHandler(this.saveLabel_Click);
             // 
@@ -126,7 +132,7 @@ namespace DHLabel
             // 
             this.openPDFToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_open;
             this.openPDFToolStripMenuItem.Name = "openPDFToolStripMenuItem";
-            this.openPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openPDFToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.openPDFToolStripMenuItem.Text = global::DHLabel.Properties.Resources.OpenPDF;
             this.openPDFToolStripMenuItem.Click += new System.EventHandler(this.openPDF_Click);
             // 
@@ -135,20 +141,20 @@ namespace DHLabel
             this.savePDFToolStripMenuItem.Enabled = false;
             this.savePDFToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_save;
             this.savePDFToolStripMenuItem.Name = "savePDFToolStripMenuItem";
-            this.savePDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.savePDFToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.savePDFToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SavePDF;
             this.savePDFToolStripMenuItem.Click += new System.EventHandler(this.saveLabel_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
             // 
             // setPrinterToolStripMenuItem
             // 
             this.setPrinterToolStripMenuItem.Image = global::DHLabel.Properties.Resources.system_run;
             this.setPrinterToolStripMenuItem.Name = "setPrinterToolStripMenuItem";
-            this.setPrinterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.setPrinterToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.setPrinterToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SetLabelPrinter;
             this.setPrinterToolStripMenuItem.Click += new System.EventHandler(this.setPrinter_Click);
             // 
@@ -157,20 +163,20 @@ namespace DHLabel
             this.printToolStripMenuItem.Enabled = false;
             this.printToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_print;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.printToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Print;
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printLabel_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Image = global::DHLabel.Properties.Resources.application_exit;
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.quitToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Quit;
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -212,37 +218,40 @@ namespace DHLabel
             // 
             // btnOpen
             // 
-            this.btnOpen.Location = new System.Drawing.Point(236, 40);
+            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.Image = global::DHLabel.Properties.Resources.document_open;
+            this.btnOpen.Location = new System.Drawing.Point(245, 30);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.Size = new System.Drawing.Size(94, 46);
             this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = global::DHLabel.Properties.Resources.OpenPDF;
+            this.btnOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOpen.UseVisualStyleBackColor = true;
             this.btnOpen.Click += new System.EventHandler(this.openPDF_Click);
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(326, 30);
+            this.cbOpenWith.Location = new System.Drawing.Point(345, 30);
             this.cbOpenWith.Name = "cbOpenWith";
-            this.cbOpenWith.Size = new System.Drawing.Size(100, 23);
+            this.cbOpenWith.Size = new System.Drawing.Size(97, 23);
             this.cbOpenWith.TabIndex = 3;
             this.cbOpenWith.Text = global::DHLabel.Properties.Resources.OpenWith;
             this.cbOpenWith.CheckedChanged += new System.EventHandler(this.cbOpenWith_CheckedChanged);
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(426, 30);
+            this.cbOntop.Location = new System.Drawing.Point(448, 30);
             this.cbOntop.Name = "cbOntop";
-            this.cbOntop.Size = new System.Drawing.Size(100, 23);
+            this.cbOntop.Size = new System.Drawing.Size(116, 23);
             this.cbOntop.TabIndex = 3;
             this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
             // 
             // cbBusiness
             // 
-            this.cbBusiness.Location = new System.Drawing.Point(326, 53);
+            this.cbBusiness.Location = new System.Drawing.Point(345, 53);
             this.cbBusiness.Name = "cbBusiness";
-            this.cbBusiness.Size = new System.Drawing.Size(100, 23);
+            this.cbBusiness.Size = new System.Drawing.Size(97, 23);
             this.cbBusiness.TabIndex = 4;
             this.cbBusiness.Text = global::DHLabel.Properties.Resources.BusinessLabel;
             this.cbBusiness.CheckedChanged += new System.EventHandler(this.cbBusiness_CheckedChanged);
@@ -251,9 +260,9 @@ namespace DHLabel
             // 
             this.cbHeavy.BackColor = System.Drawing.Color.Transparent;
             this.cbHeavy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cbHeavy.Location = new System.Drawing.Point(426, 53);
+            this.cbHeavy.Location = new System.Drawing.Point(448, 53);
             this.cbHeavy.Name = "cbHeavy";
-            this.cbHeavy.Size = new System.Drawing.Size(138, 23);
+            this.cbHeavy.Size = new System.Drawing.Size(116, 23);
             this.cbHeavy.TabIndex = 5;
             this.cbHeavy.Text = global::DHLabel.Properties.Resources.HeavyPackage;
             this.cbHeavy.UseVisualStyleBackColor = false;
