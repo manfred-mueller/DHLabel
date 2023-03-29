@@ -99,7 +99,7 @@ namespace DHLabel
 
             rectLine = new Rectangle(1860, 1018, 1075, 17);
             rectMail = new Rectangle(2625, 705, 300, 65);
-            rectGoGreen = new Rectangle(2120, 810, 390, 75);
+            rectGoGreen = new Rectangle(2120, 810, 430, 75);
             rectPayed = new Rectangle(2705, 890, 215, 80);
             bitmapLabel = new Bitmap(1640, 1164);
 
