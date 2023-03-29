@@ -153,7 +153,7 @@ namespace DHLabel
                         g.DrawImage(bitmapPayed, 605, 4);
                         g.DrawImage(bitmapMail, 400, 10);
                         g.DrawImage(bitmapLine, 595, -8);
-                        g.DrawImage(bitmapGoGreen, 675, 4, 37, 195);
+                        g.DrawImage(bitmapGoGreen, 675, 4, 37, 215);
                         if (isHeavy) g.DrawImage(bitmapHeavy, 460, 4);
                     }
                 }
