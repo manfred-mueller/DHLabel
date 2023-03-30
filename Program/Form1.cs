@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoUpdaterDotNET;
 
 namespace DHLabel
 {
@@ -283,6 +284,13 @@ namespace DHLabel
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AutoUpdater.OpenDownloadPage = true;
+            AutoUpdater.Start("https://github.com/manfred-mueller/DHLabel/raw/master/version.xml");
+        }
+
 
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {

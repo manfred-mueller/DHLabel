@@ -229,4 +229,7 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   <data name="Printer" xml:space="preserve">
     <value> - Drucker: </value>
   </data>
+  <data name="SearchUpdate" xml:space="preserve">
+    <value>&amp;Update suchen</value>
+  </data>
 </root>

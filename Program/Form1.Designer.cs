@@ -48,6 +48,7 @@ namespace DHLabel
             this.setPrinterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,6 +124,7 @@ namespace DHLabel
             this.setPrinterToolStripMenuItem,
             this.printToolStripMenuItem,
             this.toolStripSeparator1,
+            this.updateToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -132,7 +134,7 @@ namespace DHLabel
             // 
             this.openPDFToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_open;
             this.openPDFToolStripMenuItem.Name = "openPDFToolStripMenuItem";
-            this.openPDFToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.openPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openPDFToolStripMenuItem.Text = global::DHLabel.Properties.Resources.OpenPDF;
             this.openPDFToolStripMenuItem.Click += new System.EventHandler(this.openPDF_Click);
             // 
@@ -141,20 +143,20 @@ namespace DHLabel
             this.savePDFToolStripMenuItem.Enabled = false;
             this.savePDFToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_save;
             this.savePDFToolStripMenuItem.Name = "savePDFToolStripMenuItem";
-            this.savePDFToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.savePDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.savePDFToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SavePDF;
             this.savePDFToolStripMenuItem.Click += new System.EventHandler(this.saveLabel_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // setPrinterToolStripMenuItem
             // 
             this.setPrinterToolStripMenuItem.Image = global::DHLabel.Properties.Resources.system_run;
             this.setPrinterToolStripMenuItem.Name = "setPrinterToolStripMenuItem";
-            this.setPrinterToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.setPrinterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.setPrinterToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SetLabelPrinter;
             this.setPrinterToolStripMenuItem.Click += new System.EventHandler(this.setPrinter_Click);
             // 
@@ -163,20 +165,28 @@ namespace DHLabel
             this.printToolStripMenuItem.Enabled = false;
             this.printToolStripMenuItem.Image = global::DHLabel.Properties.Resources.document_print;
             this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.printToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Print;
             this.printToolStripMenuItem.Click += new System.EventHandler(this.printLabel_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Image = global::DHLabel.Properties.Resources.package_upgrade;
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = DHLabel.Properties.Resources.SearchUpdate;
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Image = global::DHLabel.Properties.Resources.application_exit;
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Quit;
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -312,6 +322,7 @@ namespace DHLabel
         private System.Windows.Forms.ToolStripMenuItem setPrinterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem savePDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

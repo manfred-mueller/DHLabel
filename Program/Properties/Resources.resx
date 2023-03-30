@@ -117,60 +117,107 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DropPDFHere" xml:space="preserve">
-    <value>Drop PDF here...</value>
+  <data name="DHLabelDHLPackageLabel" xml:space="preserve">
+    <value>DHLabel DHL package label</value>
   </data>
-  <data name="NoValidPackageLabel" xml:space="preserve">
-    <value>No valid package label!</value>
+  <data name="ShowStatusMessages" xml:space="preserve">
+    <value>Show status messages</value>
   </data>
   <data name="Copyright" xml:space="preserve">
     <value>Copyright &amp;copy; 2021 Manfred M&amp;#252;ller,</value>
     <comment>@Invariant</comment>
   </data>
-  <data name="TheDHLLabelCouldNotBeSaved" xml:space="preserve">
-    <value>The DHL label could not be saved!</value>
-  </data>
-  <data name="ProductName" xml:space="preserve">
-    <value>DHLabel</value>
-  </data>
-  <data name="CompanyName" xml:space="preserve">
-    <value>NASS e.K.</value>
-  </data>
   <data name="Description" xml:space="preserve">
     <value>Description</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>About</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="system_run" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\system-run.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Print" xml:space="preserve">
-    <value>&amp;Print label</value>
+  <data name="SetLabelPrinter" xml:space="preserve">
+    <value>Set &amp;label printer</value>
+  </data>
+  <data name="HeavyPackage" xml:space="preserve">
+    <value>Package &gt;= 20kg</value>
+  </data>
+  <data name="document_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DHLabel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DHLabel.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document-print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SavePDF" xml:space="preserve">
     <value>&amp;Save PDF</value>
   </data>
-  <data name="File" xml:space="preserve">
-    <value>&amp;File</value>
+  <data name="RegistryKey0NotFound" xml:space="preserve">
+    <value>Registry key {0} not found!</value>
   </data>
-  <data name="OpenPDF" xml:space="preserve">
-    <value>&amp;Open PDF</value>
+  <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
+    <value>Extension .pdf associated with </value>
   </data>
-  <data name="Quit" xml:space="preserve">
-    <value>&amp;Quit</value>
+  <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PDFPackageLabelsPdfAllFiles" xml:space="preserve">
-    <value>PDF package labels|*.pdf|All files|*.*</value>
+  <data name="DropPDFHere" xml:space="preserve">
+    <value>Drop PDF here...</value>
   </data>
-  <data name="OpenPDFPackageLabel" xml:space="preserve">
-    <value>Open PDF package label</value>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="document_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\document-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Open with...</value>
+  </data>
+  <data name="DHLabelPackageLabel" xml:space="preserve">
+    <value>DHLabel package label</value>
+  </data>
+  <data name="ConvertingDataForPrintingPleaseWait" xml:space="preserve">
+    <value>Converting data for printing, please wait...</value>
+  </data>
+  <data name="NoValidPackageLabel" xml:space="preserve">
+    <value>No valid package label!</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>NASS e.K.</value>
+  </data>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>Another instance is already active!</value>
+  </data>
+  <data name="InfoAbout" xml:space="preserve">
+    <value>Info about {0}</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>&amp;Print label</value>
   </data>
   <data name="PDFFilesPdfAllFiles" xml:space="preserve">
     <value>PDF files|*.pdf|All files|*.*</value>
   </data>
-  <data name="SaveLabelAsPDFFile" xml:space="preserve">
-    <value>Save label as PDF file</value>
+  <data name="Quit" xml:space="preserve">
+    <value>&amp;Quit</value>
   </data>
-  <data name="InfoAbout" xml:space="preserve">
-    <value>Info about {0}</value>
+  <data name="ApplicationStarted" xml:space="preserve">
+    <value>Application started.</value>
+  </data>
+  <data name="OpenPDFPackageLabel" xml:space="preserve">
+    <value>Open PDF package label</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="BusinessLabel" xml:space="preserve">
+    <value>Business-Label</value>
+    <comment>@Invariant</comment>
   </data>
   <data name="ProductDescription" xml:space="preserve">
     <value>Converts online created DHL private or business package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages &gt;= 20kg, it is possible to mark the package as heavy shipment.
@@ -179,74 +226,39 @@ It can be easyly added to the "open with" menu for PDF files per button click. T
 
 DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (https://github.com/vulture20/DHLConvert).</value>
   </data>
-  <data name="AlreadyRunning" xml:space="preserve">
-    <value>Another instance is already active!</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="DHLabel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DHLabel.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Done.</value>
-  </data>
-  <data name="DHLabelPackageLabel" xml:space="preserve">
-    <value>DHLabel package label</value>
-  </data>
-  <data name="DHLabelDHLPackageLabel" xml:space="preserve">
-    <value>DHLabel DHL package label</value>
-  </data>
-  <data name="ConvertingDataForPrintingPleaseWait" xml:space="preserve">
-    <value>Converting data for printing, please wait...</value>
-  </data>
-  <data name="PrparingDataForPrintingPleaseWait" xml:space="preserve">
-    <value>Preparing data for printing, please wait...</value>
-  </data>
-  <data name="ApplicationStarted" xml:space="preserve">
-    <value>Application started.</value>
-  </data>
-  <data name="ShowStatusMessages" xml:space="preserve">
-    <value>Show status messages</value>
-  </data>
-  <data name="ConvertingPleaseWait" xml:space="preserve">
-    <value>Converting {0}, please wait...</value>
+  <data name="AlwaysOnTop" xml:space="preserve">
+    <value>Always on top</value>
   </data>
   <data name="ReachablePlace" xml:space="preserve">
     <value>Reachable place</value>
   </data>
-  <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
-    <value>Extension .pdf associated with </value>
+  <data name="PrparingDataForPrintingPleaseWait" xml:space="preserve">
+    <value>Preparing data for printing, please wait...</value>
   </data>
-  <data name="RegistryKey0NotFound" xml:space="preserve">
-    <value>Registry key {0} not found!</value>
+  <data name="ProductName" xml:space="preserve">
+    <value>DHLabel</value>
+  </data>
+  <data name="SaveLabelAsPDFFile" xml:space="preserve">
+    <value>Save label as PDF file</value>
+  </data>
+  <data name="TheDHLLabelCouldNotBeSaved" xml:space="preserve">
+    <value>The DHL label could not be saved!</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>&amp;File</value>
   </data>
   <data name="Website" xml:space="preserve">
     <value>https://www.nass-ek.de/service.htm</value>
     <comment>@Invariant</comment>
   </data>
-  <data name="AlwaysOnTop" xml:space="preserve">
-    <value>Always on top</value>
+  <data name="ConvertingPleaseWait" xml:space="preserve">
+    <value>Converting {0}, please wait...</value>
   </data>
-  <data name="OpenWith" xml:space="preserve">
-    <value>Open with...</value>
+  <data name="OpenPDF" xml:space="preserve">
+    <value>&amp;Open PDF</value>
   </data>
-  <data name="BusinessLabel" xml:space="preserve">
-    <value>Business-Label</value>
-    <comment>@Invariant</comment>
-  </data>
-  <data name="HeavyPackage" xml:space="preserve">
-    <value>Package &gt;= 20kg</value>
-  </data>
-  <data name="Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Package" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Package.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SetLabelPrinter" xml:space="preserve">
-    <value>Set &amp;label printer</value>
+  <data name="PDFPackageLabelsPdfAllFiles" xml:space="preserve">
+    <value>PDF package labels|*.pdf|All files|*.*</value>
   </data>
   <data name="Printer" xml:space="preserve">
     <value> - Printer: </value>
@@ -254,16 +266,10 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   <data name="application_exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\application-exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="document_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="package-upgrade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\package-upgrade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="document_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document-print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="document_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\document-save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="system_run" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\system-run.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SearchUpdate" xml:space="preserve">
+    <value>Search &amp;update</value>
   </data>
 </root>

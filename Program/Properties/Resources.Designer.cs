@@ -338,6 +338,16 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap package_upgrade {
+            get {
+                object obj = ResourceManager.GetObject("package-upgrade", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die PDF files|*.pdf|All files|*.* ähnelt.
         /// </summary>
         internal static string PDFFilesPdfAllFiles {
@@ -446,6 +456,15 @@ namespace DHLabel.Properties {
         internal static string SavePDF {
             get {
                 return ResourceManager.GetString("SavePDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Search &amp;update ähnelt.
+        /// </summary>
+        internal static string SearchUpdate {
+            get {
+                return ResourceManager.GetString("SearchUpdate", resourceCulture);
             }
         }
         
