@@ -288,7 +288,7 @@ namespace DHLabel
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TopMost = false;
-            AutoUpdater.OpenDownloadPage = true;
+//            AutoUpdater.OpenDownloadPage = true;
             AutoUpdater.Start("https://github.com/manfred-mueller/DHLabel/raw/master/version.xml");
         }
 

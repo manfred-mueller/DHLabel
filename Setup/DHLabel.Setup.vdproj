@@ -433,7 +433,7 @@
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.4.1"
+        "ProductVersion" = "8:1.4.3"
         "Manufacturer" = "8:NASS e.K."
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://www.nass-ek.de/service.htm"
