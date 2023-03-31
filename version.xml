@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <item>
   <version>1.4.3</version>
-  <url>https://github.com/manfred-mueller/DHLabel/releases/download/1.4.3/DHLabel-Setup.msi</url>
-  <changelog>https://github.com/manfred-mueller/DHLabel/releases/tag/1.4.3</changelog>
+  <url>https://github.com/manfred-mueller/DHLabel/releases/download/1.4.3/DHLabel-Setup-1.4.3.exe</url>
+  <changelog>https://github.com/manfred-mueller/DHLabel/ChangeLog.txt</changelog>
   <mandatory>false</mandatory>
 </item>
