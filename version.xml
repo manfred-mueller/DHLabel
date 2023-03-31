@@ -2,6 +2,6 @@
 <item>
   <version>1.4.3</version>
   <url>https://github.com/manfred-mueller/DHLabel/releases/download/1.4.3/DHLabel-Setup-1.4.3.exe</url>
-  <changelog>https://github.com/manfred-mueller/DHLabel/ChangeLog.txt</changelog>
+  <changelog>https://github.com/manfred-mueller/DHLabel/blob/master/ChangeLog.txt</changelog>
   <mandatory>false</mandatory>
 </item>
