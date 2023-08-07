@@ -346,6 +346,9 @@
   <ItemGroup>
     <None Include="Resources\package-upgrade.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="version.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>D:\Tools\sign.cmd $(TargetPath)</PostBuildEvent>

@@ -219,42 +219,51 @@ namespace DHLabel
 
         private void printLabel(Image label)
         {
+            // Set the printing properties
             printDocument1.DefaultPageSettings.Landscape = true;
-            printDocument1.PrintPage += (sender, args) =>
-            {
-                Rectangle m = args.PageBounds;
-
-                if ((double)label.Width / (double)label.Height > (double)m.Width / (double)m.Height)
-                {
-                    m.Height = (int)((double)label.Height / (double)label.Width * (double)m.Width);
-                }
-                else
-                {
-                    m.Width = (int)((double)label.Width / (double)label.Height * (double)m.Height);
-                }
-
-                args.Graphics.DrawImage(picboxLabel.Image, m);
-            };
             Margins margins = new Margins(12, 0, 15, 0);
             printDocument1.OriginAtMargins = true;
             printDocument1.DefaultPageSettings.Margins = margins;
             ForcePageSize(printDocument1, PaperKind.A6);
-            if (string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+
+            // Set the printer name
+            string printerName = Properties.Settings.Default.printOn;
+            if (string.IsNullOrEmpty(printerName))
             {
                 TopMost = false;
                 setPrinter();
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
                 {
-                    printDocument1.PrinterSettings.PrinterName = Properties.Settings.Default.printOn;
-                    printDocument1.Print();
-                    TopMost = cbOntop.Checked;
+                    printerName = Properties.Settings.Default.printOn;
                 }
             }
-            else
+
+            if (!string.IsNullOrEmpty(printerName))
             {
                 TopMost = false;
-                printDocument1.PrinterSettings.PrinterName = Properties.Settings.Default.printOn;
+
+                // Set up printing event
+                printDocument1.PrintPage += (sender, args) =>
+                {
+                    Rectangle printRect = args.PageBounds;
+
+                    if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
+                    {
+                        printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
+                    }
+                    else
+                    {
+                        printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
+                    }
+
+                    args.Graphics.DrawImage(label, printRect);
+                };
+
+                // Set printer name and print
+                printDocument1.PrinterSettings.PrinterName = printerName;
                 printDocument1.Print();
+
+                // Restore TopMost setting
                 TopMost = cbOntop.Checked;
             }
         }
