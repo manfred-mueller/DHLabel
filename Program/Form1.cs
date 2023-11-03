@@ -14,8 +14,8 @@ namespace DHLabel
         RegistryKey progKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\" + Application.ProductName, true);
         protected StatusBar mainStatusBar = new StatusBar();
         protected StatusBarPanel statusPanel = new StatusBarPanel();
-        public bool isBusiness;
         public bool isHeavy;
+        public int labelType;
         public string titleString;
         public Form1(string[] args)
         {
@@ -24,9 +24,11 @@ namespace DHLabel
             checkKey();
             cbOntop.Checked = Properties.Settings.Default.onTop;
             cbOpenWith.Checked = Properties.Settings.Default.openWith;
-            cbBusiness.Checked = Properties.Settings.Default.businessLabel;
+            labelType = Properties.Settings.Default.labelType;
+            rbStandard.Checked = labelType == 0;
+            rbBusiness.Checked = labelType == 1;
+            rbReturn.Checked = labelType == 2;
             cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
-            isBusiness = cbBusiness.Checked;
             isHeavy = cbHeavy.Checked;
             setTitle();
             if (args.Length == 1)
@@ -85,7 +87,13 @@ namespace DHLabel
             Rectangle rectGoGreen;
             Rectangle rectPayed;
             Bitmap bitmapLabel;
-            if (isBusiness)
+            if (labelType == 2)
+            {
+                rectMain = new Rectangle(1920, 65, 1075, 755);
+                rectMiddle = new Rectangle(1850, 885, 860, 145);
+                rectBar = new Rectangle(1912, 1100, 1075, 860);
+            }
+            else if (labelType == 1)
             {
                 rectMain = new Rectangle(-20, 0, 1120, 705);
                 rectMiddle = new Rectangle(0, 700, 1090, 140);
@@ -95,7 +103,7 @@ namespace DHLabel
             {
                 rectMain = new Rectangle(1860, 95, 1075, 705);
                 rectMiddle = new Rectangle(1850, 885, 860, 145);
-                rectBar = new Rectangle(1860, 1345, 1075, 860);
+                rectBar = new Rectangle(1860, 1350, 1075, 860);
             }
 
             rectLine = new Rectangle(1860, 1018, 1075, 17);
@@ -116,8 +124,9 @@ namespace DHLabel
 
                 doc.LoadFromFile(filename);
                 source = doc.SaveAsImage(0, 273, 273);
+                source.Save("C://Temp//test1.jpg");
 
-                if (!isBusiness) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                if (labelType != 1) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 bitmapMain = getClip(source, rectMain);
                 bitmapMiddle = getClip(source, rectMiddle);
                 bitmapBar = getClip(source, rectBar);
@@ -140,7 +149,13 @@ namespace DHLabel
                 {
                     g.Clear(Color.White);
                     g.DrawImage(bitmapMain, 0, 1);
-                    if (isBusiness)
+                    if (labelType == 2)
+                    {
+                        g.DrawImage(bitmapBar, 760, -70);
+                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 4);
+
+                    }
+                    else if (labelType == 1)
                     {
                         g.DrawImage(bitmapBar, 705, 5);
                         g.DrawImage(bitmapMiddle, 620, 5);
@@ -397,11 +412,34 @@ namespace DHLabel
             Properties.Settings.Default.Save();
         }
 
-        private void cbBusiness_CheckedChanged(object sender, EventArgs e)
+        private void rbBusiness_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.businessLabel = cbBusiness.Checked;
-            isBusiness = cbBusiness.Checked;
-            Properties.Settings.Default.Save();
+            if (rbBusiness.Checked)
+            {
+                labelType = 1;
+                Properties.Settings.Default.labelType = 1;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void rbReturn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbReturn.Checked)
+            {
+                labelType = 2;
+                Properties.Settings.Default.labelType = 2;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        private void rbStandard_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbStandard.Checked)
+            {
+                labelType = 0;
+                Properties.Settings.Default.labelType = 0;
+                Properties.Settings.Default.Save();
+            }
         }
 
         private void cbHeavy_CheckedChanged(object sender, EventArgs e)

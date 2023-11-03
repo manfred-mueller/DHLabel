@@ -32,7 +32,10 @@ namespace DHLabel
         void this_StartupNextInstance(object sender, StartupNextInstanceEventArgs e)
         {
             Form1 form = MainForm as Form1;
-            form.LoadFile(e.CommandLine[1]);
+            if (e.CommandLine.Count == 2)
+            {
+                form.LoadFile(e.CommandLine[1]);
+            }
         }
 
         protected override void OnCreateMainForm()

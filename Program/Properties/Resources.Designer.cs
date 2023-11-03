@@ -107,7 +107,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Business-Label ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Business label ähnelt.
         /// </summary>
         internal static string BusinessLabel {
             get {
@@ -274,7 +274,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Package &gt;= 20kg ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Package over 20 kg ähnelt.
         /// </summary>
         internal static string HeavyPackage {
             get {
@@ -384,11 +384,11 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private or business package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages &gt;= 20kg, it is possible to mark the package as heavy shipment.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private, business or return package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages above 20 kg, it is possible to mark the package as heavy shipment.
         ///
         ///It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
         ///
-        ///DHLabel is a heavily  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        ///DHLabel i [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
         /// </summary>
         internal static string ProductDescription {
             get {
@@ -442,6 +442,15 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Return label ähnelt.
+        /// </summary>
+        internal static string ReturnLabel {
+            get {
+                return ResourceManager.GetString("ReturnLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Save label as PDF file ähnelt.
         /// </summary>
         internal static string SaveLabelAsPDFFile {
@@ -483,6 +492,15 @@ namespace DHLabel.Properties {
         internal static string ShowStatusMessages {
             get {
                 return ResourceManager.GetString("ShowStatusMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Standard label ähnelt.
+        /// </summary>
+        internal static string StandardLabel {
+            get {
+                return ResourceManager.GetString("StandardLabel", resourceCulture);
             }
         }
         

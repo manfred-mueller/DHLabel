@@ -2,9 +2,9 @@
 
 ![DHLabel screenshot](/Screenshot.png?raw=true "DHLabel screenshot")
 
-Wandelt online erstellte DHL Privat oder Business Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Der zu verwendete Drucker wird beim ersten Start gespeichert und kann über das Menü geändert werden. Wie von DHL gefordert, können Pakete >= 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
+Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Der zu verwendete Drucker wird beim ersten Start gespeichert und kann über das Menü geändert werden. Wie von DHL gefordert, können Pakete über 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
 
-Es kann durch einfachen Mausklick  zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen.
+Es kann durch einfachen Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen.
 
 Dank an [TiER](https://github.com/TimoErdmann) für den Business-Teil und [vulture20](https://github.com/vulture20) für sein [DHLConvert](https://github.com/vulture20/DHLConvert). Ebenso Dank an [Matthieu James](https://www.deviantart.com/tiheum) für das Faenza-Symbol-Thema.
 

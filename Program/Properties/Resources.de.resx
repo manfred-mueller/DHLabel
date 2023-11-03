@@ -166,7 +166,7 @@
     <value>Info über {0}</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Wandelt online erstellte DHL Privat oder Business Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Wie von DHL gefordert, können Pakete &gt;= 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
+    <value>Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Wie von DHL gefordert, können Pakete über 20 kg mit "Achtung schweres Paket" versehen werden.
 
 Es kann per Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach dem Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei speichern zu müssen. Das Programm kann bei Bedarf als oberstes Fenster definiert werden.
 
@@ -221,7 +221,7 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
     <value>Öffnen mit...</value>
   </data>
   <data name="HeavyPackage" xml:space="preserve">
-    <value>Paket &gt;= 20kg</value>
+    <value>Paket über 20 kg</value>
   </data>
   <data name="SetLabelPrinter" xml:space="preserve">
     <value>&amp;Labeldrucker einstellen</value>
@@ -231,5 +231,14 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   </data>
   <data name="SearchUpdate" xml:space="preserve">
     <value>&amp;Update suchen</value>
+  </data>
+  <data name="BusinessLabel" xml:space="preserve">
+    <value>Businesslabel</value>
+  </data>
+  <data name="StandardLabel" xml:space="preserve">
+    <value>Standardlabel</value>
+  </data>
+  <data name="ReturnLabel" xml:space="preserve">
+    <value>Retourenlabel</value>
   </data>
 </root>
