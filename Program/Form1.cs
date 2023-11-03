@@ -124,7 +124,7 @@ namespace DHLabel
 
                 doc.LoadFromFile(filename);
                 source = doc.SaveAsImage(0, 273, 273);
-                source.Save("C://Temp//test1.jpg");
+                //source.Save("C://Temp//dhlabel.jpg");
 
                 if (labelType != 1) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 bitmapMain = getClip(source, rectMain);
@@ -232,55 +232,60 @@ namespace DHLabel
             printToolStripMenuItem.Enabled = true;
         }
 
-        private void printLabel(Image label)
+        private void PrintLabel(Image label)
         {
-            // Set the printing properties
-            printDocument1.DefaultPageSettings.Landscape = true;
-            Margins margins = new Margins(12, 0, 15, 0);
-            printDocument1.OriginAtMargins = true;
-            printDocument1.DefaultPageSettings.Margins = margins;
-            ForcePageSize(printDocument1, PaperKind.A6);
-
-            // Set the printer name
-            string printerName = Properties.Settings.Default.printOn;
-            if (string.IsNullOrEmpty(printerName))
+            // Set the printing properties once instead of in each call
+            if (printDocument1.PrinterSettings.PrinterName != Properties.Settings.Default.printOn)
             {
-                TopMost = false;
-                setPrinter();
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+                printDocument1.DefaultPageSettings.Landscape = true;
+                Margins margins = new Margins(12, 0, 15, 0);
+                printDocument1.OriginAtMargins = true;
+                printDocument1.DefaultPageSettings.Margins = margins;
+                ForcePageSize(printDocument1, PaperKind.A6);
+
+                // Set the printer name
+                string printerName = Properties.Settings.Default.printOn;
+                if (string.IsNullOrEmpty(printerName))
                 {
-                    printerName = Properties.Settings.Default.printOn;
+                    TopMost = false;
+                    setPrinter();
+                    if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+                    {
+                        printerName = Properties.Settings.Default.printOn;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(printerName))
+                {
+                    TopMost = false;
+
+                    // Set up printing event
+                    printDocument1.PrintPage += (sender, args) =>
+                    {
+                        Rectangle printRect = args.PageBounds;
+
+                        if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
+                        {
+                            printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
+                        }
+                        else
+                        {
+                            printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
+                        }
+
+                        args.Graphics.DrawImage(label, printRect);
+                    };
+
+                    // Set printer name
+                    printDocument1.PrinterSettings.PrinterName = printerName;
                 }
             }
 
-            if (!string.IsNullOrEmpty(printerName))
-            {
-                TopMost = false;
+            // Print
+            printDocument1.Print();
 
-                // Set up printing event
-                printDocument1.PrintPage += (sender, args) =>
-                {
-                    Rectangle printRect = args.PageBounds;
-
-                    if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
-                    {
-                        printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
-                    }
-                    else
-                    {
-                        printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
-                    }
-
-                    args.Graphics.DrawImage(label, printRect);
-                };
-
-                // Set printer name and print
-                printDocument1.PrinterSettings.PrinterName = printerName;
-                printDocument1.Print();
-
-                // Restore TopMost setting
-                TopMost = cbOntop.Checked;
-            }
+            // Restore TopMost setting
+            TopMost = cbOntop.Checked;
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
@@ -325,7 +330,7 @@ namespace DHLabel
         private async void printLabel_Click(object sender, EventArgs e)
         {
             statusPanel.Text = string.Format(Properties.Resources.ConvertingDataForPrintingPleaseWait);
-            await Task.Run(() => printLabel(picboxLabel.Image));
+            await Task.Run(() => PrintLabel(picboxLabel.Image));
             statusPanel.Text = string.Format(Properties.Resources.Done);
         }
 
