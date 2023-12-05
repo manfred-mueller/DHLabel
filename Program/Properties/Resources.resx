@@ -278,4 +278,7 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   <data name="ReturnLabel" xml:space="preserve">
     <value>Return label</value>
   </data>
+  <data name="ConvertsDHLPackageLabelPDFsToA6Format" xml:space="preserve">
+    <value>Converts DHL package label PDFs to A6 format.</value>
+  </data>
 </root>

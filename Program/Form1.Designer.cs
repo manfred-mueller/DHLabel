@@ -245,7 +245,7 @@ namespace DHLabel
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(448, 31);
+            this.cbOpenWith.Location = new System.Drawing.Point(442, 31);
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(116, 16);
             this.cbOpenWith.TabIndex = 3;
@@ -254,7 +254,7 @@ namespace DHLabel
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(448, 46);
+            this.cbOntop.Location = new System.Drawing.Point(442, 46);
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(116, 16);
             this.cbOntop.TabIndex = 3;
@@ -265,9 +265,9 @@ namespace DHLabel
             // 
             this.cbHeavy.BackColor = System.Drawing.Color.Transparent;
             this.cbHeavy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cbHeavy.Location = new System.Drawing.Point(448, 60);
+            this.cbHeavy.Location = new System.Drawing.Point(442, 60);
             this.cbHeavy.Name = "cbHeavy";
-            this.cbHeavy.Size = new System.Drawing.Size(116, 18);
+            this.cbHeavy.Size = new System.Drawing.Size(124, 18);
             this.cbHeavy.TabIndex = 5;
             this.cbHeavy.Text = global::DHLabel.Properties.Resources.HeavyPackage;
             this.cbHeavy.UseVisualStyleBackColor = false;

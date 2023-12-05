@@ -3,9 +3,10 @@ using Spire.Pdf;
 using System;
 using System.Drawing;
 using System.Drawing.Printing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoUpdaterDotNET;
+using Image = System.Drawing.Image;
+using PrintDialog = System.Windows.Forms.PrintDialog;
 
 namespace DHLabel
 {
@@ -17,6 +18,7 @@ namespace DHLabel
         public bool isHeavy;
         public int labelType;
         public string titleString;
+        public PdfDocument pdfDoc;
         public Form1(string[] args)
         {
             InitializeComponent();
@@ -75,9 +77,10 @@ namespace DHLabel
 
         private Bitmap convertPDF(string filename)
         {
+            ClearCaches(); // Clear caches before each conversion
             statusPanel.Text = string.Format(Properties.Resources.ConvertingPleaseWait, filename);
 
-            PdfDocument doc = new PdfDocument();
+            pdfDoc = new PdfDocument();
             Image source;
             Rectangle rectMain;
             Rectangle rectMiddle;
@@ -122,8 +125,8 @@ namespace DHLabel
                 Bitmap bitmapGoGreen;
                 Bitmap bitmapPayed;
 
-                doc.LoadFromFile(filename);
-                source = doc.SaveAsImage(0, 273, 273);
+                pdfDoc.LoadFromFile(filename);
+                source = pdfDoc.SaveAsImage(0, 273, 273);
                 //source.Save("C://Temp//dhlabel.jpg");
 
                 if (labelType != 1) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
@@ -180,8 +183,15 @@ namespace DHLabel
             {
                 return null;
             }
+            finally
+            {
+                ClearCaches(); // Clear caches after conversion
+            }
         }
-
+        private void ClearCaches()
+        {
+            pdfDoc = new PdfDocument();
+        }
         bool ForcePageSize(PrintDocument MyPrintDocument, PaperKind MyPaperKind)
         {
             for (int i = 0; i < MyPrintDocument.PrinterSettings.PaperSizes.Count; ++i)
@@ -199,9 +209,9 @@ namespace DHLabel
         {
             try
             {
-                PdfDocument doc = new PdfDocument();
-                PdfSection section = doc.Sections.Add();
-                PdfPageBase page = doc.Pages.Add(PdfPageSize.A6, new Spire.Pdf.Graphics.PdfMargins(0), PdfPageRotateAngle.RotateAngle90, PdfPageOrientation.Landscape);
+                pdfDoc = new PdfDocument();
+                PdfSection section = pdfDoc.Sections.Add();
+                PdfPageBase page = pdfDoc.Pages.Add(PdfPageSize.A6, new Spire.Pdf.Graphics.PdfMargins(0), PdfPageRotateAngle.RotateAngle90, PdfPageOrientation.Landscape);
                 Spire.Pdf.Graphics.PdfImage image = Spire.Pdf.Graphics.PdfImage.FromImage(picboxLabel.Image);
                 float widthFitRate = image.PhysicalDimension.Width / page.Canvas.ClientSize.Width;
                 float heightFitRate = image.PhysicalDimension.Height / page.Canvas.ClientSize.Height;
@@ -209,13 +219,13 @@ namespace DHLabel
                 float fitWidth = image.PhysicalDimension.Width / fitRate;
                 float fitHeight = image.PhysicalDimension.Height / fitRate;
 
-                doc.DocumentInformation.Author = Properties.Resources.Copyright;
-                doc.DocumentInformation.Title = Properties.Resources.DHLabelPackageLabel;
-                doc.DocumentInformation.Producer = Application.ProductName;
-                doc.DocumentInformation.Keywords = Properties.Resources.DHLabelDHLPackageLabel;
+                pdfDoc.DocumentInformation.Author = Properties.Resources.Copyright;
+                pdfDoc.DocumentInformation.Title = Properties.Resources.DHLabelPackageLabel;
+                pdfDoc.DocumentInformation.Producer = Application.ProductName;
+                pdfDoc.DocumentInformation.Keywords = Properties.Resources.DHLabelDHLPackageLabel;
                 page.Canvas.DrawImage(image, 10, 10, fitWidth, fitHeight);
-                doc.SaveToFile(filename);
-                doc.Close();
+                pdfDoc.SaveToFile(filename);
+                pdfDoc.Close();
                 return true;
             }
             catch
@@ -327,10 +337,10 @@ namespace DHLabel
         }
 
 
-        private async void printLabel_Click(object sender, EventArgs e)
+        private void printLabel_Click(object sender, EventArgs e)
         {
             statusPanel.Text = string.Format(Properties.Resources.ConvertingDataForPrintingPleaseWait);
-            await Task.Run(() => PrintLabel(picboxLabel.Image));
+            PrintLabel(picboxLabel.Image);
             statusPanel.Text = string.Format(Properties.Resources.Done);
         }
 

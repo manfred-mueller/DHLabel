@@ -143,6 +143,15 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts DHL package label PDFs to A6 format. ähnelt.
+        /// </summary>
+        internal static string ConvertsDHLPackageLabelPDFsToA6Format {
+            get {
+                return ResourceManager.GetString("ConvertsDHLPackageLabelPDFsToA6Format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Copyright &amp;copy; 2021 Manfred M&amp;#252;ller, ähnelt.
         /// </summary>
         internal static string Copyright {
