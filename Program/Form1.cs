@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using AutoUpdaterDotNET;
 using Image = System.Drawing.Image;
 using PrintDialog = System.Windows.Forms.PrintDialog;
+using System.Xml.Linq;
 
 namespace DHLabel
 {
@@ -77,7 +78,7 @@ namespace DHLabel
 
         private Bitmap convertPDF(string filename)
         {
-            ClearCaches(); // Clear caches before each conversion
+            ClearCaches();
             statusPanel.Text = string.Format(Properties.Resources.ConvertingPleaseWait, filename);
 
             pdfDoc = new PdfDocument();
@@ -185,7 +186,7 @@ namespace DHLabel
             }
             finally
             {
-                ClearCaches(); // Clear caches after conversion
+                ClearCaches();
             }
         }
         private void ClearCaches()
@@ -244,6 +245,7 @@ namespace DHLabel
 
         private void PrintLabel(Image label)
         {
+            printDocument1 = new PrintDocument();
             // Set the printing properties once instead of in each call
             if (printDocument1.PrinterSettings.PrinterName != Properties.Settings.Default.printOn)
             {
@@ -293,7 +295,6 @@ namespace DHLabel
 
             // Print
             printDocument1.Print();
-
             // Restore TopMost setting
             TopMost = cbOntop.Checked;
         }
