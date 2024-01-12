@@ -1,6 +1,6 @@
 # DHLabel
 
-![DHLabel screenshot](/Screenshot.png?raw=true "DHLabel screenshot") [Softpedia award](https://www.softpedia.com/_img/softpedia_100_free.png)
+![DHLabel screenshot](/Screenshot.png?raw=true "DHLabel screenshot") https://www.softpedia.com/_img/softpedia_100_free.png?2023_1
 
 Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Der zu verwendete Drucker wird beim ersten Start gespeichert und kann über das Menü geändert werden. Wie von DHL gefordert, können Pakete über 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
 
