@@ -1,14 +1,14 @@
 # DHLabel
 
-![DHLabel screenshot](/Screenshot.png?raw=true "DHLabel screenshot")
+![DHLabel screenshot](/Screenshot.png?raw=true "DHLabel screenshot") [![Softpedia award](https://www.softpedia.com/_img/softpedia_100_free.png?2023_1)](https://www.softpedia.com/get/Office-tools/Other-Office-Tools/DHLabel.shtml#status)
 
-Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Der zu verwendete Drucker wird beim ersten Start gespeichert und kann über das Menü geändert werden. Wie von DHL gefordert, können Pakete über 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
+Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Der zu verwendete Drucker wird beim ersten Start gespeichert und kann Ã¼ber das MenÃ¼ geÃ¤ndert werden. Wie von DHL gefordert, kÃ¶nnen Pakete Ã¼ber 20kg mit "Achtung schweres Paket" gekennzeichnet werden.
 
-Es kann durch einfachen Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werden. So kann man es direkt nach Ausfüllen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu müssen.
+Es kann durch einfachen Mausklick zum "Ã–ffnen mit"-MenÃ¼ fÃ¼r PDF-Dateien hinzugefÃ¼gt werden. So kann man es direkt nach AusfÃ¼llen des DHL-Onlineformulars benutzen, ohne die generierte PDF-Datei erst speichern zu mÃ¼ssen.
 
-Dank an [TiER](https://github.com/TimoErdmann) für den Business-Teil und [vulture20](https://github.com/vulture20) für sein [DHLConvert](https://github.com/vulture20/DHLConvert). Ebenso Dank an [Matthieu James](https://www.deviantart.com/tiheum) für das Faenza-Symbol-Thema.
+Dank an [TiER](https://github.com/TimoErdmann) fÃ¼r den Business-Teil und [vulture20](https://github.com/vulture20) fÃ¼r sein [DHLConvert](https://github.com/vulture20/DHLConvert). Ebenso Dank an [Matthieu James](https://www.deviantart.com/tiheum) fÃ¼r das Faenza-Symbol-Thema.
 
-NASS e.K. und DHLabel sind in keinster Weise mit DHL® verbunden. Alle in dieser Software verwendeten Markennamen und Bezeichnungen sind eingetragene Warenzeichen und Marken der jeweiligen Eigentümer und dienen nur der Beschreibung.
+NASS e.K. und DHLabel sind in keinster Weise mit DHLÂ® verbunden. Alle in dieser Software verwendeten Markennamen und Bezeichnungen sind eingetragene Warenzeichen und Marken der jeweiligen EigentÃ¼mer und dienen nur der Beschreibung.
 
 Converts online created DHL package labels into A6 format to be printed onto single labels with a laser printer. The printer to be used will be set at first start and can be set in the menu. As demanded by DHL for packages >= 20kg, it is possible to mark the package as heavy shipment.
 
@@ -17,4 +17,4 @@ It can be added to the "open with" menu for PDF files with a single mouse click.
 Thanks to [TiER](https://github.com/TimoErdmann) for the business part und [vulture20](https://github.com/vulture20) for his [DHLConvert](https://github.com/vulture20/DHLConvert). Also thanks to [Matthieu James](https://www.deviantart.com/tiheum) for his Faenza icon theme.
 
 
-NASS e.K. and DHLabel are not related to DHL®. All trademarks and product names used in this software are the properties of their respective owners and are used solely for descriptive purposes.
+NASS e.K. and DHLabel are not related to DHLÂ®. All trademarks and product names used in this software are the properties of their respective owners and are used solely for descriptive purposes.
