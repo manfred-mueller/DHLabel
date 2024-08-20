@@ -11,6 +11,6 @@ jobs:
       uses: michidk/winget-updater@v1
       with:
         komac-token: ${{ secrets.WINGET_TOKEN }}
-        identifier: "manfred-mueller.dhlabel"
-        repo: "manfred-mueller.dhlabel"
+        identifier: "NASSe.K.DHLabel"
+        repo: "NASSe.K.DHLabel"
         URL: "https://github.com/manfred-mueller/DHLabel/releases/download/v1.5.1/DHLabel-Setup-1.5.1.exe"
