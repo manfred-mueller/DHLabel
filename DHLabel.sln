@@ -7,6 +7,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{2B593C4A-133C-4E82-A91E-5A860E2A357D}"
 EndProject
 Project("{29E15B7A-B420-4782-B51D-1BE2F663A160}") = "Setup", "Setup\Setup.innoproj", "{4409CFB9-DFFA-49A3-B416-FC188DD5D7D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F79E3061-F8FE-46DD-BE4C-69F85A675116} = {F79E3061-F8FE-46DD-BE4C-69F85A675116}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

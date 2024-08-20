@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.4.3"
+#define MyAppVersion "1.5.1"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -25,6 +25,7 @@ DisableProgramGroupPage=yes
 LicenseFile=D:\Dokumente\gpl_de.txt
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
+OutputDir=Program\bin\Release
 OutputBaseFilename={#MyAppName}-Setup-{#MyAppVersion}
 SetupIconFile=D:\Bilder\nass-ek.ico
 UninstallDisplayIcon={app}\{#MyAppExeName},0
@@ -37,9 +38,7 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 ChangesAssociations = yes
-
-SignTool=Certum
-OutputDir=.\Setup
+SignTool=CertumVS
 
 [Languages]
 Name: "german"; MessagesFile: "compiler:Languages\German.isl"
@@ -59,11 +58,11 @@ Root: HKCR; Subkey: "{#MyAppName}\shell\open\command";  ValueData: """{app}\{#My
 
 [Files]
 Source: "Program\bin\Release\DHLabel.exe"; DestDir: "{app}"; DestName: "{#MyAppExeName}"; Flags: confirmoverwrite
-Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.mshtml.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"
+;Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"
+;Source: "Program\bin\Release\Microsoft.mshtml.dll"; DestDir: "{app}"
+;Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"
+;Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"
+;Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"
 
 [Code]
 

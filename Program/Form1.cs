@@ -47,6 +47,7 @@ namespace DHLabel
             else
             {
                 picboxLabel.Image = dropBitmap();
+                statusPanel.Text = args[0];
             }
         }
 
@@ -180,8 +181,17 @@ namespace DHLabel
 
                 return bitmapLabel;
             }
-            catch (Spire.Pdf.Exceptions.PdfDocumentException)
+            catch (Exception ex) when (ex.Message.Contains("Invalid format") ||
+                                       ex.Message.Contains("Unknown format") ||
+                                       ex.Message.Contains("Unsupported format"))
             {
+                // Log or handle the unsupported format exception quietly
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Handle any other exceptions with the "PDF conversion error" message
+                MessageBox.Show("PDF conversion error: " + ex.Message);
                 return null;
             }
             finally
@@ -191,6 +201,7 @@ namespace DHLabel
         }
         private void ClearCaches()
         {
+            pdfDoc?.Close();
             pdfDoc = new PdfDocument();
         }
         bool ForcePageSize(PrintDocument MyPrintDocument, PaperKind MyPaperKind)

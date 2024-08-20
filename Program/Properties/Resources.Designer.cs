@@ -152,7 +152,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Copyright &amp;copy; 2021 Manfred M&amp;#252;ller, ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copyright &amp;copy; 2024 Manfred M&amp;#252;ller, ähnelt.
         /// </summary>
         internal static string Copyright {
             get {
@@ -283,7 +283,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Package over 20 kg ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Package over 10 kg ähnelt.
         /// </summary>
         internal static string HeavyPackage {
             get {
@@ -393,7 +393,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private, business or return package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages above 20 kg, it is possible to mark the package as heavy shipment.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Converts online created DHL private, business or return package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages above 10 kg, it is possible to mark the package as heavy shipment.
         ///
         ///It can be easyly added to the &quot;open with&quot; menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
         ///

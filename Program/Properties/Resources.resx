@@ -124,7 +124,7 @@
     <value>Show status messages</value>
   </data>
   <data name="Copyright" xml:space="preserve">
-    <value>Copyright &amp;copy; 2021 Manfred M&amp;#252;ller,</value>
+    <value>Copyright &amp;copy; 2024 Manfred M&amp;#252;ller,</value>
     <comment>@Invariant</comment>
   </data>
   <data name="Description" xml:space="preserve">
@@ -138,7 +138,7 @@
     <value>Set &amp;label printer</value>
   </data>
   <data name="HeavyPackage" xml:space="preserve">
-    <value>Package over 20 kg</value>
+    <value>Package over 10 kg</value>
   </data>
   <data name="document_open" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\document-open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,7 +220,7 @@
     
   </data>
   <data name="ProductDescription" xml:space="preserve">
-    <value>Converts online created DHL private, business or return package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages above 20 kg, it is possible to mark the package as heavy shipment.
+    <value>Converts online created DHL private, business or return package labels into A6 format to be printed onto single labels with a laser printer. As demanded by DHL for packages above 10 kg, it is possible to mark the package as heavy shipment.
 
 It can be easyly added to the "open with" menu for PDF files per button click. Thus it is possible to use it directly after filling out the DHL online form without the need of saving the created pdf. The program can be defined as topmost window optionally.
 
