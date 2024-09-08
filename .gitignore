@@ -6,17 +6,24 @@
 *.user
 *.sln.docstates
 
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
+#[Rr]elease/
 [Ss]etup/
 x64/
+app.publish/
 build/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 [Mm]anifests/
+
+# Do NOT ignore the following, even if they are in subdirectories
+Program/bin/Release/*
+!Program/bin/Release/DHLabel-Setup*.exe
+#!*/
 
 # Roslyn cache directories
 *.ide/

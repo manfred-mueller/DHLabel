@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.1"
+#define MyAppVersion "1.5.2"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -58,11 +58,11 @@ Root: HKCR; Subkey: "{#MyAppName}\shell\open\command";  ValueData: """{app}\{#My
 
 [Files]
 Source: "Program\bin\Release\DHLabel.exe"; DestDir: "{app}"; DestName: "{#MyAppExeName}"; Flags: confirmoverwrite
-;Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"
-;Source: "Program\bin\Release\Microsoft.mshtml.dll"; DestDir: "{app}"
-;Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"
-;Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"
-;Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\Microsoft.mshtml.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"
 
 [Code]
 
