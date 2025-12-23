@@ -246,59 +246,48 @@ namespace DHLabel
         private void PrintLabel(Image label)
         {
             printDocument1 = new PrintDocument();
-            // Set the printing properties once instead of in each call
-            if (printDocument1.PrinterSettings.PrinterName != Properties.Settings.Default.printOn)
+            // Set the printer name
+            string printerName = Properties.Settings.Default.printOn;
+            if (string.IsNullOrEmpty(printerName))
             {
+                TopMost = false;
+                setPrinter();
+                printerName = Properties.Settings.Default.printOn;
+            }
+
+            if (!string.IsNullOrEmpty(printerName))
+            {
+                printDocument1.PrinterSettings.PrinterName = printerName;
+
                 printDocument1.DefaultPageSettings.Landscape = true;
                 Margins margins = new Margins(12, 0, 15, 0);
                 printDocument1.OriginAtMargins = true;
                 printDocument1.DefaultPageSettings.Margins = margins;
                 ForcePageSize(printDocument1, PaperKind.A6);
 
-                // Set the printer name
-                string printerName = Properties.Settings.Default.printOn;
-                if (string.IsNullOrEmpty(printerName))
+                TopMost = false;
+                // Set up printing event
+                printDocument1.PrintPage += (sender, args) =>
                 {
-                    TopMost = false;
-                    setPrinter();
-                    if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
+                    Rectangle printRect = args.PageBounds;
+
+                    if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
                     {
-                        printerName = Properties.Settings.Default.printOn;
+                        printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
                     }
-                }
-
-                if (!string.IsNullOrEmpty(printerName))
-                {
-                    TopMost = false;
-
-                    // Set up printing event
-                    printDocument1.PrintPage += (sender, args) =>
+                    else
                     {
-                        Rectangle printRect = args.PageBounds;
+                        printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
+                    }
 
-                        if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
-                        {
-                            printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
-                        }
-                        else
-                        {
-                            printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
-                        }
-
-                        args.Graphics.DrawImage(label, printRect);
-                    };
-
-                    // Set printer name
-                    printDocument1.PrinterSettings.PrinterName = printerName;
-                }
+                    args.Graphics.DrawImage(label, printRect);
+                };
+                // Print
+                printDocument1.Print();
+                // Restore TopMost setting
+                TopMost = cbOntop.Checked;
             }
-
-            // Print
-            printDocument1.Print();
-            // Restore TopMost setting
-            TopMost = cbOntop.Checked;
         }
-
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(picboxLabel.Image, 0, 0);
