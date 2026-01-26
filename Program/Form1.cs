@@ -2,12 +2,14 @@
 using Spire.Pdf;
 using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using AutoUpdaterDotNET;
 using Image = System.Drawing.Image;
 using PrintDialog = System.Windows.Forms.PrintDialog;
 using System.Xml.Linq;
+using System.IO;
 
 namespace DHLabel
 {
@@ -16,10 +18,13 @@ namespace DHLabel
         RegistryKey progKey = Registry.CurrentUser.OpenSubKey("Software\\Classes\\" + Application.ProductName, true);
         protected StatusBar mainStatusBar = new StatusBar();
         protected StatusBarPanel statusPanel = new StatusBarPanel();
-        public bool isHeavy;
         public int labelType;
         public string titleString;
         public PdfDocument pdfDoc;
+        private Image printImageToPrint;
+        private bool printDocumentInitialized = false;
+        private string currentFilePath;
+
         public Form1(string[] args)
         {
             InitializeComponent();
@@ -31,8 +36,6 @@ namespace DHLabel
             rbStandard.Checked = labelType == 0;
             rbBusiness.Checked = labelType == 1;
             rbReturn.Checked = labelType == 2;
-            cbHeavy.Checked = Properties.Settings.Default.heavyPackage;
-            isHeavy = cbHeavy.Checked;
             setTitle();
             if (args.Length == 1)
             {
@@ -87,9 +90,9 @@ namespace DHLabel
             Rectangle rectMiddle;
             Rectangle rectBar;
             Rectangle rectLine;
-            Rectangle rectMail;
             Rectangle rectGoGreen;
             Rectangle rectPayed;
+            Rectangle rectHeavy;
             Bitmap bitmapLabel;
             if (labelType == 2)
             {
@@ -111,9 +114,9 @@ namespace DHLabel
             }
 
             rectLine = new Rectangle(1860, 1018, 1075, 17);
-            rectMail = new Rectangle(2625, 705, 300, 65);
-            rectGoGreen = new Rectangle(2120, 810, 430, 75);
-            rectPayed = new Rectangle(2705, 890, 215, 80);
+            rectGoGreen = new Rectangle(2120, 825, 585, 65);
+            rectHeavy = new Rectangle(2620, 485, 315, 310);
+            rectPayed = new Rectangle(2705, 910, 215, 50);
             bitmapLabel = new Bitmap(1640, 1164);
 
             try
@@ -122,13 +125,18 @@ namespace DHLabel
                 Bitmap bitmapMiddle;
                 Bitmap bitmapBar;
                 Bitmap bitmapLine;
-                Bitmap bitmapMail;
+                Bitmap bitmapHeavy;
                 Bitmap bitmapGoGreen;
                 Bitmap bitmapPayed;
 
                 pdfDoc.LoadFromFile(filename);
-                source = pdfDoc.SaveAsImage(0, 273, 273);
-                //source.Save("C://Temp//dhlabel.jpg");
+                // Ursprünglich: source = pdfDoc.SaveAsImage(0, 273, 273);
+                // Korrigiert:
+                using (var imageStream = pdfDoc.SaveAsImage(0, 273, 273))
+                {
+                    source = Image.FromStream(imageStream);
+                }
+                source.Save("D://Downloads//dhlabel.jpg");
 
                 if (labelType != 1) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 bitmapMain = getClip(source, rectMain);
@@ -137,16 +145,14 @@ namespace DHLabel
                 bitmapMain.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapMiddle.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapBar.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                bitmapHeavy = getClip(source, rectHeavy);
                 bitmapPayed = getClip(source, rectPayed);
                 bitmapLine = getClip(source, rectLine);
-                bitmapMail = getClip(source, rectMail);
                 bitmapGoGreen = getClip(source, rectGoGreen);
                 bitmapPayed.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapLine.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                bitmapMail.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 bitmapGoGreen.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
-                Bitmap bitmapHeavy = Properties.Resources.Heavy;
                 bitmapHeavy.RotateFlip(RotateFlipType.Rotate270FlipNone);
 
                 using (Graphics g = Graphics.FromImage(bitmapLabel))
@@ -156,27 +162,27 @@ namespace DHLabel
                     if (labelType == 2)
                     {
                         g.DrawImage(bitmapBar, 760, -70);
-                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 4);
 
                     }
                     else if (labelType == 1)
                     {
                         g.DrawImage(bitmapBar, 705, 5);
                         g.DrawImage(bitmapMiddle, 620, 5);
-                        if (isHeavy) g.DrawImage(bitmapHeavy, 475, 4);
 
                     }
                     else
                     {
                         g.DrawImage(bitmapMiddle, 607, 219);
                         g.DrawImage(bitmapBar, 710, -8);
-                        g.DrawImage(bitmapPayed, 605, 4);
-                        g.DrawImage(bitmapMail, 400, 10);
+                        g.DrawImage(bitmapPayed, 632, 4);
                         g.DrawImage(bitmapLine, 595, -8);
-                        g.DrawImage(bitmapGoGreen, 675, 4, 37, 215);
-                        if (isHeavy) g.DrawImage(bitmapHeavy, 460, 4);
+                        g.DrawImage(bitmapGoGreen, 675, -43, 35, 315);
+                        g.DrawImage(bitmapHeavy, 385, 4, 250, 320);
                     }
                 }
+
+                // Merken des Dateipfads (ohne Extension wird später beim Setzen des DocumentName verwendet)
+                currentFilePath = filename;
 
                 return bitmapLabel;
             }
@@ -213,7 +219,7 @@ namespace DHLabel
                 pdfDoc = new PdfDocument();
                 PdfSection section = pdfDoc.Sections.Add();
                 PdfPageBase page = pdfDoc.Pages.Add(PdfPageSize.A6, new Spire.Pdf.Graphics.PdfMargins(0), PdfPageRotateAngle.RotateAngle90, PdfPageOrientation.Landscape);
-                Spire.Pdf.Graphics.PdfImage image = Spire.Pdf.Graphics.PdfImage.FromImage(picboxLabel.Image);
+                Spire.Pdf.Graphics.PdfImage image = Spire.Pdf.Graphics.PdfImage.FromFile("temp.jpg");
                 float widthFitRate = image.PhysicalDimension.Width / page.Canvas.ClientSize.Width;
                 float heightFitRate = image.PhysicalDimension.Height / page.Canvas.ClientSize.Height;
                 float fitRate = Math.Max(widthFitRate, heightFitRate);
@@ -245,63 +251,104 @@ namespace DHLabel
 
         private void PrintLabel(Image label)
         {
-            printDocument1 = new PrintDocument();
-            // Set the printing properties once instead of in each call
-            if (printDocument1.PrinterSettings.PrinterName != Properties.Settings.Default.printOn)
+            // Cache das zu druckende Bild
+            printImageToPrint = label;
+
+            // Initialisiere das PrintDocument einmalig und wiederverwenden
+            if (!printDocumentInitialized)
             {
-                printDocument1.DefaultPageSettings.Landscape = true;
-                Margins margins = new Margins(12, 0, 15, 0);
-                printDocument1.OriginAtMargins = true;
-                printDocument1.DefaultPageSettings.Margins = margins;
-                ForcePageSize(printDocument1, PaperKind.A6);
+                if (printDocument1 == null)
+                    printDocument1 = new PrintDocument();
 
-                // Set the printer name
-                string printerName = Properties.Settings.Default.printOn;
-                if (string.IsNullOrEmpty(printerName))
-                {
-                    TopMost = false;
-                    setPrinter();
-                    if (!string.IsNullOrEmpty(Properties.Settings.Default.printOn))
-                    {
-                        printerName = Properties.Settings.Default.printOn;
-                    }
-                }
+                // Unterdrückt das Status-Dialogfenster и spart Zeit
+                printDocument1.PrintController = new PrintControllerWithStatusDialog(new StandardPrintController());
 
-                if (!string.IsNullOrEmpty(printerName))
-                {
-                    TopMost = false;
+                // Ein benannter Handler statt Lambda (vermeidet Closure allocations)
+                printDocument1.PrintPage -= printDocument1_PrintPage; // alte Handler entfernen, falls vorhanden
+                printDocument1.PrintPage -= PrintDocument1_PrintPageFast;
+                printDocument1.PrintPage += PrintDocument1_PrintPageFast;
 
-                    // Set up printing event
-                    printDocument1.PrintPage += (sender, args) =>
-                    {
-                        Rectangle printRect = args.PageBounds;
-
-                        if ((double)label.Width / label.Height > (double)printRect.Width / printRect.Height)
-                        {
-                            printRect.Height = (int)((double)label.Height / label.Width * printRect.Width);
-                        }
-                        else
-                        {
-                            printRect.Width = (int)((double)label.Width / label.Height * printRect.Height);
-                        }
-
-                        args.Graphics.DrawImage(label, printRect);
-                    };
-
-                    // Set printer name
-                    printDocument1.PrinterSettings.PrinterName = printerName;
-                }
+                this.printDocumentInitialized = true;
             }
 
-            // Print
+            // Setze Seiteneinstellungen (nur wenn nötig)
+            printDocument1.DefaultPageSettings.Landscape = true;
+            printDocument1.OriginAtMargins = true;
+            printDocument1.DefaultPageSettings.Margins = new Margins(12, 0, 15, 0);
+            ForcePageSize(printDocument1, PaperKind.A6);
+
+            // Setze den Drucker (wie bisher)
+            string printerName = Properties.Settings.Default.printOn;
+            if (string.IsNullOrEmpty(printerName))
+            {
+                TopMost = false;
+                setPrinter();
+                printerName = Properties.Settings.Default.printOn;
+            }
+
+            if (!string.IsNullOrEmpty(printerName))
+            {
+                TopMost = false;
+                // DocumentName auf Dateiname ohne Extension setzen (Fallback)
+                string docName = !string.IsNullOrEmpty(currentFilePath)
+                    ? Path.GetFileNameWithoutExtension(currentFilePath)
+                    : "DHL-Label";
+                printDocument1.DocumentName = docName;
+
+                printDocument1.PrinterSettings.PrinterName = printerName;
+            }
+
+            // Druck starten (schneller, da PrintController und wiederverwendetes Objekt)
             printDocument1.Print();
-            // Restore TopMost setting
+
+            // TopMost wiederherstellen
             TopMost = cbOntop.Checked;
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(picboxLabel.Image, 0, 0);
+        }
+
+        private void PrintDocument1_PrintPageFast(object sender, PrintPageEventArgs args)
+        {
+            if (printImageToPrint == null)
+            {
+                args.HasMorePages = false;
+                return;
+            }
+
+            Graphics g = args.Graphics;
+
+            // Performance-freundliche Grafik-Einstellungen
+            g.InterpolationMode = InterpolationMode.Low; // schneller als HighQuality
+            g.CompositingQuality = CompositingQuality.HighSpeed;
+            g.SmoothingMode = SmoothingMode.None;
+            g.PixelOffsetMode = PixelOffsetMode.HighSpeed;
+
+            // Verwende MarginBounds statt PageBounds, damit Margins berücksichtigt werden
+            Rectangle printRect = args.MarginBounds;
+
+            // Behalte Seitenverhältnis bei und skaliere entsprechend
+            double imageAspect = (double)printImageToPrint.Width / printImageToPrint.Height;
+            double rectAspect = (double)printRect.Width / printRect.Height;
+
+            if (imageAspect > rectAspect)
+            {
+                int height = (int)(printRect.Width / imageAspect);
+                int top = printRect.Top + (printRect.Height - height) / 2;
+                printRect = new Rectangle(printRect.Left, top, printRect.Width, height);
+            }
+            else
+            {
+                int width = (int)(printRect.Height * imageAspect);
+                int left = printRect.Left + (printRect.Width - width) / 2;
+                printRect = new Rectangle(left, printRect.Top, width, printRect.Height);
+            }
+
+            g.DrawImage(printImageToPrint, printRect);
+
+            args.HasMorePages = false;
         }
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
@@ -456,13 +503,6 @@ namespace DHLabel
                 Properties.Settings.Default.labelType = 0;
                 Properties.Settings.Default.Save();
             }
-        }
-
-        private void cbHeavy_CheckedChanged(object sender, EventArgs e)
-        {
-            Properties.Settings.Default.heavyPackage = cbHeavy.Checked;
-            isHeavy = cbHeavy.Checked;
-            Properties.Settings.Default.Save();
         }
 
         private void cbOpenWith_CheckedChanged(object sender, EventArgs e)

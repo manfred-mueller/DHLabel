@@ -59,8 +59,7 @@ namespace DHLabel
             this.btnOpen = new System.Windows.Forms.Button();
             this.cbOpenWith = new System.Windows.Forms.CheckBox();
             this.cbOntop = new System.Windows.Forms.CheckBox();
-            this.cbHeavy = new System.Windows.Forms.CheckBox();
-            this.labelTypeBox = new System.Windows.Forms.GroupBox();
+            this.labelTypeBox = new System.Windows.Forms.Panel();
             this.rbReturn = new System.Windows.Forms.RadioButton();
             this.rbBusiness = new System.Windows.Forms.RadioButton();
             this.rbStandard = new System.Windows.Forms.RadioButton();
@@ -226,10 +225,6 @@ namespace DHLabel
             this.printDialog1.AllowPrintToFile = false;
             this.printDialog1.UseEXDialog = true;
             // 
-            // printDocument1
-            // 
-            this.printDocument1.DocumentName = "DHL-Label";
-            // 
             // btnOpen
             // 
             this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,23 +256,13 @@ namespace DHLabel
             this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
             // 
-            // cbHeavy
-            // 
-            this.cbHeavy.BackColor = System.Drawing.Color.Transparent;
-            this.cbHeavy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.cbHeavy.Location = new System.Drawing.Point(442, 60);
-            this.cbHeavy.Name = "cbHeavy";
-            this.cbHeavy.Size = new System.Drawing.Size(124, 18);
-            this.cbHeavy.TabIndex = 5;
-            this.cbHeavy.Text = global::DHLabel.Properties.Resources.HeavyPackage;
-            this.cbHeavy.UseVisualStyleBackColor = false;
-            this.cbHeavy.CheckedChanged += new System.EventHandler(this.cbHeavy_CheckedChanged);
-            // 
             // labelTypeBox
             // 
+            this.labelTypeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.labelTypeBox.Controls.Add(this.rbReturn);
             this.labelTypeBox.Controls.Add(this.rbBusiness);
             this.labelTypeBox.Controls.Add(this.rbStandard);
+//            this.labelTypeBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.labelTypeBox.Location = new System.Drawing.Point(346, 30);
             this.labelTypeBox.Name = "labelTypeBox";
             this.labelTypeBox.Size = new System.Drawing.Size(96, 48);
@@ -327,7 +312,6 @@ namespace DHLabel
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(564, 501);
             this.Controls.Add(this.labelTypeBox);
-            this.Controls.Add(this.cbHeavy);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
@@ -379,11 +363,10 @@ namespace DHLabel
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckBox cbOntop;
         private System.Windows.Forms.CheckBox cbOpenWith;
-        private CheckBox cbHeavy;
-        private GroupBox labelTypeBox;
-        private RadioButton rbReturn;
-        private RadioButton rbBusiness;
-        private RadioButton rbStandard;
+        private System.Windows.Forms.Panel labelTypeBox;
+        private System.Windows.Forms.RadioButton rbReturn;
+        private System.Windows.Forms.RadioButton rbBusiness;
+        private System.Windows.Forms.RadioButton rbStandard;
     }
 }
 

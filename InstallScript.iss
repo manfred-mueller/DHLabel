@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.2"
+#define MyAppVersion "1.5.3"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -38,7 +38,7 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 ChangesAssociations = yes
-SignTool=CertumVS
+SignTool=Certum
 
 [Languages]
 Name: "german"; MessagesFile: "compiler:Languages\German.isl"
@@ -58,11 +58,44 @@ Root: HKCR; Subkey: "{#MyAppName}\shell\open\command";  ValueData: """{app}\{#My
 
 [Files]
 Source: "Program\bin\Release\DHLabel.exe"; DestDir: "{app}"; DestName: "{#MyAppExeName}"; Flags: confirmoverwrite
-Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.mshtml.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"
-Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"
+Source: "Program\bin\Release\DHLabel.exe.config"; DestDir: "{app}"; Flags: confirmoverwrite
+
+Source: "Program\bin\Release\AutoUpdater.NET.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\HarfBuzzSharp.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Bcl.AsyncInterfaces.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Bcl.TimeProvider.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Extensions.DependencyInjection.Abstractions.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Extensions.Logging.Abstractions.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Identity.Client.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.Abstractions.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.JsonWebTokens.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.Logging.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.Protocols.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.IdentityModel.Tokens.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Web.WebView2.Core.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Web.WebView2.WinForms.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Web.WebView2.Wpf.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Microsoft.Win32.Registry.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\SkiaSharp.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\Spire.Pdf.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Buffers.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Diagnostics.DiagnosticSource.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Formats.Asn1.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.IdentityModel.Tokens.Jwt.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.IO.Pipelines.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Memory.Data.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Memory.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Numerics.Vectors.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Runtime.CompilerServices.Unsafe.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Security.AccessControl.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Security.Principal.Windows.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Text.Encoding.CodePages.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Text.Encodings.Web.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Text.Json.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\System.Threading.Tasks.Extensions.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\runtimes\win-x64\native\WebView2Loader.dll"; DestDir: "{app}"; Flags: confirmoverwrite
+Source: "Program\bin\Release\x64\libSkiaSharp.dll"; DestDir: "{app}"; Flags: confirmoverwrite
 
 [Code]
 
