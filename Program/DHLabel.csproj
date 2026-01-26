@@ -379,7 +379,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\InstallScript.iss" />
-    <Content Include="version.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
