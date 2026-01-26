@@ -244,4 +244,22 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   <data name="ConvertsDHLPackageLabelPDFsToA6Format" xml:space="preserve">
     <value>Konvertiert DHL-Paketetiketten-PDFs in das A6-Format.</value>
   </data>
+  <data name="NoVersionFound" xml:space="preserve">
+    <value>&lt;keine Version gefunden&gt;</value>
+  </data>
+  <data name="NetworkErrorWhileFetchingUpdateFeedN0" xml:space="preserve">
+    <value>Netzwerkfehler beim Abrufen des Update-Feeds:
+{0}</value>
+  </data>
+  <data name="AutoUpdaterError" xml:space="preserve">
+    <value>AutoUpdater-Fehler</value>
+  </data>
+  <data name="ErrorWhileParsingUpdateFeedN0" xml:space="preserve">
+    <value>Fehler beim Parsen des Update-Feeds:
+{0}</value>
+  </data>
+  <data name="ErrorWhileStartingUpdateFeedN0" xml:space="preserve">
+    <value>Fehler beim Starten des Update-Feeds:
+{0}</value>
+  </data>
 </root>

@@ -10,6 +10,7 @@ using Image = System.Drawing.Image;
 using PrintDialog = System.Windows.Forms.PrintDialog;
 using System.Xml.Linq;
 using System.IO;
+using System.Net;
 
 namespace DHLabel
 {
@@ -40,7 +41,7 @@ namespace DHLabel
             if (args.Length == 1)
             {
                 string path = args[0];
-                if (System.IO.File.Exists(path))
+                if (File.Exists(path))
                 {
                     picboxLabel.Image = convertPDF(path);
                     statusPanel.Text = args[0];
@@ -136,7 +137,7 @@ namespace DHLabel
                 {
                     source = Image.FromStream(imageStream);
                 }
-                source.Save("D://Downloads//dhlabel.jpg");
+                //source.Save("D://Downloads//dhlabel.jpg");
 
                 if (labelType != 1) source.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 bitmapMain = getClip(source, rectMain);
@@ -375,7 +376,43 @@ namespace DHLabel
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TopMost = false;
-            AutoUpdater.Start("https://github.com/manfred-mueller/DHLabel/raw/master/version.xml");
+            try
+            {
+                // Sicherstellen, dass TLS1.2 verwendet wird (GitHub raw benötigt modernes TLS)
+                ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+
+                string url = "https://github.com/manfred-mueller/DHLabel/raw/master/version.xml";
+
+                // Vorab prüfen, ob die Datei erreichbar und korrekt ist.
+                using (var wc = new WebClient())
+                {
+                    // GitHub blockiert oft Anfragen ohne User-Agent
+                    wc.Headers.Add("User-Agent", "DHLabel-AutoUpdater");
+                    string xml = wc.DownloadString(url);
+                    var doc = XDocument.Parse(xml);
+                    var version = doc.Root.Element("version")?.Value ?? Properties.Resources.NoVersionFound;
+                }
+
+                AutoUpdater.ReportErrors = true;
+                AutoUpdater.Start(url);
+            }
+            catch (System.Net.WebException wex)
+            {
+                MessageBox.Show(this, string.Format(Properties.Resources.NetworkErrorWhileFetchingUpdateFeedN0, wex.Message), Properties.Resources.AutoUpdaterError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (System.Xml.XmlException xex)
+            {
+                MessageBox.Show(this, string.Format(Properties.Resources.ErrorWhileParsingUpdateFeedN0, xex.Message), Properties.Resources.AutoUpdaterError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, string.Format(Properties.Resources.ErrorWhileStartingUpdateFeedN0, ex.Message), Properties.Resources.AutoUpdaterError, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Ursprünglichen TopMost‑Zustand wiederherstellen
+                TopMost = cbOntop.Checked;
+            }
         }
 
 
@@ -555,7 +592,7 @@ namespace DHLabel
         }
         public void LoadFile(string file)
         {
-            if (System.IO.File.Exists(file))
+            if (File.Exists(file))
             {
                 picboxLabel.Image = convertPDF(file);
                 statusPanel.Text = file;

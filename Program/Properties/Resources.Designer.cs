@@ -107,6 +107,15 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die AutoUpdater error ähnelt.
+        /// </summary>
+        internal static string AutoUpdaterError {
+            get {
+                return ResourceManager.GetString("AutoUpdaterError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Business label ähnelt.
         /// </summary>
         internal static string BusinessLabel {
@@ -255,6 +264,26 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error while parsing update feed:
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string ErrorWhileParsingUpdateFeedN0 {
+            get {
+                return ResourceManager.GetString("ErrorWhileParsingUpdateFeedN0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error while starting update feed:
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string ErrorWhileStartingUpdateFeedN0 {
+            get {
+                return ResourceManager.GetString("ErrorWhileStartingUpdateFeedN0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Extension .pdf associated with  ähnelt.
         /// </summary>
         internal static string ExtensionPdfAssociatedWith {
@@ -301,11 +330,30 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Network error while fetching update feed:
+        ///{0} ähnelt.
+        /// </summary>
+        internal static string NetworkErrorWhileFetchingUpdateFeedN0 {
+            get {
+                return ResourceManager.GetString("NetworkErrorWhileFetchingUpdateFeedN0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die No valid package label! ähnelt.
         /// </summary>
         internal static string NoValidPackageLabel {
             get {
                 return ResourceManager.GetString("NoValidPackageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;no version found&gt; ähnelt.
+        /// </summary>
+        internal static string NoVersionFound {
+            get {
+                return ResourceManager.GetString("NoVersionFound", resourceCulture);
             }
         }
         

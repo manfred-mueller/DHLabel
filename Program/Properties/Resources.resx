@@ -281,4 +281,22 @@ DHLabel is a heavily extended fork of the program DHLConvert from vulture20 (htt
   <data name="ConvertsDHLPackageLabelPDFsToA6Format" xml:space="preserve">
     <value>Converts DHL package label PDFs to A6 format.</value>
   </data>
+  <data name="NoVersionFound" xml:space="preserve">
+    <value>&lt;no version found&gt;</value>
+  </data>
+  <data name="NetworkErrorWhileFetchingUpdateFeedN0" xml:space="preserve">
+    <value>Network error while fetching update feed:
+{0}</value>
+  </data>
+  <data name="AutoUpdaterError" xml:space="preserve">
+    <value>AutoUpdater error</value>
+  </data>
+  <data name="ErrorWhileParsingUpdateFeedN0" xml:space="preserve">
+    <value>Error while parsing update feed:
+{0}</value>
+  </data>
+  <data name="ErrorWhileStartingUpdateFeedN0" xml:space="preserve">
+    <value>Error while starting update feed:
+{0}</value>
+  </data>
 </root>

@@ -10,8 +10,8 @@ namespace DHLabel
         public AboutBox1()
         {
             InitializeComponent();
-            Text = String.Format(Properties.Resources.InfoAbout, AssemblyTitle);
-            labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            Text = string.Format(Properties.Resources.InfoAbout, AssemblyTitle);
+            labelVersion.Text = string.Format("Version {0}", AssemblyVersion);
             labelProductName.Text = Application.ProductName;
             labelCopyright.Text = WebUtility.HtmlDecode(Properties.Resources.Copyright);
             textBoxDescription.Text = Properties.Resources.ProductDescription;
