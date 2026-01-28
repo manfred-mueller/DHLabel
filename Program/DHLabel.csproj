@@ -354,9 +354,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Heavy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Package.png" />
   </ItemGroup>
   <ItemGroup>

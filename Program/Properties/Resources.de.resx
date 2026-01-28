@@ -117,53 +117,94 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DHLabelDHLPackageLabel" xml:space="preserve">
+    <value>DHLabel DHL Paketmarke</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Über</value>
+  </data>
+  <data name="ShowStatusMessages" xml:space="preserve">
+    <value>Statusmeldungen anzeigen</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+  <data name="PDFPackageLabelsPdfAllFiles" xml:space="preserve">
+    <value>PDF-Paketmarken|*.pdf|Alle Dateien|*.*</value>
+  </data>
+  <data name="ConvertsDHLPackageLabelPDFsToA6Format" xml:space="preserve">
+    <value>Konvertiert DHL-Paketetiketten-PDFs in das A6-Format.</value>
+  </data>
+  <data name="NetworkErrorWhileFetchingUpdateFeedN0" xml:space="preserve">
+    <value>Netzwerkfehler beim Abrufen des Update-Feeds:
+{0}</value>
+  </data>
+  <data name="ErrorWhileStartingUpdateFeedN0" xml:space="preserve">
+    <value>Fehler beim Starten des Update-Feeds:
+{0}</value>
+  </data>
+  <data name="SavePDF" xml:space="preserve">
+    <value>&amp;Speichere PDF</value>
+  </data>
+  <data name="RegistryKey0NotFound" xml:space="preserve">
+    <value>Registrierungsschlüssel {0} nicht gefunden!</value>
+  </data>
+  <data name="AlwaysOnTop" xml:space="preserve">
+    <value>Immer oben</value>
+  </data>
+  <data name="InfoAbout" xml:space="preserve">
+    <value>Info über {0}</value>
+  </data>
   <data name="DropPDFHere" xml:space="preserve">
     <value>PDF hierher ziehen...</value>
   </data>
   <data name="NoValidPackageLabel" xml:space="preserve">
     <value>Keine gültige Paketmarke!</value>
   </data>
+  <data name="OpenWith" xml:space="preserve">
+    <value>Öffnen mit...</value>
+  </data>
   <data name="TheDHLLabelCouldNotBeSaved" xml:space="preserve">
     <value>Die DHL-Paketmarke konnte nicht gespeichert werden!</value>
   </data>
-  <data name="ProductName" xml:space="preserve">
-    <value>DHLabel</value>
+  <data name="DHLabelPackageLabel" xml:space="preserve">
+    <value>DHLabel-Paketmarke</value>
   </data>
-  <data name="CompanyName" xml:space="preserve">
-    <value>NASS e.K.</value>
+  <data name="ConvertingDataForPrintingPleaseWait" xml:space="preserve">
+    <value>Konvertiere Daten zum Drucken, bitte warten...</value>
   </data>
-  <data name="Description" xml:space="preserve">
-    <value>Beschreibung</value>
+  <data name="SetLabelPrinter" xml:space="preserve">
+    <value>&amp;Labeldrucker einstellen</value>
   </data>
-  <data name="About" xml:space="preserve">
-    <value>Über</value>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>Eine andere Instanz ist bereits aktiv!</value>
   </data>
-  <data name="Quit" xml:space="preserve">
-    <value>&amp;Beenden</value>
+  <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
+    <value>Erweiterung .pdf zugewiesen zu </value>
   </data>
-  <data name="OpenPDFPackageLabel" xml:space="preserve">
-    <value>PDF-Paketmarke öffnen</value>
-  </data>
-  <data name="PDFFilesPdfAllFiles" xml:space="preserve">
-    <value>PDF-Dateien|*.pdf|Alle Dateien|*.*</value>
-  </data>
-  <data name="SaveLabelAsPDFFile" xml:space="preserve">
-    <value>Paketmarke als PDF-Datei speichern</value>
-  </data>
-  <data name="PDFPackageLabelsPdfAllFiles" xml:space="preserve">
-    <value>PDF-Paketmarken|*.pdf|Alle Dateien|*.*</value>
-  </data>
-  <data name="OpenPDF" xml:space="preserve">
-    <value>&amp;Öffne PDF</value>
-  </data>
-  <data name="SavePDF" xml:space="preserve">
-    <value>&amp;Speichere PDF</value>
+  <data name="Done" xml:space="preserve">
+    <value>Fertig.</value>
   </data>
   <data name="Print" xml:space="preserve">
     <value>&amp;Drucke Label</value>
   </data>
-  <data name="InfoAbout" xml:space="preserve">
-    <value>Info über {0}</value>
+  <data name="PDFFilesPdfAllFiles" xml:space="preserve">
+    <value>PDF-Dateien|*.pdf|Alle Dateien|*.*</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>&amp;Beenden</value>
+  </data>
+  <data name="AutoUpdaterError" xml:space="preserve">
+    <value>AutoUpdater-Fehler</value>
+  </data>
+  <data name="OpenPDFPackageLabel" xml:space="preserve">
+    <value>PDF-Paketmarke öffnen</value>
+  </data>
+  <data name="NoVersionFound" xml:space="preserve">
+    <value>&lt;keine Version gefunden&gt;</value>
+  </data>
+  <data name="BusinessLabel" xml:space="preserve">
+    <value>Businesslabel</value>
   </data>
   <data name="ProductDescription" xml:space="preserve">
     <value>Wandelt online erstellte DHL Privat-, Business- oder Retouren-Paketmarken ins A6-Format zum Ausdruck auf einzelne Labels auf einem Laserdrucker um. Wie von DHL gefordert, können Pakete über 10 kg mit "Achtung schweres Paket" versehen werden.
@@ -172,94 +213,50 @@ Es kann per Mausklick zum "Öffnen mit"-Menü für PDF-Dateien hinzugefügt werd
 
 DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (https://github.com/vulture20/DHLConvert).</value>
   </data>
-  <data name="AlreadyRunning" xml:space="preserve">
-    <value>Eine andere Instanz ist bereits aktiv!</value>
-  </data>
-  <data name="Error" xml:space="preserve">
-    <value>Fehler</value>
-  </data>
-  <data name="ApplicationStarted" xml:space="preserve">
-    <value>Anwendung gestartet.</value>
-  </data>
-  <data name="ConvertingPleaseWait" xml:space="preserve">
-    <value>Konvertiere {0}, bitte warten...</value>
-  </data>
-  <data name="PrparingDataForPrintingPleaseWait" xml:space="preserve">
-    <value>Bereite Daten zum Drucken auf, bitte warten...</value>
-  </data>
-  <data name="Done" xml:space="preserve">
-    <value>Fertig.</value>
-  </data>
-  <data name="ShowStatusMessages" xml:space="preserve">
-    <value>Statusmeldungen anzeigen</value>
-  </data>
-  <data name="ConvertingDataForPrintingPleaseWait" xml:space="preserve">
-    <value>Konvertiere Daten zum Drucken, bitte warten...</value>
-  </data>
-  <data name="DHLabelDHLPackageLabel" xml:space="preserve">
-    <value>DHLabel DHL Paketmarke</value>
-  </data>
-  <data name="DHLabelPackageLabel" xml:space="preserve">
-    <value>DHLabel-Paketmarke</value>
-  </data>
-  <data name="File" xml:space="preserve">
-    <value>&amp;Datei</value>
-  </data>
-  <data name="ExtensionPdfAssociatedWith" xml:space="preserve">
-    <value>Erweiterung .pdf zugewiesen zu </value>
-  </data>
-  <data name="ReachablePlace" xml:space="preserve">
-    <value>Erreichbarer Speicherort</value>
-  </data>
-  <data name="RegistryKey0NotFound" xml:space="preserve">
-    <value>Registrierungsschlüssel {0} nicht gefunden!</value>
-  </data>
-  <data name="AlwaysOnTop" xml:space="preserve">
-    <value>Immer oben</value>
-  </data>
-  <data name="OpenWith" xml:space="preserve">
-    <value>Öffnen mit...</value>
-  </data>
-  <data name="HeavyPackage" xml:space="preserve">
-    <value>Paket über 10 kg</value>
-  </data>
-  <data name="SetLabelPrinter" xml:space="preserve">
-    <value>&amp;Labeldrucker einstellen</value>
-  </data>
-  <data name="Printer" xml:space="preserve">
-    <value> - Drucker: </value>
-  </data>
-  <data name="SearchUpdate" xml:space="preserve">
-    <value>&amp;Update suchen</value>
-  </data>
-  <data name="BusinessLabel" xml:space="preserve">
-    <value>Businesslabel</value>
-  </data>
-  <data name="StandardLabel" xml:space="preserve">
-    <value>Standardlabel</value>
-  </data>
-  <data name="ReturnLabel" xml:space="preserve">
-    <value>Retourenlabel</value>
-  </data>
-  <data name="ConvertsDHLPackageLabelPDFsToA6Format" xml:space="preserve">
-    <value>Konvertiert DHL-Paketetiketten-PDFs in das A6-Format.</value>
-  </data>
-  <data name="NoVersionFound" xml:space="preserve">
-    <value>&lt;keine Version gefunden&gt;</value>
-  </data>
-  <data name="NetworkErrorWhileFetchingUpdateFeedN0" xml:space="preserve">
-    <value>Netzwerkfehler beim Abrufen des Update-Feeds:
-{0}</value>
-  </data>
-  <data name="AutoUpdaterError" xml:space="preserve">
-    <value>AutoUpdater-Fehler</value>
-  </data>
   <data name="ErrorWhileParsingUpdateFeedN0" xml:space="preserve">
     <value>Fehler beim Parsen des Update-Feeds:
 {0}</value>
   </data>
-  <data name="ErrorWhileStartingUpdateFeedN0" xml:space="preserve">
-    <value>Fehler beim Starten des Update-Feeds:
-{0}</value>
+  <data name="ReturnLabel" xml:space="preserve">
+    <value>Retourenlabel</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Fehler</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>&amp;Datei</value>
+  </data>
+  <data name="PrparingDataForPrintingPleaseWait" xml:space="preserve">
+    <value>Bereite Daten zum Drucken auf, bitte warten...</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>DHLabel</value>
+  </data>
+  <data name="SearchUpdate" xml:space="preserve">
+    <value>&amp;Update suchen</value>
+  </data>
+  <data name="SaveLabelAsPDFFile" xml:space="preserve">
+    <value>Paketmarke als PDF-Datei speichern</value>
+  </data>
+  <data name="ReachablePlace" xml:space="preserve">
+    <value>Erreichbarer Speicherort</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>NASS e.K.</value>
+  </data>
+  <data name="ConvertingPleaseWait" xml:space="preserve">
+    <value>Konvertiere {0}, bitte warten...</value>
+  </data>
+  <data name="OpenPDF" xml:space="preserve">
+    <value>&amp;Öffne PDF</value>
+  </data>
+  <data name="ApplicationStarted" xml:space="preserve">
+    <value>Anwendung gestartet.</value>
+  </data>
+  <data name="Printer" xml:space="preserve">
+    <value> - Drucker: </value>
+  </data>
+  <data name="StandardLabel" xml:space="preserve">
+    <value>Standardlabel</value>
   </data>
 </root>

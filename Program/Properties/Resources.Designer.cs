@@ -304,19 +304,10 @@ namespace DHLabel.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Heavy {
+        internal static System.Drawing.Bitmap help_about {
             get {
-                object obj = ResourceManager.GetObject("Heavy", resourceCulture);
+                object obj = ResourceManager.GetObject("help-about", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Package over 10 kg ähnelt.
-        /// </summary>
-        internal static string HeavyPackage {
-            get {
-                return ResourceManager.GetString("HeavyPackage", resourceCulture);
             }
         }
         

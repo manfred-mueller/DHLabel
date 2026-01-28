@@ -44,10 +44,11 @@ namespace DHLabel
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savePDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.setPrinterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,7 +128,6 @@ namespace DHLabel
             this.setPrinterToolStripMenuItem,
             this.printToolStripMenuItem,
             this.toolStripSeparator1,
-            this.updateToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -193,16 +193,24 @@ namespace DHLabel
             this.quitToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Quit;
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(153, 6);
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.updateToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
             this.toolStripMenuItem1.Text = "&?";
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.Image = global::DHLabel.Properties.Resources.help_about;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = global::DHLabel.Properties.Resources.About;
@@ -262,7 +270,6 @@ namespace DHLabel
             this.labelTypeBox.Controls.Add(this.rbReturn);
             this.labelTypeBox.Controls.Add(this.rbBusiness);
             this.labelTypeBox.Controls.Add(this.rbStandard);
-//            this.labelTypeBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.labelTypeBox.Location = new System.Drawing.Point(346, 30);
             this.labelTypeBox.Name = "labelTypeBox";
             this.labelTypeBox.Size = new System.Drawing.Size(96, 48);
@@ -350,12 +357,13 @@ namespace DHLabel
         private System.Windows.Forms.ToolStripMenuItem setPrinterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem savePDFToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openPDFToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.PrintDialog printDialog1;

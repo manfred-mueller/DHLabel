@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.3"
+#define MyAppVersion "1.5.4"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -18,10 +18,8 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-; Installer nur für 64‑Bit Windows / im 64‑Bit Modus ausführen
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
-; Install in das 64‑Bit "Program Files"
 DefaultDirName={pf64}\{#MyAppName}
 DisableDirPage=yes
 DefaultGroupName={#MyAppName}
@@ -100,6 +98,7 @@ Source: "Program\bin\Release\System.Text.Json.dll"; DestDir: "{app}"; Flags: con
 Source: "Program\bin\Release\System.Threading.Tasks.Extensions.dll"; DestDir: "{app}"; Flags: confirmoverwrite
 Source: "Program\bin\Release\runtimes\win-x64\native\WebView2Loader.dll"; DestDir: "{app}"; Flags: confirmoverwrite 64bit
 Source: "Program\bin\Release\x64\libSkiaSharp.dll"; DestDir: "{app}"; Flags: confirmoverwrite 64bit
+Source: "Program\bin\Release\de\AutoUpdater.NET.resources.dll"; DestDir: "{app}\de"; Flags: confirmoverwrite 64bit
 
 [Code]
 
