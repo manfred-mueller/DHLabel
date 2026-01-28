@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # wichtig für Tags
 
       - name: Extract version from setup filename
         id: version
@@ -29,12 +31,24 @@ jobs:
           echo "tag=v$VERSION" >> $GITHUB_OUTPUT
           echo "file=$FILE" >> $GITHUB_OUTPUT
 
-      - name: Create Git tag
+      - name: Delete existing tag (local & remote)
+        run: |
+          TAG=${{ steps.version.outputs.tag }}
+
+          if git rev-parse "$TAG" >/dev/null 2>&1; then
+            git tag -d "$TAG"
+          fi
+
+          if git ls-remote --tags origin | grep -q "refs/tags/$TAG"; then
+            git push --delete origin "$TAG"
+          fi
+
+      - name: Create Git tag (force)
         run: |
           git tag ${{ steps.version.outputs.tag }}
           git push origin ${{ steps.version.outputs.tag }}
 
-      - name: Create GitHub Release
+      - name: Create or update GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
