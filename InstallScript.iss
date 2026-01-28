@@ -31,11 +31,9 @@ OutputDir=Program\bin\Release
 OutputBaseFilename={#MyAppName}-Setup-{#MyAppVersion}
 SetupIconFile=D:\Bilder\nass-ek.ico
 UninstallDisplayIcon={app}\{#MyAppExeName},0
-;Begin adjustments for showing the logo
 DisableWelcomePage=False
 WizardImageFile=D:\Bilder\wz_nass-ek.bmp
 WizardSmallImageFile=D:\Bilder\wz_leer_small.bmp
-;End adjustments for showing the logo
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
