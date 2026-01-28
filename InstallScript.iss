@@ -13,13 +13,11 @@ AppId={{66E110ED-DFB6-4A7D-891E-63652FDBD51C}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-ArchitecturesAllowed=x64
-ArchitecturesInstallIn64BitMode=x64
 
 PrivilegesRequired=admin
 ChangesAssociations=yes
 
-DefaultDirName={pf64}\{#MyAppName}
+DefaultDirName={pf}\{#MyAppName}
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 DisableWelcomePage=yes
@@ -29,6 +27,7 @@ LicenseFile=D:\Dokumente\gpl_de.txt
 
 OutputDir=Program\bin\Release
 OutputBaseFilename={#MyAppName}-Setup-{#MyAppVersion}
+UninstallDisplayIcon={app}\{#MyAppExeName},0
 
 Compression=lzma
 SolidCompression=yes
