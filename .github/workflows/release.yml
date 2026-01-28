@@ -1,0 +1,42 @@
+name: Create Release from Setup
+
+on:
+  push:
+    paths:
+      - "Program/bin/Release/DHLabel-Setup-*.exe"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Extract version from setup filename
+        id: version
+        run: |
+          FILE=$(ls Program/bin/Release/DHLabel-Setup-*.exe | head -n 1)
+          echo "Found file: $FILE"
+
+          VERSION=$(basename "$FILE" | sed -E 's/DHLabel-Setup-([0-9]+\.[0-9]+\.[0-9]+)\.exe/\1/')
+          echo "Version: $VERSION"
+
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+          echo "file=$FILE" >> $GITHUB_OUTPUT
+
+      - name: Create Git tag
+        run: |
+          git tag ${{ steps.version.outputs.tag }}
+          git push origin ${{ steps.version.outputs.tag }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: DHLabel ${{ steps.version.outputs.tag }}
+          files: ${{ steps.version.outputs.file }}
