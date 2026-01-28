@@ -76,7 +76,7 @@ jobs:
 
       - name: Submit Winget update
         env:
-          GITHUB_TOKEN: ${{ secrets.WINGET_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
         run: |
           wingetcreate.exe update `
             NASS.DHLabel `
