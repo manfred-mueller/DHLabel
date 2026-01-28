@@ -12,5 +12,5 @@ jobs:
       with:
         komac-token: ${{ secrets.WINGET_TOKEN }}
         identifier: "NASS.DHLabel"
-        repo: "manfred-mueller.dhlabel"
+        repo: "manfred-mueller/Dhlabel"
         URL: "https://github.com/manfred-mueller/DHLabel/releases/download/v1.5.4/DHLabel-Setup-1.5.4.exe"
