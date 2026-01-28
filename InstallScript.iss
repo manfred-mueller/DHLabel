@@ -9,35 +9,30 @@
 #define ProgramFiles GetEnv("ProgramFiles")
 
 [Setup]
-; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
-; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{66E110ED-DFB6-4A7D-891E-63652FDBD51C}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL={#MyAppURL}
-AppSupportURL={#MyAppURL}
-AppUpdatesURL={#MyAppURL}
 ArchitecturesAllowed=x64
 ArchitecturesInstallIn64BitMode=x64
+
+PrivilegesRequired=admin
+ChangesAssociations=yes
+
 DefaultDirName={pf64}\{#MyAppName}
 DisableDirPage=yes
-DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
+DisableWelcomePage=yes
+DisableFinishedPage=yes
+
 LicenseFile=D:\Dokumente\gpl_de.txt
-; Uncomment the following line to run in non administrative install mode (install for current user only.)
-;PrivilegesRequired=lowest
+
 OutputDir=Program\bin\Release
 OutputBaseFilename={#MyAppName}-Setup-{#MyAppVersion}
-SetupIconFile=D:\Bilder\nass-ek.ico
-UninstallDisplayIcon={app}\{#MyAppExeName},0
-DisableWelcomePage=False
-WizardImageFile=D:\Bilder\wz_nass-ek.bmp
-WizardSmallImageFile=D:\Bilder\wz_leer_small.bmp
+
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-ChangesAssociations = yes
 SignTool=Certum
 
 [Languages]
