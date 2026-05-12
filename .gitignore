@@ -22,7 +22,8 @@ bld/
 
 # Do NOT ignore the following, even if they are in subdirectories
 Program/bin/Release/*
-!Program/bin/Release/DHLabel-Setup*.exe
+!Program/bin/Release/x64/DHLabel.exe
+!Program/bin/Release/x64/DHLabel-Setup*.exe
 #!*/
 
 # Roslyn cache directories
