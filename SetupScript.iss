@@ -51,17 +51,6 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 ; Haupt-EXE (Costura → managed DLLs eingebettet)
 Source: "E:\Windows\DHLabel\Program\bin\Release\x64\DHLabel.exe"; DestDir: "{app}"; Flags: ignoreversion
 
-; Native SkiaSharp DLLs – architekturabhängig
-;Source: "Program\bin\Release\x64\libSkiaSharp.dll"; DestDir: "{app}"; Flags: ignoreversion; Check: Is64BitInstallMode
-;Source: "Program\bin\Release\x86\libSkiaSharp.dll"; DestDir: "{app}"; Flags: ignoreversion; Check: not Is64BitInstallMode
-
-; Native Pdfium DLLs – architekturabhängig
-;Source: "Program\bin\Release\pdfium_x64.dll"; DestDir: "{app}"; DestName: "pdfium.dll"; Flags: ignoreversion; Check: Is64BitInstallMode
-;Source: "Program\bin\Release\pdfium_x86.dll"; DestDir: "{app}"; DestName: "pdfium.dll"; Flags: ignoreversion; Check: not Is64BitInstallMode
-
-; WebView2 native loader (immer win-x86 korrekt)
-;Source: "Program\bin\Release\runtimes\win-x86\native\WebView2Loader.dll"; DestDir: "{app}"; Flags: ignoreversion
-
 [Registry]
 ; Nur per-User-Registry – erlaubt & korrekt
 Root: HKCU; Subkey: "Software\{#MyAppName}"; Flags: uninsdeletekey
