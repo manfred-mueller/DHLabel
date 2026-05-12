@@ -3,7 +3,7 @@ name: Create Release from Setup
 on:
   push:
     paths:
-      - "Program/bin/Release/DHLabel-Setup-*.exe"
+      - "Program/bin/Release/x64/DHLabel-Setup-*.exe"
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
       - name: Extract version from setup filename
         id: version
         run: |
-          FILE=$(ls Program/bin/Release/DHLabel-Setup-*.exe | head -n 1)
+          FILE=$(ls Program/bin/Release/x64/DHLabel-Setup-*.exe | head -n 1)
           echo "Found file: $FILE"
 
           VERSION=$(basename "$FILE" | sed -E 's/DHLabel-Setup-([0-9]+\.[0-9]+\.[0-9]+)\.exe/\1/')

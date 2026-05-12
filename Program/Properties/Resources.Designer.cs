@@ -255,11 +255,29 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Endless Labels ähnelt.
+        /// </summary>
+        internal static string EndlessLabels {
+            get {
+                return ResourceManager.GetString("EndlessLabels", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Error ähnelt.
         /// </summary>
         internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error loading PDF:\n ähnelt.
+        /// </summary>
+        internal static string ErrorLoadingPDFN {
+            get {
+                return ResourceManager.GetString("ErrorLoadingPDFN", resourceCulture);
             }
         }
         
@@ -270,6 +288,15 @@ namespace DHLabel.Properties {
         internal static string ErrorWhileParsingUpdateFeedN0 {
             get {
                 return ResourceManager.GetString("ErrorWhileParsingUpdateFeedN0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Error while saving:\n ähnelt.
+        /// </summary>
+        internal static string ErrorWhileSavingN {
+            get {
+                return ResourceManager.GetString("ErrorWhileSavingN", resourceCulture);
             }
         }
         
@@ -327,6 +354,33 @@ namespace DHLabel.Properties {
         internal static string NetworkErrorWhileFetchingUpdateFeedN0 {
             get {
                 return ResourceManager.GetString("NetworkErrorWhileFetchingUpdateFeedN0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No label loaded. ähnelt.
+        /// </summary>
+        internal static string NoLabelLoaded {
+            get {
+                return ResourceManager.GetString("NoLabelLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No printable label found. ähnelt.
+        /// </summary>
+        internal static string NoPrintableLabelFound {
+            get {
+                return ResourceManager.GetString("NoPrintableLabelFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die No printer configured. ähnelt.
+        /// </summary>
+        internal static string NoPrinterConfigured {
+            get {
+                return ResourceManager.GetString("NoPrinterConfigured", resourceCulture);
             }
         }
         
@@ -428,6 +482,24 @@ namespace DHLabel.Properties {
         internal static string Printer {
             get {
                 return ResourceManager.GetString("Printer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Printer not available. ähnelt.
+        /// </summary>
+        internal static string PrinterNotAvailable {
+            get {
+                return ResourceManager.GetString("PrinterNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Printing error:\n ähnelt.
+        /// </summary>
+        internal static string PrintingErrorN {
+            get {
+                return ResourceManager.GetString("PrintingErrorN", resourceCulture);
             }
         }
         
@@ -568,6 +640,15 @@ namespace DHLabel.Properties {
         internal static string TheDHLLabelCouldNotBeSaved {
             get {
                 return ResourceManager.GetString("TheDHLLabelCouldNotBeSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update error:\n ähnelt.
+        /// </summary>
+        internal static string UpdateErrorN {
+            get {
+                return ResourceManager.GetString("UpdateErrorN", resourceCulture);
             }
         }
         

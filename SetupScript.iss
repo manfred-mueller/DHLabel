@@ -1,7 +1,7 @@
 ﻿; DHLabel – Winget-konformer Installer (ProgramData-Variante)
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.4"
+#define MyAppVersion "1.5.5"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -26,7 +26,7 @@ DisableFinishedPage=yes
 
 LicenseFile=D:\Dokumente\gpl_de.txt
 
-OutputDir=Program\bin\Release
+OutputDir=Program\bin\Release\x64
 OutputBaseFilename={#MyAppName}-Setup-{#MyAppVersion}
 
 SetupIconFile=D:\Bilder\nass-ek.ico
@@ -49,14 +49,18 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 
 [Files]
 ; Haupt-EXE (Costura → managed DLLs eingebettet)
-Source: "Program\bin\Release\DHLabel.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Windows\DHLabel\Program\bin\Release\x64\DHLabel.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Native SkiaSharp DLLs – architekturabhängig
-Source: "Program\bin\Release\x64\libSkiaSharp.dll"; DestDir: "{app}"; Check: Is64BitInstallMode; Flags: ignoreversion
-Source: "Program\bin\Release\x86\libSkiaSharp.dll"; DestDir: "{app}"; Check: not Is64BitInstallMode; Flags: ignoreversion
+;Source: "Program\bin\Release\x64\libSkiaSharp.dll"; DestDir: "{app}"; Flags: ignoreversion; Check: Is64BitInstallMode
+;Source: "Program\bin\Release\x86\libSkiaSharp.dll"; DestDir: "{app}"; Flags: ignoreversion; Check: not Is64BitInstallMode
+
+; Native Pdfium DLLs – architekturabhängig
+;Source: "Program\bin\Release\pdfium_x64.dll"; DestDir: "{app}"; DestName: "pdfium.dll"; Flags: ignoreversion; Check: Is64BitInstallMode
+;Source: "Program\bin\Release\pdfium_x86.dll"; DestDir: "{app}"; DestName: "pdfium.dll"; Flags: ignoreversion; Check: not Is64BitInstallMode
 
 ; WebView2 native loader (immer win-x86 korrekt)
-Source: "Program\bin\Release\runtimes\win-x86\native\WebView2Loader.dll"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "Program\bin\Release\runtimes\win-x86\native\WebView2Loader.dll"; DestDir: "{app}"; Flags: ignoreversion
 
 [Registry]
 ; Nur per-User-Registry – erlaubt & korrekt

@@ -259,4 +259,31 @@ DHLabel ist ein stark erweiterter Fork des Programms DHLConvert von vulture20 (h
   <data name="StandardLabel" xml:space="preserve">
     <value>Standardlabel</value>
   </data>
+  <data name="EndlessLabels" xml:space="preserve">
+    <value>Endlos-Label</value>
+  </data>
+  <data name="ErrorLoadingPDFN" xml:space="preserve">
+    <value>Fehler beim Laden des PDFs:\n</value>
+  </data>
+  <data name="NoLabelLoaded" xml:space="preserve">
+    <value>Kein Label geladen.</value>
+  </data>
+  <data name="ErrorWhileSavingN" xml:space="preserve">
+    <value>Fehler beim Speichern:\n</value>
+  </data>
+  <data name="UpdateErrorN" xml:space="preserve">
+    <value>Update-Fehler:\n</value>
+  </data>
+  <data name="NoPrintableLabelFound" xml:space="preserve">
+    <value>Kein druckbares Label gefunden.</value>
+  </data>
+  <data name="NoPrinterConfigured" xml:space="preserve">
+    <value>Kein Drucker konfiguriert.</value>
+  </data>
+  <data name="PrinterNotAvailable" xml:space="preserve">
+    <value>Drucker nicht verfügbar.</value>
+  </data>
+  <data name="PrintingErrorN" xml:space="preserve">
+    <value>Druckfehler:\n</value>
+  </data>
 </root>

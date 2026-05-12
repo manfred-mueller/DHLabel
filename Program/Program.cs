@@ -31,8 +31,7 @@ namespace DHLabel
 
         void this_StartupNextInstance(object sender, StartupNextInstanceEventArgs e)
         {
-            Form1 form = MainForm as Form1;
-            if (e.CommandLine.Count == 2)
+            if (MainForm is Form1 form && e.CommandLine.Count == 2)
             {
                 form.LoadFile(e.CommandLine[1]);
             }

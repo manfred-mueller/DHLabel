@@ -7,8 +7,6 @@ namespace DHLabel
     partial class Form1
     {
 
-        private Dictionary<string, SizeF> paperSizes = new Dictionary<string, SizeF>();
-
         /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
@@ -44,15 +42,15 @@ namespace DHLabel
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.savePDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.setPrinterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
@@ -60,13 +58,9 @@ namespace DHLabel
             this.btnOpen = new System.Windows.Forms.Button();
             this.cbOpenWith = new System.Windows.Forms.CheckBox();
             this.cbOntop = new System.Windows.Forms.CheckBox();
-            this.labelTypeBox = new System.Windows.Forms.Panel();
-            this.rbReturn = new System.Windows.Forms.RadioButton();
-            this.rbBusiness = new System.Windows.Forms.RadioButton();
-            this.rbStandard = new System.Windows.Forms.RadioButton();
+            this.cbEndless = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.labelTypeBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -85,12 +79,11 @@ namespace DHLabel
             // 
             // picboxLabel
             // 
-            this.picboxLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.picboxLabel.InitialImage = null;
-            this.picboxLabel.Location = new System.Drawing.Point(0, 104);
+            this.picboxLabel.Location = new System.Drawing.Point(0, 82);
             this.picboxLabel.Name = "picboxLabel";
-            this.picboxLabel.Size = new System.Drawing.Size(564, 397);
-            this.picboxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxLabel.Size = new System.Drawing.Size(445, 495);
+            this.picboxLabel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxLabel.TabIndex = 8;
             this.picboxLabel.TabStop = false;
             // 
@@ -115,7 +108,7 @@ namespace DHLabel
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(564, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(444, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -177,14 +170,6 @@ namespace DHLabel
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(153, 6);
             // 
-            // updateToolStripMenuItem
-            // 
-            this.updateToolStripMenuItem.Image = global::DHLabel.Properties.Resources.package_upgrade;
-            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.updateToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SearchUpdate;
-            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
-            // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Image = global::DHLabel.Properties.Resources.application_exit;
@@ -192,11 +177,6 @@ namespace DHLabel
             this.quitToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.quitToolStripMenuItem.Text = global::DHLabel.Properties.Resources.Quit;
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(153, 6);
             // 
             // toolStripMenuItem1
             // 
@@ -212,9 +192,22 @@ namespace DHLabel
             // 
             this.aboutToolStripMenuItem.Image = global::DHLabel.Properties.Resources.help_about;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.aboutToolStripMenuItem.Text = global::DHLabel.Properties.Resources.About;
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Image = global::DHLabel.Properties.Resources.package_upgrade;
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.updateToolStripMenuItem.Text = global::DHLabel.Properties.Resources.SearchUpdate;
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -248,7 +241,7 @@ namespace DHLabel
             // 
             // cbOpenWith
             // 
-            this.cbOpenWith.Location = new System.Drawing.Point(442, 31);
+            this.cbOpenWith.Location = new System.Drawing.Point(345, 30);
             this.cbOpenWith.Name = "cbOpenWith";
             this.cbOpenWith.Size = new System.Drawing.Size(116, 16);
             this.cbOpenWith.TabIndex = 3;
@@ -257,68 +250,29 @@ namespace DHLabel
             // 
             // cbOntop
             // 
-            this.cbOntop.Location = new System.Drawing.Point(442, 46);
+            this.cbOntop.Location = new System.Drawing.Point(345, 45);
             this.cbOntop.Name = "cbOntop";
             this.cbOntop.Size = new System.Drawing.Size(116, 16);
             this.cbOntop.TabIndex = 3;
             this.cbOntop.Text = global::DHLabel.Properties.Resources.AlwaysOnTop;
             this.cbOntop.CheckedChanged += new System.EventHandler(this.cbOntop_CheckedChanged);
             // 
-            // labelTypeBox
+            // cbEndless
             // 
-            this.labelTypeBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.labelTypeBox.Controls.Add(this.rbReturn);
-            this.labelTypeBox.Controls.Add(this.rbBusiness);
-            this.labelTypeBox.Controls.Add(this.rbStandard);
-            this.labelTypeBox.Location = new System.Drawing.Point(346, 30);
-            this.labelTypeBox.Name = "labelTypeBox";
-            this.labelTypeBox.Size = new System.Drawing.Size(96, 48);
-            this.labelTypeBox.TabIndex = 12;
-            this.labelTypeBox.TabStop = false;
-            // 
-            // rbReturn
-            // 
-            this.rbReturn.AutoSize = true;
-            this.rbReturn.Location = new System.Drawing.Point(0, 30);
-            this.rbReturn.Name = "rbReturn";
-            this.rbReturn.Size = new System.Drawing.Size(82, 17);
-            this.rbReturn.TabIndex = 2;
-            this.rbReturn.TabStop = true;
-            this.rbReturn.Text = global::DHLabel.Properties.Resources.ReturnLabel;
-            this.rbReturn.UseVisualStyleBackColor = true;
-            this.rbReturn.CheckedChanged += new System.EventHandler(this.rbReturn_CheckedChanged);
-            // 
-            // rbBusiness
-            // 
-            this.rbBusiness.AutoSize = true;
-            this.rbBusiness.Location = new System.Drawing.Point(0, 15);
-            this.rbBusiness.Name = "rbBusiness";
-            this.rbBusiness.Size = new System.Drawing.Size(92, 17);
-            this.rbBusiness.TabIndex = 1;
-            this.rbBusiness.TabStop = true;
-            this.rbBusiness.Text = global::DHLabel.Properties.Resources.BusinessLabel;
-            this.rbBusiness.UseVisualStyleBackColor = true;
-            this.rbBusiness.CheckedChanged += new System.EventHandler(this.rbBusiness_CheckedChanged);
-            // 
-            // rbStandard
-            // 
-            this.rbStandard.AutoSize = true;
-            this.rbStandard.Location = new System.Drawing.Point(0, 0);
-            this.rbStandard.Name = "rbStandard";
-            this.rbStandard.Size = new System.Drawing.Size(93, 17);
-            this.rbStandard.TabIndex = 0;
-            this.rbStandard.TabStop = true;
-            this.rbStandard.Text = global::DHLabel.Properties.Resources.StandardLabel;
-            this.rbStandard.UseVisualStyleBackColor = true;
-            this.rbStandard.CheckedChanged += new System.EventHandler(this.rbStandard_CheckedChanged);
+            this.cbEndless.Location = new System.Drawing.Point(345, 60);
+            this.cbEndless.Name = "cbEndless";
+            this.cbEndless.Size = new System.Drawing.Size(116, 16);
+            this.cbEndless.TabIndex = 13;
+            this.cbEndless.Text = global::DHLabel.Properties.Resources.EndlessLabels;
+            this.cbEndless.CheckedChanged += new System.EventHandler(this.cbEndless_CheckedChanged);
             // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 501);
-            this.Controls.Add(this.labelTypeBox);
+            this.ClientSize = new System.Drawing.Size(444, 601);
+            this.Controls.Add(this.cbEndless);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.cbOpenWith);
             this.Controls.Add(this.cbOntop);
@@ -326,11 +280,10 @@ namespace DHLabel
             this.Controls.Add(this.btnSavePDF);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.picboxLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(580, 540);
+            this.MinimumSize = new System.Drawing.Size(460, 540);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DHLabel";
@@ -339,8 +292,6 @@ namespace DHLabel
             ((System.ComponentModel.ISupportInitialize)(this.picboxLabel)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.labelTypeBox.ResumeLayout(false);
-            this.labelTypeBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -371,10 +322,7 @@ namespace DHLabel
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.CheckBox cbOntop;
         private System.Windows.Forms.CheckBox cbOpenWith;
-        private System.Windows.Forms.Panel labelTypeBox;
-        private System.Windows.Forms.RadioButton rbReturn;
-        private System.Windows.Forms.RadioButton rbBusiness;
-        private System.Windows.Forms.RadioButton rbStandard;
+        private System.Windows.Forms.CheckBox cbEndless;
     }
 }
 
