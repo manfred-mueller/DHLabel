@@ -1,7 +1,7 @@
 ﻿; DHLabel – Winget-konformer Installer (ProgramData-Variante)
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.5"
+#define MyAppVersion "1.5.6"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
