@@ -20,11 +20,11 @@ bld/
 [Oo]bj/
 [Mm]anifests/
 
-# Do NOT ignore the following, even if they are in subdirectories
-Program/bin/Release/*
+# Build-Output ignorieren, aber Release-Dateien behalten
+Program/bin/Release/**
+!Program/bin/Release/x64/
 !Program/bin/Release/x64/DHLabel.exe
 !Program/bin/Release/x64/DHLabel-Setup*.exe
-#!*/
 
 # Roslyn cache directories
 *.ide/
