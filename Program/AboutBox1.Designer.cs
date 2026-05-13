@@ -118,7 +118,7 @@ namespace DHLabel
             this.labelCopyright.Name = "labelCopyright";
             this.labelCopyright.Size = new System.Drawing.Size(271, 17);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "Copyright &copy; 2021 Manfred M&#252;ller,";
+            this.labelCopyright.Text = "Copyright &copy; 2021-2026 Manfred M&#252;ller,";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelCompanyName

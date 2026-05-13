@@ -36,7 +36,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>true</Prefer32Bit>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -93,14 +93,13 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <!-- pdfium native DLL direkt einbetten – Costura sucht diesen Ressourcennamen -->
-    <EmbeddedResource Include="..\packages\PDFium.Windows.1.0.0\build\pdfium_x64.dll">
-      <LogicalName>costura.pdfium.dll</LogicalName>
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+      <Culture>de</Culture>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -169,4 +168,7 @@
   <Import Project="..\packages\Fody.6.9.3\build\Fody.targets" Condition="Exists('..\packages\Fody.6.9.3\build\Fody.targets')" />
   <Import Project="..\packages\PDFium.Windows.1.0.0\build\PDFium.Windows.targets" Condition="Exists('..\packages\PDFium.Windows.1.0.0\build\PDFium.Windows.targets')" />
   <Import Project="..\packages\Costura.Fody.6.1.0\build\Costura.Fody.targets" Condition="Exists('..\packages\Costura.Fody.6.1.0\build\Costura.Fody.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>D:\Tools\sign.cmd $(TargetPath) &amp;&amp; iscc $(SolutionDir)SetupScript.iss</PostBuildEvent>
+  </PropertyGroup>
 </Project>

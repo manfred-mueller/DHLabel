@@ -161,7 +161,7 @@ namespace DHLabel.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Copyright &amp;copy; 2024 Manfred M&amp;#252;ller, ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Copyright &amp;copy; 2021-2026 Manfred M&amp;#252;ller, ähnelt.
         /// </summary>
         internal static string Copyright {
             get {

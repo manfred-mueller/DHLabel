@@ -1,7 +1,7 @@
 ﻿; DHLabel – Winget-konformer Installer (ProgramData-Variante)
 
 #define MyAppName "DHLabel"
-#define MyAppVersion "1.5.6"
+#define MyAppVersion "1.5.7"
 #define MyAppExeName MyAppName + ".exe"
 #define MyAppPublisher "NASS e.K."
 #define MyAppURL "https://www.nass-ek.de"
@@ -45,11 +45,12 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}";
-Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon;
+Name: "{userdesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon;
 
 [Files]
-; Haupt-EXE (Costura → managed DLLs eingebettet)
 Source: "E:\Windows\DHLabel\Program\bin\Release\x64\DHLabel.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Windows\DHLabel\Program\bin\Release\x64\pdfium_x64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "E:\Windows\DHLabel\Program\bin\Release\x64\de\DHLabel.resources.dll"; DestDir: "{app}\de"; Flags: ignoreversion
 
 [Registry]
 ; Nur per-User-Registry – erlaubt & korrekt
