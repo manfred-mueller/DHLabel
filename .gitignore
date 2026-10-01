@@ -20,11 +20,11 @@ bld/
 [Oo]bj/
 [Mm]anifests/
 
-# Build-Output ignorieren, aber Release-Dateien behalten
+# Build-Output ignorieren. Setup und EXE landen nicht mehr im Repo, sondern
+# als Release-Asset auf GitHub (siehe publish-release.ps1) - sonst macht
+# jeder lokale Build den Git-Status schmutzig und blockiert die
+# Sauberkeits-Pruefung im Release-Skript.
 Program/bin/Release/**
-!Program/bin/Release/x64/
-!Program/bin/Release/x64/DHLabel.exe
-!Program/bin/Release/x64/DHLabel-Setup*.exe
 
 # Roslyn cache directories
 *.ide/

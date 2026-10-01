@@ -31,9 +31,11 @@ namespace DHLabel
 
         void this_StartupNextInstance(object sender, StartupNextInstanceEventArgs e)
         {
-            if (MainForm is Form1 form && e.CommandLine.Count == 2)
+            // e.CommandLine enthält im Gegensatz zu Environment.GetCommandLineArgs()
+            // NICHT den Pfad der Exe, sondern nur die eigentlichen Argumente.
+            if (MainForm is Form1 form && e.CommandLine.Count > 0)
             {
-                form.LoadFile(e.CommandLine[1]);
+                form.LoadFile(e.CommandLine[0]);
             }
         }
 

@@ -38,10 +38,14 @@ namespace DHLabel
             checkKey();
 
             cbOntop.Checked    = Properties.Settings.Default.onTop;
-            cbOpenWith.Checked = Properties.Settings.Default.openWith;
             cbEndless.Checked  = Properties.Settings.Default.endless;
+            // cbOpenWith wird bereits in checkKey() anhand des tatsächlichen
+            // Registry-Zustands gesetzt (Registry ist die Quelle der Wahrheit).
 
             setTitle();
+
+            if (args.Length > 1)
+                LoadFile(args[1]);
         }
 
         // ==========================================================
@@ -219,8 +223,21 @@ namespace DHLabel
 
         private void cbOpenWith_CheckedChanged(object sender, EventArgs e)
         {
-            Properties.Settings.Default.openWith = cbOpenWith.Checked;
-            Properties.Settings.Default.Save();
+            try
+            {
+                if (cbOpenWith.Checked)
+                    RegisterOpenWith();
+                else
+                    UnregisterOpenWith();
+
+                Properties.Settings.Default.openWith = cbOpenWith.Checked;
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Der Eintrag im \"Öffnen mit\"-Menü konnte nicht aktualisiert werden:\n" + ex.Message);
+            }
         }
 
         // ==========================================================
@@ -331,11 +348,53 @@ namespace DHLabel
         /// </summary>
         private void checkKey()
         {
-            using (RegistryKey progKey =
+            string exeName = Path.GetFileName(Application.ExecutablePath);
+
+            using (RegistryKey appKey =
                 Registry.CurrentUser.OpenSubKey(
-                    "Software\\Classes\\" + Application.ProductName, false))
+                    "Software\\Classes\\Applications\\" + exeName + "\\shell\\open\\command", false))
             {
-                cbOpenWith.Checked = (progKey != null);
+                cbOpenWith.Checked = (appKey != null);
+            }
+        }
+
+        /// <summary>
+        /// Registriert die Anwendung im "Öffnen mit"-Menü für PDF-Dateien.
+        /// Schreibt nur in HKCU, es sind keine Administratorrechte nötig.
+        /// </summary>
+        private void RegisterOpenWith()
+        {
+            string exePath = Application.ExecutablePath;
+            string exeName = Path.GetFileName(exePath);
+
+            using (RegistryKey cmdKey = Registry.CurrentUser.CreateSubKey(
+                "Software\\Classes\\Applications\\" + exeName + "\\shell\\open\\command"))
+            {
+                cmdKey.SetValue(null, "\"" + exePath + "\" \"%1\"");
+            }
+
+            using (RegistryKey listKey = Registry.CurrentUser.CreateSubKey(
+                "Software\\Classes\\.pdf\\OpenWithList\\" + exeName))
+            {
+                // Das bloße Vorhandensein des Schlüssels genügt, damit Windows
+                // die Anwendung im "Öffnen mit"-Menü für .pdf anzeigt.
+            }
+        }
+
+        /// <summary>
+        /// Entfernt die "Öffnen mit"-Registrierung wieder.
+        /// </summary>
+        private void UnregisterOpenWith()
+        {
+            string exeName = Path.GetFileName(Application.ExecutablePath);
+
+            Registry.CurrentUser.DeleteSubKeyTree(
+                "Software\\Classes\\Applications\\" + exeName, throwOnMissingSubKey: false);
+
+            using (RegistryKey pdfKey = Registry.CurrentUser.OpenSubKey(
+                "Software\\Classes\\.pdf\\OpenWithList", true))
+            {
+                pdfKey?.DeleteSubKeyTree(exeName, throwOnMissingSubKey: false);
             }
         }
 

@@ -18,7 +18,8 @@ public class PdfLabelService
     // ------------------------------------------------------------------
     private static class CropSettings
     {
-        // Ausschnitt aus der Original-PDF-Seite
+        // Ausschnitt aus der Original-PDF-Seite (Privat-/Retourenlabel, ~A4,
+        // Inhalt liegt quer auf der Seite)
         public const double CropXStartMm     =   4.0;
         public const double CropYStartMm     =  23.0;
         public const double CropXEndMm       = 208.0;
@@ -33,6 +34,25 @@ public class PdfLabelService
         // Zielhöhen je nach Papierformat
         public const double TargetHeightMm   = 148.0;   // A6 / Einzelblatt
         public const double EndlessHeightMm  = 158.0;   // Endlosetiketten
+    }
+
+    /// <summary>
+    /// Ausschnitt für DHL-Business-Labels (Geschäftskundenportal). Diese PDFs
+    /// sind ca. 105x203mm groß, der Inhalt steht bereits aufrecht und füllt
+    /// die Seite fast vollständig – anders als bei Privat-/Retourenlabels
+    /// ist daher weder eine Drehung noch das Entfernen von Streifen nötig,
+    /// nur ein Wegschneiden des schmalen weißen Rands.
+    /// </summary>
+    private static class BusinessCropSettings
+    {
+        public const double CropXStartMm =   2.0;
+        public const double CropYStartMm =   3.0;
+        public const double CropXEndMm   = 103.0;
+        public const double CropYEndMm   = 197.0;
+
+        // Seiten, die schmaler als dieser Wert sind, gelten als Business-Format
+        // (zur Unterscheidung von den ~210mm breiten Privat-/Retourenlabels).
+        public const double MaxPageWidthMm = 150.0;
     }
 
     // ------------------------------------------------------------------
@@ -55,10 +75,20 @@ public class PdfLabelService
         {
             var page = document.Pages[0];
 
-            int fullWidthPx  = MmToPx(page.Size.Width  / 72.0 * 25.4, dpi);
-            int fullHeightPx = MmToPx(page.Size.Height / 72.0 * 25.4, dpi);
+            double pageWidthMm  = page.Size.Width  / 72.0 * 25.4;
+            double pageHeightMm = page.Size.Height / 72.0 * 25.4;
 
-            using (var pdfBitmap = new PDFiumBitmap(fullWidthPx, fullHeightPx, hasAlpha: true))
+            int fullWidthPx  = MmToPx(pageWidthMm,  dpi);
+            int fullHeightPx = MmToPx(pageHeightMm, dpi);
+
+            bool isBusinessFormat = pageWidthMm < BusinessCropSettings.MaxPageWidthMm;
+
+            // hasAlpha: false, da sonst AsBmpStream() einen BITMAPV4HEADER mit
+            // Alpha-Maske schreibt, den System.Drawing.Bitmap(Stream)/GDI+ nicht
+            // zuverlässig decodieren kann (führt zu "Nicht genügend Arbeitsspeicher").
+            // Transparenz wird hier ohnehin nicht benötigt – der Hintergrund wird
+            // direkt im Anschluss deckend weiß gefüllt.
+            using (var pdfBitmap = new PDFiumBitmap(fullWidthPx, fullHeightPx, hasAlpha: false))
             {
                 pdfBitmap.FillRectangle(0, 0, fullWidthPx, fullHeightPx, 0xFFFFFFFF);
                 page.Render(pdfBitmap, PageOrientations.Normal, RenderingFlags.Annotations);
@@ -68,16 +98,26 @@ public class PdfLabelService
                 {
                     fullImage.SetResolution(dpi, dpi);
 
-                    // Schritt 1 – Ausschnitt aus der PDF-Seite
-                    using (var cropped = CropImage(fullImage, dpi))
+                    if (isBusinessFormat)
                     {
-                        // Schritt 2 – 90° im Uhrzeigersinn drehen
+                        // Business-Label: Seite steht bereits aufrecht, nur Rand wegschneiden.
+                        using (var cropped = CropImage(fullImage, dpi,
+                            BusinessCropSettings.CropXStartMm, BusinessCropSettings.CropYStartMm,
+                            BusinessCropSettings.CropXEndMm,   BusinessCropSettings.CropYEndMm))
+                        {
+                            return ScaleToTargetHeight(cropped, dpi, scale, endless);
+                        }
+                    }
+
+                    // Privat-/Retourenlabel: Ausschnitt → drehen → Streifen entfernen → skalieren.
+                    using (var cropped = CropImage(fullImage, dpi,
+                        CropSettings.CropXStartMm, CropSettings.CropYStartMm,
+                        CropSettings.CropXEndMm,   CropSettings.CropYEndMm))
+                    {
                         cropped.RotateFlip(RotateFlipType.Rotate90FlipNone);
 
-                        // Schritt 3 – Unerwünschte Bereiche entfernen
                         using (var assembled = RemoveStrips(cropped, dpi))
                         {
-                            // Schritt 4 – Proportional auf Zielhöhe skalieren
                             return ScaleToTargetHeight(assembled, dpi, scale, endless);
                         }
                     }
@@ -90,13 +130,24 @@ public class PdfLabelService
     // Private Hilfsmethoden
     // ------------------------------------------------------------------
 
-    /// <summary>Schneidet den relevanten Bereich aus dem gerenderten Vollbild aus.</summary>
-    private static Bitmap CropImage(Bitmap source, int dpi)
+    /// <summary>Schneidet den angegebenen Bereich (in mm) aus dem gerenderten Vollbild aus.</summary>
+    private static Bitmap CropImage(Bitmap source, int dpi,
+        double xStartMm, double yStartMm, double xEndMm, double yEndMm)
     {
-        int xStart     = MmToPx(CropSettings.CropXStartMm, dpi);
-        int yStart     = MmToPx(CropSettings.CropYStartMm, dpi);
-        int cropWidth  = MmToPx(CropSettings.CropXEndMm - CropSettings.CropXStartMm, dpi);
-        int cropHeight = MmToPx(CropSettings.CropYEndMm - CropSettings.CropYStartMm, dpi);
+        int xStart     = MmToPx(xStartMm, dpi);
+        int yStart     = MmToPx(yStartMm, dpi);
+        int cropWidth  = MmToPx(xEndMm - xStartMm, dpi);
+        int cropHeight = MmToPx(yEndMm - yStartMm, dpi);
+
+        // Auf die tatsächliche Bildgröße begrenzen: Bitmap.Clone() wirft bei
+        // einem Rechteck außerhalb der Quellbild-Grenzen GDI+'s generisches
+        // "Nicht genügend Arbeitsspeicher", z.B. wenn eine PDF-Seite ein
+        // unerwartetes Format hat. Lieber ein unvollständiger Ausschnitt als
+        // ein Absturz.
+        xStart     = Math.Min(xStart, Math.Max(0, source.Width - 1));
+        yStart     = Math.Min(yStart, Math.Max(0, source.Height - 1));
+        cropWidth  = Math.Max(1, Math.Min(cropWidth,  source.Width  - xStart));
+        cropHeight = Math.Max(1, Math.Min(cropHeight, source.Height - yStart));
 
         var rect = new Rectangle(xStart, yStart, cropWidth, cropHeight);
         return source.Clone(rect, source.PixelFormat);

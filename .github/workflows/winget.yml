@@ -1,0 +1,97 @@
+name: WinGet veroeffentlichen
+
+# Loest aus, sobald ein Release veroeffentlicht wird. Das Release wird lokal
+# angelegt (siehe publish-release.ps1) - mit einem persoenlichen Token, deshalb
+# greift die Sperre "GITHUB_TOKEN loest keine Workflows aus" hier nicht.
+#
+# Das Setup wird NICHT ins Repository eingecheckt, sondern haengt als Asset am
+# Release. Version und Download-URL kommen direkt aus diesem Asset.
+
+on:
+  release:
+    types: [released]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release-Tag (z. B. v1.0.2)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: windows-latest   # wingetcreate ist ein Windows-Programm
+    steps:
+      - name: Installer aus dem Release ermitteln
+        id: vars
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $tag = '${{ github.event.release.tag_name }}'
+          if ([string]::IsNullOrWhiteSpace($tag)) { $tag = '${{ github.event.inputs.tag }}' }
+          if ([string]::IsNullOrWhiteSpace($tag)) { throw 'Kein Release-Tag ermittelbar.' }
+
+          $release = gh release view $tag --repo '${{ github.repository }}' --json assets | ConvertFrom-Json
+          $asset = $release.assets | Where-Object { $_.name -match '^DHLabel-Setup-.+\.exe$' } | Select-Object -First 1
+
+          if (-not $asset) {
+            $names = ($release.assets | ForEach-Object { $_.name }) -join ', '
+            throw "Kein Installer am Release '$tag' gefunden. Vorhandene Assets: $names"
+          }
+
+          # Version aus dem Dateinamen - der entsteht beim Build aus SetupScript.iss.
+          $version = [regex]::Match($asset.name, '^DHLabel-Setup-(.+)\.exe$').Groups[1].Value
+
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "version=$version"
+          Add-Content -Path $env:GITHUB_OUTPUT -Value "url=$($asset.url)"
+
+          Write-Host "Tag:       $tag"
+          Write-Host "Installer: $($asset.name)"
+          Write-Host "Version:   $version"
+
+      - name: Fork von winget-pkgs mit Upstream abgleichen
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.WINGET_TOKEN }}
+        run: |
+          # winget-pkgs bekommt taeglich hunderte Commits; der eigene Fork faellt
+          # schnell zurueck, und wingetcreate bricht dann mit "could not be synced" ab.
+          #
+          # WICHTIG: PowerShell wertet den Exit-Code externer Programme NICHT als
+          # Fehler - try/catch faengt ein fehlgeschlagenes "gh repo sync" deshalb
+          # NICHT ab (derselbe Stolperstein wie bei dotnet/iscc, siehe
+          # publish-release.ps1). Das war der eigentliche Grund, warum ein
+          # nicht-synchroner Fork bisher unbemerkt bis zu wingetcreate durchlief.
+          # Deshalb hier explizit $LASTEXITCODE pruefen, mit ein paar Versuchen fuer
+          # den Fall, dass upstream gerade waehrenddessen einen neuen Commit bekommt.
+          $maxAttempts = 3
+          $synced = $false
+          for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+            gh repo sync "${{ github.repository_owner }}/winget-pkgs" --source microsoft/winget-pkgs --force
+            if ($LASTEXITCODE -eq 0) {
+              Write-Host "Fork abgeglichen (Versuch $attempt/$maxAttempts)."
+              $synced = $true
+              break
+            }
+            Write-Warning "Abgleich fehlgeschlagen (Versuch $attempt/$maxAttempts, Exit-Code $LASTEXITCODE)."
+            if ($attempt -lt $maxAttempts) { Start-Sleep -Seconds 5 }
+          }
+
+          if (-not $synced) {
+            throw "Fork konnte nach $maxAttempts Versuchen nicht mit microsoft/winget-pkgs synchronisiert werden. Abbruch hier, statt wingetcreate unten mit einem veralteten Fork ins Leere laufen zu lassen."
+          }
+
+      - name: Manifest aktualisieren und PR einreichen
+        shell: pwsh
+        env:
+          WINGET_CREATE_GITHUB_TOKEN: ${{ secrets.WINGET_TOKEN }}
+        run: |
+          Invoke-WebRequest -Uri 'https://aka.ms/wingetcreate/latest' -OutFile wingetcreate.exe -UseBasicParsing
+
+          # Architektur und Scope muessen mit: der Dateiname enthaelt keinen
+          # Architektur-Hinweis, wingetcreate raet sonst auf x86.
+          $url = '${{ steps.vars.outputs.url }}|x64|machine'
+
+          .\wingetcreate.exe update NASS.DHLabel `
+            --version '${{ steps.vars.outputs.version }}' `
+            --urls $url `
+            --submit
