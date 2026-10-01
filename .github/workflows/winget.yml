@@ -91,7 +91,14 @@ jobs:
           # Architektur-Hinweis, wingetcreate raet sonst auf x86.
           $url = '${{ steps.vars.outputs.url }}|x64|machine'
 
+          # -r/--replace: ersetzt das Manifest der Zielversion komplett neu aus
+          # den angegebenen URLs, statt knotenweise gegen die Attribute des
+          # bestehenden Manifests zu matchen. Noetig, weil DHLabel zwischen dem
+          # zuletzt veroeffentlichten Manifest (1.5.4, x86) und heute auf x64
+          # umgestellt wurde - ein normales Update faende dafuer keinen
+          # eindeutigen Treffer (siehe https://github.com/microsoft/winget-create/issues/486).
           .\wingetcreate.exe update NASS.DHLabel `
             --version '${{ steps.vars.outputs.version }}' `
             --urls $url `
+            --replace `
             --submit

@@ -24,11 +24,22 @@
     signiert (sign.cmd) und das Setup erzeugt (iscc SetupScript.iss) - ein
     separater "BuildInstaller"-Zielaufruf ist hier daher nicht noetig.
 
+    Nach einem erfolgreichen Release werden EXE und Setup zusaetzlich per
+    avUpload (eigenes Projekt, siehe E:\Windows\avUpload) beim
+    Avast-Whitelisting eingereicht, damit die neue Version nicht faelschlich
+    als Virus erkannt wird. avUpload unterstuetzt dafuer bereits einen
+    Silent-Modus (--silent Datei1 [Datei2 ...]); die SFTP-Zugangsdaten liegen
+    DPAPI-verschluesselt in der Registry dieses Rechners (einmalig ueber die
+    avUpload-GUI gespeichert) - es ist also keine Code-Aenderung an avUpload
+    noetig. Schlaegt die Einreichung fehl, wird nur gewarnt - der GitHub-
+    Release ist davon unabhaengig und bleibt bestehen.
+
 .EXAMPLE
     .\publish-release.ps1
     .\publish-release.ps1 -DryRun       # alles bauen, aber kein Release anlegen
     .\publish-release.ps1 -PreRelease   # Release als Vorabversion - WinGet bleibt aussen vor
     .\publish-release.ps1 -NoClean      # ohne vollstaendigen Neubau (nur fuer Probelaeufe)
+    .\publish-release.ps1 -SkipAvast    # ohne Avast-Whitelisting-Einreichung
 #>
 
 [CmdletBinding()]
@@ -45,7 +56,14 @@ param(
     # Ueberspringt das Loeschen der Ausgabeordner. Spart beim wiederholten
     # Probelauf die Zeit fuer den vollstaendigen Neubau - fuer ein echtes
     # Release aber nicht zu empfehlen.
-    [switch] $NoClean
+    [switch] $NoClean,
+
+    # Ueberspringt die Avast-Whitelisting-Einreichung per avUpload.
+    [switch] $SkipAvast,
+
+    # Pfad zu avUpload.exe. Standard passt zur regulaeren avUpload-Installation
+    # (InstallScript.iss: DefaultDirName={autopf}\AvUpload).
+    [string] $AvUploadExe = (Join-Path $env:ProgramFiles 'AvUpload\avUpload.exe')
 )
 
 $ErrorActionPreference = 'Stop'
@@ -338,4 +356,35 @@ if ($PreRelease) {
 }
 else {
     Write-Host "`nFertig. Der Workflow 'WinGet veroeffentlichen' laeuft jetzt an." -ForegroundColor Green
+}
+
+# --- 7. Avast-Whitelisting ---------------------------------------------------
+# avUpload reicht EXE und Setup beim Avast-Whitelisting-Server ein, damit die
+# neue Version dort nicht faelschlich als Virus erkannt wird. Das ist dem
+# eigentlichen Release nachgelagert und unabhaengig davon - ein Fehler hier
+# (z.B. SFTP nicht erreichbar) soll das bereits angelegte Release nicht
+# ungeschehen machen, deshalb nur eine Warnung statt throw.
+#
+# Die SFTP-Zugangsdaten holt sich avUpload selbst aus der Windows-Registry
+# (HKCU, DPAPI-verschluesselt) - einmalig ueber die avUpload-GUI auf diesem
+# Rechner gespeichert. Auf einem anderen Rechner oder einem GitHub-Actions-
+# Runner waere dieser Schritt ohne Weiteres NICHT lauffaehig.
+if (-not $SkipAvast) {
+    if (-not (Test-Path $AvUploadExe)) {
+        Write-Host "`navUpload nicht gefunden unter '$AvUploadExe' - Avast-Whitelisting uebersprungen." -ForegroundColor Yellow
+        Write-Host "Pfad mit -AvUploadExe angeben oder mit -SkipAvast unterdruecken." -ForegroundColor Yellow
+    }
+    else {
+        Write-Host "`nReiche EXE und Setup beim Avast-Whitelisting ein..." -ForegroundColor Cyan
+        & $AvUploadExe --silent $exe $setup
+
+        # Wie bei gh/msbuild: PowerShell wertet den Exit-Code eines externen
+        # Programms nicht von selbst als Fehler aus.
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "avUpload ist mit Code $LASTEXITCODE fehlgeschlagen - das Release bleibt bestehen." -ForegroundColor Yellow
+        }
+        else {
+            Write-Host "Avast-Whitelisting-Einreichung erfolgreich." -ForegroundColor Green
+        }
+    }
 }
